@@ -1,0 +1,6 @@
+ID_Proceso,Nombre_Proceso,tamaño_TotalK,Prioridad
+1,Proceso1,200K, 2
+2,Proceso2,300K,1
+3,Proceso3,150k,1
+4,Proceso4,230k,5
+5,Proceso5, 375k,3
