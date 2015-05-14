@@ -25,18 +25,39 @@ public class Manejo_de_Archivos {
     }
     
     //metodo que crea los procesos de acuerdo a los datos obtenidos en el archivo de texto
-    public LinkedList Crear_Procesos(LinkedList Informacion_de_Archivo){
+   /* public LinkedList Crear_Procesos(LinkedList Informacion_de_Archivo){
         LinkedList <Proceso> LProcesos = new LinkedList();
         if (Informacion_de_Archivo.isEmpty()) //si la lista está vacía significa que no tiene procesos
             return null;
         else {
             for (int i = 0; i < Informacion_de_Archivo.size(); i++) {//recorre la lista de elementos
-                
-                
-            }
-        
+                    Proceso EsProceso= (Informacion_de_Archivo.get(i), LProcesos);
+                    if(EsProceso!= null){
+                            ;   
+                           }
+            }       
         }
         
         return LProcesos;
+    }*/
+         
+    //Funcion que recibe una línea, verifica que se cumpla con las validaciones, si se cumple crea un proceso con los datos
+    public Proceso EsProceso(String Linea_Informacion){
+        Validaciones V=new Validaciones();
+        String Datos_Proceso[] = Linea_Informacion.split(",");
+        int ID_Proceso;
+        String Nombre_Proceso;
+        int Tamaño_T;
+        int Prioridad;
+        if (V.isNumeric(Datos_Proceso[3])){
+            Prioridad=Integer.parseInt(Datos_Proceso[3]);
+            }
+        if (V.isNumeric(Datos_Proceso[2])){
+            Tamaño_T=Integer.parseInt(Datos_Proceso[2]);
+            }
+        /*if(){
+        }*/
+        return null;
     }
+    
 }
