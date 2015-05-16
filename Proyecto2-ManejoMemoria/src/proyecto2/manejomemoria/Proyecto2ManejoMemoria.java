@@ -16,6 +16,13 @@ public class Proyecto2ManejoMemoria {
             System.out.println(R.get(i).ID_Proceso()+" "+R.get(i).Nombre_Proceso()+" "+R.get(i).Prioridad_Proceso()+" "+R.get(i).Tamaño_Total_Proceso());
             System.out.println("Linea");
         }
+       LinkedList Referencia= A.Leer_archivo("C:\\Users\\vero0_000\\Dropbox\\Documents\\NetBeansProjects\\Proyecto-2-Infraestructura-Tecnologica\\Referencias.txt");
+       //crea la lista de procesos
+       LinkedList <Interface_Referencia> Q= A.Crear_Referencias(Referencia, R);
+       for (int i = 0; i < Q.size(); i++) {
+            System.out.println(Q.get(i).ID_Proceso()+" "+Q.get(i).Numero_Direccion_Referencia()+" "+Q.get(i).Tipo_de_Accion());
+            System.out.println("Linea");
+        }
     }
     
 }

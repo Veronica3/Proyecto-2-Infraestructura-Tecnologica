@@ -32,4 +32,16 @@ public class Validaciones {
            return true; //el id no existe
        }
     }
+   //Si la accion de la referencia es escribir o leer
+   public boolean Es_Valida_Accion(String Accion){
+       if (Accion.equals("w")){
+           return true;
+       }
+       if(Accion.equals("r")){
+           return true;
+       }
+       else{
+           return false;
+        }
+   }
 }
