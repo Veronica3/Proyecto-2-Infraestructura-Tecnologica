@@ -17,7 +17,7 @@ public class Paginas {
         this.ID_Pagina = ID_Pagina;
         this.ID_Proceso = ID_Proceso;
         this.Tamaño = Tamaño;
-
+        this.Bit_Presente=false;
     }
     
     
