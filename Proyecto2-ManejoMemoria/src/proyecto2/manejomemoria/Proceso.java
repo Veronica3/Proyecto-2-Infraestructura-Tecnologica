@@ -9,7 +9,6 @@ public class Proceso {
     int Prioridad;
     int Cantidad_de_memoria;
     
-
     public Proceso() { //Constructor del proceso
     }
     

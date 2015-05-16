@@ -1,17 +1,23 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
 package proyecto2.manejomemoria;
 
-/**
- *
- * @author paola
- */
+
 public class Marco {
     int ID;
-    int Ih;
+    int Tamaño;
+    int Inicio;
+    int Final;
+    Paginas Pagina; //con Pagina==null valido que el marco esta vacio??
+    boolean Bloqueado; // Pagina 362 > Si el marco esta bloquado no se puede reemplazar la pag
+    boolean Modificado;
+
+    public Marco(int ID, int Tamaño, int Inicio, int Final, Paginas Pagina) {
+        this.ID = ID;
+        this.Tamaño = Tamaño;
+        this.Inicio = Inicio;
+        this.Final = Final;
+        this.Pagina = Pagina;
+    }
+    
     
 }
