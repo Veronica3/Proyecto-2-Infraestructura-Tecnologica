@@ -4,6 +4,7 @@ import java.util.*;
 public class DTO {
     //Declaracion de variables del DTO
     LinkedList<Paginas> Lista_Paginas_MM;
+    Map<Integer, Paginas> Mapa_Marcos = new HashMap<Integer, Paginas>();
     String Politica_Recuperacion;
     String Politica_Ubicacion;
     String Politica_Reemplazo;

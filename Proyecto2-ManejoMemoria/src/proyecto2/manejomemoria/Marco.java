@@ -3,7 +3,7 @@ package proyecto2.manejomemoria;
 
 
 public class Marco {
-    int ID;
+    int ID_Marco;
     int Tamaño;
     int Inicio;
     int Final;
@@ -11,8 +11,8 @@ public class Marco {
     boolean Bloqueado; // Pagina 362 > Si el marco esta bloquado no se puede reemplazar la pag
     boolean Modificado;
 
-    public Marco(int ID, int Tamaño, int Inicio, int Final, Paginas Pagina) {
-        this.ID = ID;
+    public Marco(int ID_Marco, int Tamaño, int Inicio, int Final, Paginas Pagina) {
+        this.ID_Marco = ID_Marco;
         this.Tamaño = Tamaño;
         this.Inicio = Inicio;
         this.Final = Final;

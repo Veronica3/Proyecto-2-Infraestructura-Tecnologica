@@ -3,7 +3,7 @@ package proyecto2.manejomemoria;
 
 
 public class Paginas {
-    int ID;
+    int ID_Pagina;
     int ID_Proceso;
     int Tamaño;
     boolean Bit_Presente=false;
@@ -13,8 +13,8 @@ public class Paginas {
     public Paginas() {
     }
     
-    public Paginas(int ID, int ID_Proceso, int Tamaño) {
-        this.ID = ID;
+    public Paginas(int ID_Pagina, int ID_Proceso, int Tamaño) {
+        this.ID_Pagina = ID_Pagina;
         this.ID_Proceso = ID_Proceso;
         this.Tamaño = Tamaño;
 
