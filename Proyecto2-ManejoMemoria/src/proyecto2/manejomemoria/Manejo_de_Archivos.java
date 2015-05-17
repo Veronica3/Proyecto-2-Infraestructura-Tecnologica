@@ -26,8 +26,8 @@ public class Manejo_de_Archivos {
     }
     
     //metodo que crea los procesos de acuerdo a los datos obtenidos en el archivo de texto
-    public LinkedList Crear_Procesos(LinkedList Informacion_de_Archivo){
-        LinkedList <Interface_Proceso> LProcesos = new LinkedList();
+    public LinkedHashMap Crear_Procesos(LinkedList Informacion_de_Archivo){
+        LinkedHashMap<Integer,Interface_Proceso> LProcesos= new LinkedHashMap();
         Interface_Proceso NuevoProceso;
         if (Informacion_de_Archivo.isEmpty()) //si la lista está vacía significa que no tiene procesos
             return null;
@@ -35,7 +35,7 @@ public class Manejo_de_Archivos {
             for (int i = 0; i < Informacion_de_Archivo.size(); i++) {//recorre la lista de elementos
                     NuevoProceso= EsProceso(Informacion_de_Archivo.get(i).toString(), LProcesos);
                     if(NuevoProceso!= null){
-                            LProcesos.add(NuevoProceso);//Almacena el proceso en lista de procesos
+                            LProcesos.put(NuevoProceso.ID_Proceso(), NuevoProceso);//Almacena el proceso en lista de procesos
                            }
             }       
         }
@@ -44,7 +44,7 @@ public class Manejo_de_Archivos {
     }
          
     //Funcion que recibe una línea, verifica que se cumpla con las validaciones, si se cumple crea un proceso con los datos
-    private Interface_Proceso EsProceso(String Linea_Informacion, LinkedList<Interface_Proceso> LProcesos){
+    private Interface_Proceso EsProceso(String Linea_Informacion, LinkedHashMap<Integer,Interface_Proceso> LProcesos){
         Validaciones V=new Validaciones();
         String Datos_Proceso[] = Linea_Informacion.split(",");
         int ID_Proceso;
@@ -74,7 +74,7 @@ public class Manejo_de_Archivos {
     }
     
     //metodo que crea las referencias de acuerdo a los datos obtenidos en el archivo de texto
-    public LinkedList Crear_Referencias(LinkedList Informacion_de_Archivo, LinkedList<Interface_Proceso> LProceso){
+    public LinkedList Crear_Referencias(LinkedList Informacion_de_Archivo, LinkedHashMap<Integer,Interface_Proceso> LProceso){
         LinkedList <Interface_Referencia> LReferencias = new LinkedList();
         Interface_Referencia NuevaReferencia;
         if (Informacion_de_Archivo.isEmpty()) //si la lista está vacía significa que no tiene procesos
@@ -91,7 +91,7 @@ public class Manejo_de_Archivos {
         return LReferencias;
     }
     
-     private Interface_Referencia EsReferencia(String Linea_Informacion,LinkedList<Interface_Proceso> LProcesos){
+     private Interface_Referencia EsReferencia(String Linea_Informacion,LinkedHashMap<Integer,Interface_Proceso> LProcesos){
         Validaciones V=new Validaciones();
         String Datos_Proceso[] = Linea_Informacion.split(",");
         int ID_Proceso;

@@ -19,18 +19,17 @@ public class Validaciones {
 	}
 }
     //verifica que el id del proceso sea único
-   public boolean Es_Nuevo_ID(int ID, LinkedList <Interface_Proceso> Procesos){
+   public boolean Es_Nuevo_ID(int ID, LinkedHashMap <Integer,Interface_Proceso> Procesos){
        if (Procesos.isEmpty()){ //si la lista esta vacía 
            return true;
        }
-       else{
-           for (int i = 0; i < Procesos.size(); i++) {
-               if (Procesos.get(i).ID_Proceso()==ID){//ya existe el id
-                   return false; 
-               }
+       else if (Procesos.containsKey(ID)){ // Devuelve true si en el map hay una clave que coincide 
+                   return false;   
            }
+       else{
            return true; //el id no existe
        }
+       
     }
    //Si la accion de la referencia es escribir o leer
    public boolean Es_Valida_Accion(String Accion){
