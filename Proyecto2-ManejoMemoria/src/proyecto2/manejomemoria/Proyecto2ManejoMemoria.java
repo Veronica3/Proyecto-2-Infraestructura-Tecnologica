@@ -8,7 +8,7 @@ public class Proyecto2ManejoMemoria {
     public static void main(String[] args) throws IOException{
        Manejo_de_Archivos A= new Manejo_de_Archivos();
        //Abre el archivo y toma los datos
-       LinkedList L= A.Leer_archivo("C:\\Users\\vero0_000\\Dropbox\\Documents\\NetBeansProjects\\Proyecto-2-Infraestructura-Tecnologica\\Procesos.txt");
+       LinkedList L= A.Leer_archivo("C:\\Users\\vero0_000\\Dropbox\\Documents\\NetBeansProjects\\Proyecto-2-Infraestructura-Tecnologica\\Proyecto2-ManejoMemoria\\src\\proyecto2\\manejomemoria\\Procesos.txt");
        //crea la lista de procesos
        LinkedHashMap <Integer, Interface_Proceso> R= A.Crear_Procesos(L);  
         Iterator e= R.keySet().iterator();
@@ -16,7 +16,7 @@ public class Proyecto2ManejoMemoria {
            Integer key=(int)e.next();
            System.out.println("ID pagina: "+R.get(key).ID_Proceso()+" Tamano "+R.get(key).Tamaño_Total_Proceso());     
        }
-       LinkedList Referencia= A.Leer_archivo("C:\\Users\\vero0_000\\Dropbox\\Documents\\NetBeansProjects\\Proyecto-2-Infraestructura-Tecnologica\\Referencias.txt");
+       LinkedList Referencia= A.Leer_archivo("C:\\Users\\vero0_000\\Dropbox\\Documents\\NetBeansProjects\\Proyecto-2-Infraestructura-Tecnologica\\Proyecto2-ManejoMemoria\\src\\proyecto2\\manejomemoria\\Referencias.txt");
        //crea la lista de procesos
        LinkedList <Interface_Referencia> Q= A.Crear_Referencias(Referencia, R);
        /*for (int i = 0; i < Q.size(); i++) {
