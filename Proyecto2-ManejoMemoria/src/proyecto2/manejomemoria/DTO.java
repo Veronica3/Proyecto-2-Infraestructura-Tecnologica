@@ -27,6 +27,10 @@ public class DTO {
         this.Tamaño_Paginas = Tamaño_Paginas;
     }
     
+       public int TamañoPagina(){
+        return Tamaño_Paginas;
+    }
+    
     
     
 }
