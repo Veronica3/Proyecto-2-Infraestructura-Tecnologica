@@ -4,11 +4,18 @@ import java.util.*;
 import java.util.HashMap;
 
 public class Politica_Reemplazo {
+    //Instancia para ubicar la nueva Pagina
     Politica_Ubicacion Ubicacion_Pagina;
+    //Lista de paginas en memoria principal
     LinkedList<Paginas> Lista_Paginas_En_Memoria_Principal=new LinkedList<>();
+    //Mapa de MARCOS
     HashMap<Integer, Marco> Mapa_Marcos = new HashMap<Integer, Marco>();
+    //Busca Paginas para ALGORITMOS de LRU y MRU
     Busca_Paginas Buscar_Pagina= new Busca_Paginas();
+    //Para PRUEBAS
     Imprimir_Para_Pruebas Imprime= new Imprimir_Para_Pruebas();
+    //Lista para algoritmo RELOJ
+    Lista_Circular Lista_Reloj= new Lista_Circular();
     
    // PRUEBAS 
      //Nuevas paginas
@@ -106,6 +113,8 @@ public class Politica_Reemplazo {
    }
     ////////////////////////////////////////////////////////////////////////////////////////
     public void Politica_Reloj(){
+        //Implementando
+        //UTILIZA FALLO DE PAGINA> CUANDO OCURRE LA MANECILLA APUNTA A ESA PAGINA
         
     }
     ////////////////////////////////////////////////////////////////////////////////////////

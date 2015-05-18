@@ -9,7 +9,7 @@ public class Paginas {
     int FinalMemoria;
     int Tamaño;
     boolean Bit_Presente=false;
-    //boolean Bit_Modificado=false;
+    int Bit_Modificado=0;
     //Bit_Accedido para Algoritmo de reemplazo MENOS USADO RECIENTEMENTE (LRU)
     
     public Paginas() {
