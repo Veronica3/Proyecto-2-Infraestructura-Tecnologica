@@ -12,10 +12,11 @@ public class DTO {
     String Tamaño_Conjunto;
     String Ambito_Reemplazo;
     String Control_Limpieza;
+    int Paginas_En_MM_Por_Proceso;
     int Tamaño_Memoria;
     int Tamaño_Paginas;
 
-    public DTO(String Politica_Recuperacion, String Politica_Ubicacion, String Politica_Reemplazo, String Politica_Limpieza, String Tamaño_Conjunto, String Ambito_Reemplazo, String Control_Limpieza, int Tamaño_Memoria, int Tamaño_Paginas) {
+    public DTO(String Politica_Recuperacion, String Politica_Ubicacion, String Politica_Reemplazo, String Politica_Limpieza, String Tamaño_Conjunto, String Ambito_Reemplazo, String Control_Limpieza,int Paginas_Por_Proceso, int Tamaño_Memoria, int Tamaño_Paginas) {
         this.Politica_Recuperacion = Politica_Recuperacion;
         this.Politica_Ubicacion = Politica_Ubicacion;
         this.Politica_Reemplazo = Politica_Reemplazo;
@@ -25,6 +26,7 @@ public class DTO {
         this.Control_Limpieza = Control_Limpieza;
         this.Tamaño_Memoria = Tamaño_Memoria;
         this.Tamaño_Paginas = Tamaño_Paginas;
+        this.Paginas_En_MM_Por_Proceso=Paginas_Por_Proceso;
     }
     
        public int TamañoPagina(){

@@ -22,7 +22,8 @@ public class Busca_Paginas {
     } 
        ////////////////////////////////////////////////////////////////////////////////////////
     //Funcion para buscar la pagina en los marcos
-    public int Busca_Pagina_En_Memoria_Principal (HashMap Mapa_Marcos,Paginas Pagina){
+    public int Busca_Pagina_En_Memoria_Principal (LinkedList Lista_Paginas_En_Memoria_Principal,HashMap Mapa_Marcos,Paginas Pagina){
+        LinkedList<Paginas> Lista_Paginas_En_Memoria_Principal1= Lista_Paginas_En_Memoria_Principal;
         HashMap<Integer, Marco> Mapa_Marcos1=Mapa_Marcos;
         System.out.println("\nESTAMOS EN BUSCA MM **********");
         //Agarra la llave del marco para iterar sobre el Hashmap
@@ -34,7 +35,7 @@ public class Busca_Paginas {
             Marco marco=Mapa_Marcos1.get(key);
             System.out.println("Clave: " + key + " -> Valor: "+Mapa_Marcos1.get(key).ID_Marco +"Pagina: "+ Mapa_Marcos1.get(key).Pagina.ID_Pagina);
             //Pregunta si la pagina esta en Memoria principal
-            if ((Pagina.ID_Pagina==marco.Pagina.ID_Pagina)&&(marco.Pagina.Bit_Presente)){
+            if ((Pagina.ID_Pagina==marco.Pagina.ID_Pagina)&&(Lista_Paginas_En_Memoria_Principal1.contains(Pagina))){
                 return marco.ID_Marco;
             }
             

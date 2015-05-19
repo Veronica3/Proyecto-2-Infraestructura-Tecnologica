@@ -50,10 +50,10 @@ public class Politica_Reemplazo {
          Mapa_Marcos.put(3,m3);
          Mapa_Marcos.put(4,m4);
          //Cargo paginas a marcos bit de presente pasa a true
-         pg1.Bit_Presente=true;
+       /*  pg1.Bit_Presente=true;
          pg2.Bit_Presente=true;
          pg3.Bit_Presente=true;
-         pg4.Bit_Presente=true;
+         pg4.Bit_Presente=true;*/
          
     }
     ////////////////////////////////////////////////////////////////////////////////////////
@@ -80,7 +80,7 @@ public class Politica_Reemplazo {
         Remover_Pagina_Del_Marco(Pagina_Reemplazada);
         
         //Cambio el BIT PRESENTE indicando que ya no va a estar en MEMORIA PRINCIPAL
-        Pagina_Reemplazada.Bit_Presente=false;
+    //Pagina_Reemplazada.Bit_Presente=false;
         //REMUEVO la pagina de la lista
         Lista_Paginas_En_Memoria_Principal.removeLast();
         
@@ -101,7 +101,7 @@ public class Politica_Reemplazo {
         Remover_Pagina_Del_Marco(Pagina_Reemplazada);
         
         //Cambio el BIT PRESENTE indicando que ya no va a estar en MEMORIA PRINCIPAL
-        Pagina_Reemplazada.Bit_Presente=false;
+     //Pagina_Reemplazada.Bit_Presente=false;
         //REMUEVO la pagina de la lista
         Lista_Paginas_En_Memoria_Principal.removeFirst();
         
@@ -120,7 +120,7 @@ public class Politica_Reemplazo {
     ////////////////////////////////////////////////////////////////////////////////////////
     public void Remover_Pagina_Del_Marco(Paginas Pagina_A_Remover){
         //Obtengo ID del marco donde se encuentra la pagina a remover
-        int ID_Marco= Buscar_Pagina.Busca_Pagina_En_Memoria_Principal(Mapa_Marcos,Pagina_A_Remover);
+        int ID_Marco= Buscar_Pagina.Busca_Pagina_En_Memoria_Principal(Lista_Paginas_En_Memoria_Principal,Mapa_Marcos,Pagina_A_Remover);
         //Valida que el MARCO EXISTA
         if (ID_Marco!=-1){
             //Creo un nuevo marco, que obtiene la pagina a remover
@@ -146,7 +146,7 @@ public class Politica_Reemplazo {
     public void Pagina_Referenciada(Paginas Pagina_Referenciada){
         System.out.println("\nESTAMOS EN REFERENCIAS**********");
         //Busca si la pagina referenciada esta en memoria
-        if (Buscar_Pagina.Busca_Pagina_En_Memoria_Principal(Mapa_Marcos,Pagina_Referenciada)!=-1){
+        if (Buscar_Pagina.Busca_Pagina_En_Memoria_Principal(Lista_Paginas_En_Memoria_Principal, Mapa_Marcos,Pagina_Referenciada)!=-1){
             //PRUEBA
             Imprime.imprime_lista_paginas(Lista_Paginas_En_Memoria_Principal);
            
