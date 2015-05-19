@@ -9,6 +9,8 @@ public class Controlador {
     //Lee las referencias, llama a la funcion
     public void Leer_Referencias (LinkedList LReferencias){
         LinkedList <Interface_Referencia> Lista_Referencias = LReferencias;
-        
+        for (int i = 0; i < Lista_Referencias.size(); i++) {
+            
+        }
     }
 }
