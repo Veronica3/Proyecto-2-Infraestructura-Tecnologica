@@ -28,8 +28,7 @@ public class DTO {
     //Variables para abrir archivos
     String Nombre_Archivo_Procesos;
     String Nombre_Archivo_Referencias;
-    //Variable temporal para los archivos
-    LinkedList<String> Informacion_Temporal_del_Archivo;
+
     
     //Constructor de la Clase
     public DTO(String Politica_Recuperacion, String Politica_Ubicacion, String Politica_Reemplazo, String Politica_Limpieza, String Tamaño_Conjunto, String Ambito_Reemplazo, String Control_Limpieza,int Paginas_Por_Proceso, int Tamaño_Memoria, int Tamaño_Paginas) {
