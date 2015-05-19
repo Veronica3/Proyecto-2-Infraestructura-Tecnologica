@@ -24,6 +24,11 @@ public class DTO {
     int Paginas_En_MM_Por_Proceso;
     int Tamaño_Memoria;
     int Tamaño_Paginas;
+    
+    //Variables para abrir archivos
+    String Nombre_Archivo_Procesos;
+    String Nombre_Archivo_Referencias;
+    
     //Constructor de la Clase
     public DTO(String Politica_Recuperacion, String Politica_Ubicacion, String Politica_Reemplazo, String Politica_Limpieza, String Tamaño_Conjunto, String Ambito_Reemplazo, String Control_Limpieza,int Paginas_Por_Proceso, int Tamaño_Memoria, int Tamaño_Paginas) {
         this.Politica_Recuperacion = Politica_Recuperacion;
