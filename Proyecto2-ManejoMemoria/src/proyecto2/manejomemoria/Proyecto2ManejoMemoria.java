@@ -18,12 +18,14 @@ public class Proyecto2ManejoMemoria {
        }
        LinkedList Referencia= A.Leer_archivo("C:\\Users\\vero0_000\\Dropbox\\Documents\\NetBeansProjects\\Proyecto-2-Infraestructura-Tecnologica\\Proyecto2-ManejoMemoria\\src\\proyecto2\\manejomemoria\\Referencias.txt");
        //crea la lista de procesos
-       DTO COnf= new DTO("olitica_Recuperacion", "Politica_Ubicacion","Politica_Reemplazo","Politica_Limpieza","Tamaño_Conjunto","Ambito_Reemplazo", "Control_Limpieza", 9, 5,50);
+        DTO COnf= new DTO("Politica_Recuperacion", "Politica_Ubicacion","Politica_Reemplazo","Politica_Limpieza",7,"Tamaño_Conjunto",2,5,2,"Ambito_Reemplazo",5,3,500, 32, 2,"M");
        Referencia referencia= new Referencia(1, 250670, "r");
        LinkedList QA= referencia.Realizar_Conversion_de_Referencias(COnf, referencia);
         System.out.println(QA.get(0)+" "+QA.get(1)+" "+QA.get(2));
         int s= 50*1024;
         System.out.println(250670%s);
+       
+       
        
     }
        /*LinkedList <Interface_Referencia> Q= A.Crear_Referencias(Referencia, R);
@@ -45,6 +47,7 @@ public class Proyecto2ManejoMemoria {
            }
        //Falta crear el metodo que lee las referencias
     }  */ 
+   
        
 
 }

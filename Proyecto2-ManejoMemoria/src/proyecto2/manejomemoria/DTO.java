@@ -39,7 +39,7 @@ public class DTO {
     //Constructor de la Clase
      
     
-    public DTO(String Politica_Recuperacion, String Politica_Ubicacion, String Politica_Reemplazo, String Politica_Limpieza, int Tiempo_de_Limpieza, String Tamaño_Conjunto, int Minimo_Marcos, int Maximo_Marcos, int Tamano_aumento, String Ambito_Reemplazo, int Grado_Multiprogramacion, int Working_Set, int Tamaño_Memoria_Fisica, int Bits, int Tamaño_Paginas, String Unidad_Medida, String Nombre_Archivo_Procesos, String Nombre_Archivo_Referencias){
+    public DTO(String Politica_Recuperacion, String Politica_Ubicacion, String Politica_Reemplazo, String Politica_Limpieza, int Tiempo_de_Limpieza, String Tamaño_Conjunto, int Minimo_Marcos, int Maximo_Marcos, int Tamano_aumento, String Ambito_Reemplazo, int Grado_Multiprogramacion, int Working_Set, int Tamaño_Memoria_Fisica, int Bits, int Tamaño_Paginas, String Unidad_Medida){
         
         this.Politica_Recuperacion = Politica_Recuperacion;
         this.Politica_Ubicacion = Politica_Ubicacion;
@@ -57,8 +57,6 @@ public class DTO {
         this.Bits = Bits;
         this.Tamaño_Paginas = Tamaño_Paginas;
         this.Unidad_Medida = Unidad_Medida;
-        this.Nombre_Archivo_Procesos = Nombre_Archivo_Procesos;
-        this.Nombre_Archivo_Referencias = Nombre_Archivo_Referencias;
     }
 
     public int TamañoPagina() {

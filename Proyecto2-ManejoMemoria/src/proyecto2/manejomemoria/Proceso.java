@@ -7,6 +7,7 @@ public class Proceso implements Interface_Proceso{
     int ID_Proceso;
     String Nombre_Proceso;
     int Prioridad;
+    boolean Bloqueado;  // Pagina 362 > Si el marco esta bloquado no se puede reemplazar la pag
     int Cantidad_de_memoria;
     int Cantidad_Paginas=0;
     
