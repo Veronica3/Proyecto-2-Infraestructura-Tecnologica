@@ -18,13 +18,15 @@ public class Proyecto2ManejoMemoria {
        }
        LinkedList Referencia= A.Leer_archivo("C:\\Users\\vero0_000\\Dropbox\\Documents\\NetBeansProjects\\Proyecto-2-Infraestructura-Tecnologica\\Proyecto2-ManejoMemoria\\src\\proyecto2\\manejomemoria\\Referencias.txt");
        //crea la lista de procesos
-        DTO COnf= new DTO("Politica_Recuperacion", "Politica_Ubicacion","Politica_Reemplazo","Politica_Limpieza",7,"Tamaño_Conjunto",2,5,2,"Ambito_Reemplazo",5,3,500, 32, 2,"M");
+       //DTO(Recuperacion,Ubicacion,Reemplazo,Limpieza,Tiempo_de_Limpieza,Tamaño_Conjunto,Minimo_Marcos,Maximo_Marcos,Tamano_aumento,Ambito_Reemplazo,Grado_Multiprogramacion,Working_Set,Tamaño_Memoria_Fisica,Bits,Tamaño_Paginas,Unidad_Medida)
+        DTO COnf= new DTO("Politica_Recuperacion", "Politica_Ubicacion","Politica_Reemplazo","Politica_Limpieza",7,"Tamaño_Conjunto",2,5,2,"Ambito_Reemplazo",5,3,500, 32, 1,"M");
        Referencia referencia= new Referencia(1, 250670, "r");
        LinkedList QA= referencia.Realizar_Conversion_de_Referencias(COnf, referencia);
         System.out.println(QA.get(0)+" "+QA.get(1)+" "+QA.get(2));
         int s= 50*1024;
         System.out.println(250670%s);
-       
+        Politica_Ubicacion Ubicacion=new Politica_Ubicacion();
+        Ubicacion.Controla_Memoria_Fisica(COnf);
        
        
     }
@@ -43,11 +45,9 @@ public class Proyecto2ManejoMemoria {
             System.out.println("ID proceso: "+M.get(key).ID_Proceso);
              System.out.println("Inicio Memoria: "+M.get(key).InicioMemoria);
               System.out.println("Final Memoria: "+M.get(key).FinalMemoria);
-  
+    
            }
        //Falta crear el metodo que lee las referencias
     }  */ 
-   
-       
-
+    
 }
