@@ -11,11 +11,12 @@ public class Proceso implements Interface_Proceso{
     int Cantidad_de_memoria;
     int Cantidad_Paginas=0;
     
-    public Proceso(int idP, String NombreP, int PrioridadP,int MemoriaTP) { //Constructor del proceso
+    public Proceso(int idP, String NombreP, int PrioridadP,int MemoriaTP, boolean Bloqueado) { //Constructor del proceso
         ID_Proceso= idP;
         Nombre_Proceso= NombreP;
         Prioridad= PrioridadP;
         Cantidad_de_memoria= MemoriaTP;    
+        this.Bloqueado=Bloqueado;
     }
     
     public void Asignar_Paginas(int Cantidad_PaginasP){

@@ -43,4 +43,12 @@ public class Validaciones {
            return false;
         }
    }
+   public boolean Es_Valido_Estado(String Estado){ //revisa si el estado del proceso es válido
+       if (Estado.equals("true") || Estado.equals("false")){
+            return true;}
+       else{
+           return false;
+       }
+   } 
+
 }

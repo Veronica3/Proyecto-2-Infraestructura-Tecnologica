@@ -49,7 +49,7 @@ public class Manejo_de_Archivos {
         String Nombre_Proceso;
         int Tamaño_T;
         int Prioridad;
-        String Estado;
+        boolean Estado;
         for (int i = 0; i < 3; i++) {
             if (!V.isNumeric(Datos_Proceso[i])){ //si el elemento que se reciba no es un numero, significa que los datos son inválidos
                 return null; //el proceso no se crea
@@ -63,12 +63,12 @@ public class Manejo_de_Archivos {
            //Validar que la prioridad este dentro de 1-5
            Prioridad=Integer.parseInt(Datos_Proceso[2]); 
            if (0<Prioridad && Prioridad<6) {
-               //Valida que el proceso tenga el estado de bloqueado o desbloqueado
-               if (Datos_Proceso[4].equals("Desbloqueado") || Datos_Proceso[4].equals("Bloqueado")){
+               //Valida que el proceso tenga el estado de true o false que significa si esta bloqueado
+               if (V.Es_Valido_Estado(Datos_Proceso[4])){
                     Tamaño_T= Integer.parseInt(Datos_Proceso[1]);
                     Nombre_Proceso=Datos_Proceso[3];
-                    Estado=Datos_Proceso[4];
-                    Interface_Proceso Proceso= new Proceso(ID_Proceso, Nombre_Proceso,Prioridad,Tamaño_T);//se crea el proceso
+                    Estado=Boolean.valueOf(Datos_Proceso[4]);//convierte el estado a un boolean
+                    Interface_Proceso Proceso= new Proceso(ID_Proceso, Nombre_Proceso,Prioridad,Tamaño_T,Estado);//se crea el proceso
                     return Proceso;//Retorno el proceso
                }
                else{
