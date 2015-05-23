@@ -19,12 +19,12 @@ public class Politica_Reemplazo {
     
    // PRUEBAS 
      //Nuevas paginas
-     Paginas pg1= new Paginas(1, 1, 20,0,0);
-     Paginas pg2= new Paginas(2, 1, 20,0,0);
-     Paginas pg3= new Paginas(3, 2, 20,0,0);
-     Paginas pg4= new Paginas(4, 3, 20,0,0);
+     Paginas pg1= new Paginas(1, 1);
+     Paginas pg2= new Paginas(2, 1);
+     Paginas pg3= new Paginas(3, 2);
+     Paginas pg4= new Paginas(4, 3);
      //Pagina que no se ha asignado a un marco
-     Paginas pg5= new Paginas(5, 3, 20,0,0);
+     Paginas pg5= new Paginas(5, 3);
      
      //Nuevos Marcos
      Marco m1= new Marco(1, 20, 0, 19, pg1);
