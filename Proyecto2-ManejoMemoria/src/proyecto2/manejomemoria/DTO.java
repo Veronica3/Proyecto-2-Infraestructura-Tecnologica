@@ -63,6 +63,12 @@ public class DTO {
         return Tamaño_Paginas;
     }
     
+    //Permite agregar el nombre de los archivos al DTO
+    public void Agregar_Archivos(String ArchivoProcesos, String ArchivoReferencias){
+        Nombre_Archivo_Procesos= ArchivoProcesos;
+        Nombre_Archivo_Referencias= ArchivoReferencias;
+    }
+    
     
     
 }
