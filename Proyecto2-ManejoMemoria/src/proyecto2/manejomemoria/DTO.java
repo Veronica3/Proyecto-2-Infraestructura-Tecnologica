@@ -1,6 +1,7 @@
 
 package proyecto2.manejomemoria;
 import java.util.*;
+import java.math.*;
 public class DTO {
     
     //Listas para reemplazos y ubicacion
@@ -28,8 +29,9 @@ public class DTO {
     int Working_Set;
     int Tamaño_Memoria_Fisica;
     int Bits;
-    int Tamaño_Paginas;
+    double Tamaño_Paginas; //almacena el tamaño en Bytes de la pagina
     String Unidad_Medida;
+    double Total_Paginas_Memoria_Virtual; //almacena el total de paginas que se crean
     
     //Variables para abrir archivos
     String Nombre_Archivo_Procesos;
@@ -55,11 +57,12 @@ public class DTO {
         this.Working_Set = Working_Set;
         this.Tamaño_Memoria_Fisica = Tamaño_Memoria_Fisica;
         this.Bits = Bits;
-        this.Tamaño_Paginas = Tamaño_Paginas;
+        this.Tamaño_Paginas = Math.pow(2,Tamaño_Paginas);//indica el tamaño de la pagina 
         this.Unidad_Medida = Unidad_Medida;
+        Asignar_Cantidad_Paginas_Memoria_Virtual(Tamaño_Paginas);//indica la cantidad de paginas en memoria virtual
     }
 
-    public int TamañoPagina() {
+    public double TamañoPagina() {
         return Tamaño_Paginas;
     }
     
@@ -69,6 +72,12 @@ public class DTO {
         Nombre_Archivo_Referencias= ArchivoReferencias;
     }
     
+    //Metodo que almacena la cantidad de paginas que se almacenan en memoria virtual
+    private void Asignar_Cantidad_Paginas_Memoria_Virtual(int Tamaño_Paginas){
+        int Total_Paginas=Bits-Tamaño_Paginas;
+        Total_Paginas_Memoria_Virtual= Math.pow(2,Total_Paginas);
+        
+    }
     
     
 }

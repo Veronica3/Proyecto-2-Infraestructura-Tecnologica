@@ -12,7 +12,13 @@ public class Memoria_Virtual {
         la cual almacenara la información correspondiente al disco*/
     }
     //Metodo encargado de crear la memoria virtual
+    //Validar si la memoria virtual esta vacía, si es asi pregunto si la cantidad de memoria que requiere le proceso es men
+    //menor a la cantidad valida de memoria si es así voy a asignar las paginas al proceso
+    //sino no lo incluyo
     public void Crear_Memoria_Virtual(){
+        if (Informacion_Configuracion.Memoria_Virtual.isEmpty()){
+            
+        }
         /*int cantidad_paginas= (Informacion_Configuracion.Bits-Informacion_Configuracion.Tamaño_Paginas)
         if (Configuracion.Memoria_Virtual.isEmpty()){//pregunta si la memoria virtual esta vacía es el primer proceso que ingresa
             if (Excede_Tamaño())
@@ -30,11 +36,13 @@ public class Memoria_Virtual {
            System.out.println("Cantidad paginas: "+cantidad_paginas);
            Crear_Paginas(cantidad_paginas,LProcesos.get(key), Configuracion.Tamaño_Paginas);
        }
-           }
+           }*/
     }   
-    //Validar tamaño de memoria virtual
-    public boolean Excede_Tamaño_MV(int Tamaño){
-        int tamaño_virtual= Informacion_Configuracion.Bits-//Informacion_Configuracion.Tamaño_Paginas;
+    //Pregunta si se puede almacenar proceso en memoria virtual, debido al tamaño de memoria que requiere
+    public boolean Almaceno_Proceso_en_Memoria_Virtual(int Tamaño){
+        int Paginas_bits= Informacion_Configuracion.Bits-Informacion_Configuracion.Tamaño_Paginas;
+        
+        int tamaño_virtua
         double Tamaño_Total_Virtual= Math.pow(2,tamaño_virtual);
         if(Tamaño_Total_Virtual>Tamaño){
                 return false;
@@ -56,7 +64,7 @@ public class Memoria_Virtual {
             InicioMemoria=FinalMemoria+1;
             FinalMemoria=FinalMemoria+TamañoP;
             
-        }*/
+        }
 }        
 
 }
