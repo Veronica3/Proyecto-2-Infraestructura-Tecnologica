@@ -7,33 +7,33 @@ public class Proyecto2ManejoMemoria {
     
     public static void main(String[] args) throws IOException{
        Manejo_de_Archivos A= new Manejo_de_Archivos();
-       //Abre el archivo y toma los datos
-       LinkedList L= A.Leer_archivo("C:\\Users\\vero0_000\\Dropbox\\Documents\\NetBeansProjects\\Proyecto-2-Infraestructura-Tecnologica\\Proyecto2-ManejoMemoria\\src\\proyecto2\\manejomemoria\\Procesos.txt");
+        DTO COnf= new DTO( "Politica_Recuperacion", "Politica_Ubicacion", "Politica_Reemplazo", "Politica_Limpieza",4, "Tamaño_Conjunto",  2, 5,3,"Ambito_Reemplazo", 5, 4,250, 32,10, "K");
+        COnf.Agregar_Archivos( "C:\\Users\\vero0_000\\Dropbox\\Documents\\NetBeansProjects\\Proyecto-2-Infraestructura-Tecnologica\\Proyecto2-ManejoMemoria\\src\\proyecto2\\manejomemoria\\Procesos.txt",
+        "C:\\Users\\vero0_000\\Dropbox\\Documents\\NetBeansProjects\\Proyecto-2-Infraestructura-Tecnologica\\Proyecto2-ManejoMemoria\\src\\proyecto2\\manejomemoria\\Referencias.txt");
+//Abre el archivo y toma los datosC:\\Users\\vero0_000\\Dropbox\\Documents\\NetBeansProjects\\Proyecto-2-Infraestructura-Tecnologica\\Proyecto2-ManejoMemoria\\src\\proyecto2\\manejomemoria\\
+       LinkedList L= A.Leer_archivo(COnf.Nombre_Archivo_Procesos);
        //crea la lista de procesos
-       LinkedHashMap <Integer, Interface_Proceso> R= A.Crear_Procesos(L);  
+       A.Crear_Procesos(L,COnf);
+      LinkedHashMap <Integer, Interface_Proceso> R= COnf.Lista_Procesos;
         Iterator e= R.keySet().iterator();
        while(e.hasNext()){
            Integer key=(int)e.next();
            System.out.println("ID pagina: "+R.get(key).ID_Proceso()+" Tamano "+R.get(key).Tamaño_Total_Proceso());     
        }
-       LinkedList Referencia= A.Leer_archivo("C:\\Users\\vero0_000\\Dropbox\\Documents\\NetBeansProjects\\Proyecto-2-Infraestructura-Tecnologica\\Proyecto2-ManejoMemoria\\src\\proyecto2\\manejomemoria\\Referencias.txt");
-       //crea la lista de procesos
-       //DTO(Recuperacion,Ubicacion,Reemplazo,Limpieza,Tiempo_de_Limpieza,Tamaño_Conjunto,Minimo_Marcos,Maximo_Marcos,Tamano_aumento,Ambito_Reemplazo,Grado_Multiprogramacion,Working_Set,Tamaño_Memoria_Fisica,Bits,Tamaño_Paginas,Unidad_Medida)
-        DTO COnf= new DTO("Politica_Recuperacion", "Politica_Ubicacion","Politica_Reemplazo","Politica_Limpieza",7,"Tamaño_Conjunto",2,5,2,"Ambito_Reemplazo",5,3,500, 32, 1,"M");
-       Referencia referencia= new Referencia(1, 250670, "r");
+       LinkedList referencias=A.Leer_archivo(COnf.Nombre_Archivo_Referencias);
+        A.Crear_Referencias(referencias,COnf);
+       //crea la lista de procesos    
+      /* Referencia referencia= new Referencia(1, 250670, "r");
        LinkedList QA= referencia.Realizar_Conversion_de_Referencias(COnf, referencia);
         System.out.println(QA.get(0)+" "+QA.get(1)+" "+QA.get(2));
         int s= 50*1024;
         System.out.println(250670%s);
-        Politica_Ubicacion Ubicacion=new Politica_Ubicacion();
-        Ubicacion.Controla_Memoria_Fisica(COnf);
        
-       
-    }
-       /*LinkedList <Interface_Referencia> Q= A.Crear_Referencias(Referencia, R);
+    }*/
+       LinkedList <Interface_Referencia> Q= COnf.Lista_Referencias;
        for (int i = 0; i < Q.size(); i++) {
             System.out.println(Q.get(i).ID_Proceso()+" "+Q.get(i).Numero_Direccion_Referencia()+" "+Q.get(i).Tipo_de_Accion());
-        }*/
+        }
     //crear el mapa virtual
      /*  Memoria_Virtual V= new Memoria_Virtual();
        
@@ -45,9 +45,11 @@ public class Proyecto2ManejoMemoria {
             System.out.println("ID proceso: "+M.get(key).ID_Proceso);
              System.out.println("Inicio Memoria: "+M.get(key).InicioMemoria);
               System.out.println("Final Memoria: "+M.get(key).FinalMemoria);
-    
+  
            }
        //Falta crear el metodo que lee las referencias
-    }  */ 
-    
+             */ 
+    }  
+       
+
 }

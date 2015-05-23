@@ -26,11 +26,11 @@ public class Manejo_de_Archivos {
     }
     
     //metodo que crea los procesos de acuerdo a los datos obtenidos en el archivo de texto
-    public LinkedHashMap Crear_Procesos(LinkedList Informacion_de_Archivo){
-        LinkedHashMap<Integer,Interface_Proceso> LProcesos= new LinkedHashMap();
+    public void Crear_Procesos(LinkedList Informacion_de_Archivo, DTO Configuracion){
+        LinkedHashMap LProcesos= Configuracion.Lista_Procesos;
         Interface_Proceso NuevoProceso;
         if (Informacion_de_Archivo.isEmpty()) //si la lista está vacía significa que no tiene procesos
-            return null;
+            LProcesos.put(null,null);
         else {
             for (int i = 0; i < Informacion_de_Archivo.size(); i++) {//recorre la lista de elementos
                     NuevoProceso= EsProceso(Informacion_de_Archivo.get(i).toString(), LProcesos);
@@ -39,8 +39,6 @@ public class Manejo_de_Archivos {
                            }
             }       
         }
-        
-        return LProcesos;
     }
          
     //Funcion que recibe una línea, verifica que se cumpla con las validaciones, si se cumple crea un proceso con los datos
@@ -51,6 +49,7 @@ public class Manejo_de_Archivos {
         String Nombre_Proceso;
         int Tamaño_T;
         int Prioridad;
+        String Estado;
         for (int i = 0; i < 3; i++) {
             if (!V.isNumeric(Datos_Proceso[i])){ //si el elemento que se reciba no es un numero, significa que los datos son inválidos
                 return null; //el proceso no se crea
@@ -61,11 +60,25 @@ public class Manejo_de_Archivos {
        ID_Proceso= Integer.parseInt(Datos_Proceso[0]);
        //comprueba que el id del proceso es único
        if (V.Es_Nuevo_ID(ID_Proceso, LProcesos)){
-              Tamaño_T= Integer.parseInt(Datos_Proceso[1]);
-              Prioridad=Integer.parseInt(Datos_Proceso[2]);
-              Nombre_Proceso=Datos_Proceso[3];
-              Interface_Proceso Proceso= new Proceso(ID_Proceso, Nombre_Proceso,Prioridad,Tamaño_T);//se crea el proceso
-              return Proceso;//Retorno el proceso
+           //Validar que la prioridad este dentro de 1-5
+           Prioridad=Integer.parseInt(Datos_Proceso[2]); 
+           if (0<Prioridad && Prioridad<6) {
+               //Valida que el proceso tenga el estado de bloqueado o desbloqueado
+               if (Datos_Proceso[4].equals("Desbloqueado") || Datos_Proceso[4].equals("Bloqueado")){
+                    Tamaño_T= Integer.parseInt(Datos_Proceso[1]);
+                    Nombre_Proceso=Datos_Proceso[3];
+                    Estado=Datos_Proceso[4];
+                    Interface_Proceso Proceso= new Proceso(ID_Proceso, Nombre_Proceso,Prioridad,Tamaño_T);//se crea el proceso
+                    return Proceso;//Retorno el proceso
+               }
+               else{
+                   return null;
+               }
+               
+            }
+           else{
+               return null;
+           }
               
        }
        else{
@@ -74,11 +87,12 @@ public class Manejo_de_Archivos {
     }
     
     //metodo que crea las referencias de acuerdo a los datos obtenidos en el archivo de texto
-    public LinkedList Crear_Referencias(LinkedList Informacion_de_Archivo, LinkedHashMap<Integer,Interface_Proceso> LProceso){
-        LinkedList <Interface_Referencia> LReferencias = new LinkedList();
+    public void Crear_Referencias(LinkedList Informacion_de_Archivo, DTO Configuracion){
+        LinkedHashMap LProceso= Configuracion.Lista_Procesos;
+        LinkedList LReferencias = Configuracion.Lista_Referencias;
         Interface_Referencia NuevaReferencia;
         if (Informacion_de_Archivo.isEmpty()) //si la lista está vacía significa que no tiene procesos
-            return null;
+            return ;
         else {
             for (int i = 0; i < Informacion_de_Archivo.size(); i++) {//recorre la lista de elementos
                     NuevaReferencia= EsReferencia(Informacion_de_Archivo.get(i).toString(), LProceso);
@@ -88,7 +102,7 @@ public class Manejo_de_Archivos {
             }       
         }
         
-        return LReferencias;
+//        return LReferencias;
     }
     
      private Interface_Referencia EsReferencia(String Linea_Informacion,LinkedHashMap<Integer,Interface_Proceso> LProcesos){
