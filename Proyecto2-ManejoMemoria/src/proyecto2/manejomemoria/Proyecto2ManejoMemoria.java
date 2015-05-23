@@ -18,18 +18,14 @@ public class Proyecto2ManejoMemoria {
         Iterator e= R.keySet().iterator();
        while(e.hasNext()){
            Integer key=(int)e.next();
-           System.out.println("ID pagina: "+R.get(key).ID_Proceso()+" Tamano "+R.get(key).Tamaño_Total_Proceso());     
+           System.out.println("ID proceso: "+R.get(key).ID_Proceso()+
+                   "  Nombre proceso "+ R.get(key).Nombre_Proceso()+
+                   " Tamano "+R.get(key).Tamaño_Total_Proceso()+
+                   "  Prioridad "+R.get(key).Prioridad_Proceso()+
+                   "  Es bloqueado "+R.get(key).Es_Bloqueado_Proceso());     
        }
        LinkedList referencias=A.Leer_archivo(COnf.Nombre_Archivo_Referencias);
-        A.Crear_Referencias(referencias,COnf);
-       //crea la lista de procesos    
-      /* Referencia referencia= new Referencia(1, 250670, "r");
-       LinkedList QA= referencia.Realizar_Conversion_de_Referencias(COnf, referencia);
-        System.out.println(QA.get(0)+" "+QA.get(1)+" "+QA.get(2));
-        int s= 50*1024;
-        System.out.println(250670%s);
-       
-    }*/
+       A.Crear_Referencias(referencias,COnf);
        LinkedList <Interface_Referencia> Q= COnf.Lista_Referencias;
        for (int i = 0; i < Q.size(); i++) {
             System.out.println(Q.get(i).ID_Proceso()+" "+Q.get(i).Numero_Direccion_Referencia()+" "+Q.get(i).Tipo_de_Accion());

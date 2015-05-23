@@ -14,4 +14,6 @@ public interface Interface_Proceso {
     public int Prioridad_Proceso();
     
     public int Cantidad_Paginas();
+     
+    public boolean Es_Bloqueado_Proceso();
 }
