@@ -17,14 +17,15 @@ public class Memoria_Virtual {
     //sino no lo incluyo
     public void Crear_Memoria_Virtual(){
         //recorro la lista de procesos
-         LinkedHashMap <Integer, Interface_Proceso> R= Informacion_Configuracion.Lista_Procesos;
-        Iterator e= R.keySet().iterator();
+         LinkedHashMap <Integer, Interface_Proceso> ListaProcesos= Informacion_Configuracion.Lista_Procesos;
+        Iterator e= ListaProcesos.keySet().iterator();
        while(e.hasNext()){//recorro lista de procesos 
            Integer key=(int)e.next();
             if (Informacion_Configuracion.Memoria_Virtual.isEmpty()){ //inicializo las variables 
+                //revisar
             }
             //realizo unas operaciones
-            int Convertir_Tamaño_Proceso= R.get(key).Tamaño_Total_Proceso(); // paso de KB, la memoria total requerida
+            int Convertir_Tamaño_Proceso= ListaProcesos.get(key).Tamaño_Total_Proceso(); // paso de KB, la memoria total requerida
                 //saber en cuantas paginas almaceno el proceso
             int Cantidad_Paginas;
             double tamaño=Convertir_Tamaño_Proceso/Informacion_Configuracion.Total_Tamaño_Pagina_Memoria;
@@ -37,9 +38,9 @@ public class Memoria_Virtual {
              
             if (Almaceno_Proceso_en_Memoria_Virtual(Cantidad_Paginas)){//verifica que el proceso se pueda 
                 //almacenar en  memoria virtual 
-                System.out.println("Proceso: "+R.get(key).ID_Proceso()+ " TamañoT: "+R.get(key).Tamaño_Total_Proceso()
+                System.out.println("Proceso: "+ListaProcesos.get(key).ID_Proceso()+ " TamañoT: "+ListaProcesos.get(key).Tamaño_Total_Proceso()
                 +"Cantidad Paginas "+Cantidad_Paginas);
-                 Crear_Paginas(R.get(key),Cantidad_Paginas);//crea las páginas y se las asigna al proceso
+                 Crear_Paginas(ListaProcesos.get(key),Cantidad_Paginas);//crea las páginas y se las asigna al proceso
                 }
         }
        
@@ -72,6 +73,18 @@ public class Memoria_Virtual {
         }
 }        
 
+       /*Función que lee la referencia y retorna la dirección el id del proceso, la página y el desplazamiento
+   */
+   public LinkedList Realizar_Conversion_de_Referencias(DTO Configuracion, Interface_Referencia Referencia){
+        LinkedList <Integer> ResultadoL= new LinkedList();
+        int NReferencia= Referencia.Numero_Direccion_Referencia();//la referencia esta en bytes        
+        int dividendo= Configuracion.Total_Tamaño_Pagina_Memoria*1024;//convertir de KB a B
+        int Pagina= NReferencia/dividendo;
+        int Desplazamiento= NReferencia%dividendo;
+        ResultadoL.add(Pagina);//almacena el numero de página
+        ResultadoL.add(Desplazamiento);//almacena el desplazamiento 
+        return ResultadoL;       
+    }
         
    
 }
