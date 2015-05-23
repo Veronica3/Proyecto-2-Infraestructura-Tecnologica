@@ -84,6 +84,7 @@ public class DTO {
     //Método que almacena el tamaño total de las paginas
     private void Asignar_Total_Tamaño_Pagina_Memoria_Virtual(){
         double operacion=Math.pow(2,Tamaño_Paginas);//indica el tamaño de la pagina 
+        operacion=operacion/1024;//esto siginifica que la unidad base son KB
         Total_Tamaño_Pagina_Memoria= (int)operacion;
     }
 
