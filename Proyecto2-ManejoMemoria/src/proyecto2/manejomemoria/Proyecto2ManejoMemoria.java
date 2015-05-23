@@ -32,15 +32,7 @@ public class Proyecto2ManejoMemoria {
     //crear el mapa virtual
      Memoria_Virtual V= new Memoria_Virtual(COnf);
        V.Crear_Memoria_Virtual();
-        System.out.println(COnf.Bits);
-        System.out.println(COnf.Tamaño_Paginas);
-        System.out.println(COnf.Cantidad_Total_Paginas_Memoria_Virtual);
-        System.out.println(COnf.Total_Tamaño_Pagina_Memoria);
         LinkedList Lista= V.Realizar_Conversion_de_Referencias(COnf,COnf.Lista_Referencias.get(1));
-        System.out.println(COnf.Lista_Referencias.get(1).ID_Proceso());
-        System.out.println("L "+Lista.get(0));
-        System.out.println("L "+Lista.get(1));
-        
         //Imprime paginas
        /*LinkedHashMap <String,Paginas>M=COnf.Memoria_Virtual;
        Iterator ii= M.keySet().iterator();
@@ -49,9 +41,7 @@ public class Proyecto2ManejoMemoria {
            System.out.println("ID pagina: "+M.get(key).ID_Pagina);
             System.out.println("ID proceso: "+M.get(key).ID_Proceso);
   
-           }*/
-       //Falta crear el metodo que lee las referencias
-        
+           }*/       
               
     }  
        
