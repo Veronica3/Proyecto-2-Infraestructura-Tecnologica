@@ -24,7 +24,7 @@ public class Memoria_Virtual {
             if (Informacion_Configuracion.Memoria_Virtual.isEmpty()){ //inicializo las variables 
             }
             //realizo unas operaciones
-            int Convertir_Tamaño_Proceso= R.get(key).Tamaño_Total_Proceso()*1024; // paso de KB a B, la memoria total requerida
+            int Convertir_Tamaño_Proceso= R.get(key).Tamaño_Total_Proceso(); // paso de KB, la memoria total requerida
                 //saber en cuantas paginas almaceno el proceso
             int Cantidad_Paginas;
             double tamaño=Convertir_Tamaño_Proceso/Informacion_Configuracion.Total_Tamaño_Pagina_Memoria;
@@ -37,8 +37,8 @@ public class Memoria_Virtual {
              
             if (Almaceno_Proceso_en_Memoria_Virtual(Cantidad_Paginas)){//verifica que el proceso se pueda 
                 //almacenar en  memoria virtual 
-                /*System.out.println("Proceso: "+R.get(key).ID_Proceso()+ " TamañoT: "+R.get(key).Tamaño_Total_Proceso()
-                +"Cantidad Paginas "+Cantidad_Paginas);*/
+                System.out.println("Proceso: "+R.get(key).ID_Proceso()+ " TamañoT: "+R.get(key).Tamaño_Total_Proceso()
+                +"Cantidad Paginas "+Cantidad_Paginas);
                  Crear_Paginas(R.get(key),Cantidad_Paginas);//crea las páginas y se las asigna al proceso
                 }
         }
