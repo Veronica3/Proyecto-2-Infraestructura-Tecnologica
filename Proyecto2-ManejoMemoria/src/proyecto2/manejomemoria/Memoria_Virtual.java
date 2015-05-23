@@ -25,22 +25,32 @@ public class Memoria_Virtual {
                 Asignar_Cantidad_Paginas_Memoria_Virtual();//asigna a la variable del DTO la info
                 Asignar_Total_Tamaño_Pagina_Memoria_Virtual();//asigna a la variable del DTO la info
             }
-            
-            if (Almaceno_Proceso_en_Memoria_Virtual(R.get(key).Tamaño_Total_Proceso())){//verifica que el proceso se pueda 
+            //realizo unas operaciones
+            int Convertir_Tamaño_Proceso= R.get(key).Tamaño_Total_Proceso()*1024; // paso de KB a B, la memoria total requerida
+                //saber en cuantas paginas almaceno el proceso
+            int Cantidad_Paginas;
+            double tamaño=Convertir_Tamaño_Proceso/Informacion_Configuracion.Total_Tamaño_Pagina_Memoria_Virtual;
+            if ((Convertir_Tamaño_Proceso%Informacion_Configuracion.Total_Tamaño_Pagina_Memoria_Virtual)==0){
+                Cantidad_Paginas=(int)tamaño;
+            }
+            else{
+                Cantidad_Paginas=(int)tamaño+1;
+            }
+             
+            if (Almaceno_Proceso_en_Memoria_Virtual(Cantidad_Paginas)){//verifica que el proceso se pueda 
                 //almacenar en  memoria virtual 
-                    Crear_Paginas(R.get(key));//crea las páginas y se las asigna al proceso
+                /*System.out.println("Proceso: "+R.get(key).ID_Proceso()+ " TamañoT: "+R.get(key).Tamaño_Total_Proceso()
+                +"Cantidad Paginas "+Cantidad_Paginas);*/
+                 Crear_Paginas(R.get(key),Cantidad_Paginas);//crea las páginas y se las asigna al proceso
                 }
         }
        
     }   
     //Pregunta si se puede almacenar proceso en memoria virtual, debido al tamaño de memoria que requiere
-    public boolean Almaceno_Proceso_en_Memoria_Virtual(int Tamaño_Proceso){
+    public boolean Almaceno_Proceso_en_Memoria_Virtual(double Cantidad_Paginas){
         
         if(Informacion_Configuracion.Cantidad_Total_Paginas_Memoria_Virtual>Informacion_Configuracion.Memoria_Virtual.size()){
-               double Convertir_Tamaño_Proceso= Tamaño_Proceso*1024; // paso de KB a B, la memoria total requerida
-               //saber en cuantas paginas almaceno el proceso
-               double Cantidad_Paginas=Convertir_Tamaño_Proceso/Informacion_Configuracion.Total_Tamaño_Pagina_Memoria_Virtual;
-               double Suma= Cantidad_Paginas+Informacion_Configuracion.Memoria_Virtual.size();
+                double Suma= Cantidad_Paginas+Informacion_Configuracion.Memoria_Virtual.size();
                if (Informacion_Configuracion.Cantidad_Total_Paginas_Memoria_Virtual>Suma){
                     return true;
                }
@@ -54,10 +64,7 @@ public class Memoria_Virtual {
         }
     }
     //Crea las paginas que se le asignnaran a cada proceso en memoria virtual
-    private void Crear_Paginas(Interface_Proceso Proceso){
-        double Convertir_Tamaño_Proceso= Proceso.Tamaño_Total_Proceso()*1024; // paso de KB a B, la memoria total requerida
-            //saber en cuantas paginas almaceno el proceso
-        double Cantidad_Paginas=Convertir_Tamaño_Proceso/Informacion_Configuracion.Total_Tamaño_Pagina_Memoria_Virtual;
+    private void Crear_Paginas(Interface_Proceso Proceso, double Cantidad_Paginas){
         Paginas Pagina;
         int ID_Pagina=0;
         for (int i = 0; i <Cantidad_Paginas ; i++) {
@@ -71,12 +78,14 @@ public class Memoria_Virtual {
     //Metodo que almacena la cantidad de paginas que se almacenan en memoria virtual
     private void Asignar_Cantidad_Paginas_Memoria_Virtual(){
         int Total_Paginas=Informacion_Configuracion.Bits-Informacion_Configuracion.Tamaño_Paginas;
-        Informacion_Configuracion.Cantidad_Total_Paginas_Memoria_Virtual= Math.pow(2,Total_Paginas);
-        
+        double operacion= Math.pow(2,Total_Paginas);
+        Informacion_Configuracion.Cantidad_Total_Paginas_Memoria_Virtual= (int)operacion;
+               
     }
     //Método que almacena el tamaño total de las paginas
     private void Asignar_Total_Tamaño_Pagina_Memoria_Virtual(){
-        Informacion_Configuracion.Total_Tamaño_Pagina_Memoria_Virtual= Math.pow(2,Informacion_Configuracion.Tamaño_Paginas);//indica el tamaño de la pagina 
+        double operacion=Math.pow(2,Informacion_Configuracion.Tamaño_Paginas);//indica el tamaño de la pagina 
+        Informacion_Configuracion.Total_Tamaño_Pagina_Memoria_Virtual= (int)operacion;
     }
 }
 

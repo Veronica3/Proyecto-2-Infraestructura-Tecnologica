@@ -31,8 +31,8 @@ public class DTO {
     int Bits;
     int Tamaño_Paginas; //almacena el tamaño en Bytes de la pagina
     String Unidad_Medida;
-    double Cantidad_Total_Paginas_Memoria_Virtual; //almacena el total de paginas que se crean
-    double Total_Tamaño_Pagina_Memoria_Virtual;
+    int Cantidad_Total_Paginas_Memoria_Virtual; //almacena el total de paginas que se crean
+    int Total_Tamaño_Pagina_Memoria_Virtual;
     
     //Variables para abrir archivos
     String Nombre_Archivo_Procesos;
