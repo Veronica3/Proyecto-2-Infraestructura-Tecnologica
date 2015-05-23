@@ -21,16 +21,14 @@ public class Memoria_Virtual {
         Iterator e= R.keySet().iterator();
        while(e.hasNext()){//recorro lista de procesos 
            Integer key=(int)e.next();
-            if (Informacion_Configuracion.Memoria_Virtual.isEmpty()){ //inicializo las variables
-                Asignar_Cantidad_Paginas_Memoria_Virtual();//asigna a la variable del DTO la info
-                Asignar_Total_Tamaño_Pagina_Memoria_Virtual();//asigna a la variable del DTO la info
+            if (Informacion_Configuracion.Memoria_Virtual.isEmpty()){ //inicializo las variables 
             }
             //realizo unas operaciones
             int Convertir_Tamaño_Proceso= R.get(key).Tamaño_Total_Proceso()*1024; // paso de KB a B, la memoria total requerida
                 //saber en cuantas paginas almaceno el proceso
             int Cantidad_Paginas;
-            double tamaño=Convertir_Tamaño_Proceso/Informacion_Configuracion.Total_Tamaño_Pagina_Memoria_Virtual;
-            if ((Convertir_Tamaño_Proceso%Informacion_Configuracion.Total_Tamaño_Pagina_Memoria_Virtual)==0){
+            double tamaño=Convertir_Tamaño_Proceso/Informacion_Configuracion.Total_Tamaño_Pagina_Memoria;
+            if ((Convertir_Tamaño_Proceso%Informacion_Configuracion.Total_Tamaño_Pagina_Memoria)==0){
                 Cantidad_Paginas=(int)tamaño;
             }
             else{
@@ -75,18 +73,7 @@ public class Memoria_Virtual {
 }        
 
         
-    //Metodo que almacena la cantidad de paginas que se almacenan en memoria virtual
-    private void Asignar_Cantidad_Paginas_Memoria_Virtual(){
-        int Total_Paginas=Informacion_Configuracion.Bits-Informacion_Configuracion.Tamaño_Paginas;
-        double operacion= Math.pow(2,Total_Paginas);
-        Informacion_Configuracion.Cantidad_Total_Paginas_Memoria_Virtual= (int)operacion;
-               
-    }
-    //Método que almacena el tamaño total de las paginas
-    private void Asignar_Total_Tamaño_Pagina_Memoria_Virtual(){
-        double operacion=Math.pow(2,Informacion_Configuracion.Tamaño_Paginas);//indica el tamaño de la pagina 
-        Informacion_Configuracion.Total_Tamaño_Pagina_Memoria_Virtual= (int)operacion;
-    }
+   
 }
 
 

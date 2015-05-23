@@ -30,7 +30,7 @@ public class Referencia implements Interface_Referencia{
    public LinkedList Realizar_Conversion_de_Referencias(DTO Configuracion, Referencia Referencia){
         LinkedList <Integer> ResultadoL= new LinkedList();
         int NReferencia= Referencia.Numero_Direccion_Referencia();
-        int dividendo= Configuracion.Total_Tamaño_Pagina_Memoria_Virtual;
+        int dividendo= Configuracion.Total_Tamaño_Pagina_Memoria;
         int Cociente= NReferencia/dividendo;
         int Residuo= NReferencia%dividendo;
         ResultadoL.add(Referencia.ID_Proceso());//Almacena el id del proceso

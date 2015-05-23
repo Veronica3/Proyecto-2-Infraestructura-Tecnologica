@@ -32,7 +32,7 @@ public class DTO {
     int Tamaño_Paginas; //almacena el tamaño en Bytes de la pagina
     String Unidad_Medida;
     int Cantidad_Total_Paginas_Memoria_Virtual; //almacena el total de paginas que se crean
-    int Total_Tamaño_Pagina_Memoria_Virtual;
+    int Total_Tamaño_Pagina_Memoria;
     
     //Variables para abrir archivos
     String Nombre_Archivo_Procesos;
@@ -60,6 +60,8 @@ public class DTO {
         this.Bits = Bits;
         this.Tamaño_Paginas = Tamaño_Paginas;
         this.Unidad_Medida = Unidad_Medida;
+        Asignar_Cantidad_Paginas_Memoria_Virtual();
+        Asignar_Total_Tamaño_Pagina_Memoria_Virtual();
    
     }
 
@@ -71,6 +73,18 @@ public class DTO {
     public void Agregar_Archivos(String ArchivoProcesos, String ArchivoReferencias){
         Nombre_Archivo_Procesos= ArchivoProcesos;
         Nombre_Archivo_Referencias= ArchivoReferencias;
+    }
+     //Metodo que almacena la cantidad de paginas que se almacenan en memoria virtual
+    private void Asignar_Cantidad_Paginas_Memoria_Virtual(){
+        int Total_Paginas=Bits-Tamaño_Paginas;
+        double operacion= Math.pow(2,Total_Paginas);
+        Cantidad_Total_Paginas_Memoria_Virtual= (int)operacion;
+               
+    }
+    //Método que almacena el tamaño total de las paginas
+    private void Asignar_Total_Tamaño_Pagina_Memoria_Virtual(){
+        double operacion=Math.pow(2,Tamaño_Paginas);//indica el tamaño de la pagina 
+        Total_Tamaño_Pagina_Memoria= (int)operacion;
     }
 
     
