@@ -39,11 +39,8 @@ public class Memoria_Virtual {
            }*/
     }   
     //Pregunta si se puede almacenar proceso en memoria virtual, debido al tamaño de memoria que requiere
-    public boolean Almaceno_Proceso_en_Memoria_Virtual(int Tamaño){
-        int Paginas_bits= Informacion_Configuracion.Bits-Informacion_Configuracion.Tamaño_Paginas;
+    public boolean Almaceno_Proceso_en_Memoria_Virtual(int Tamaño_Proceso){
         
-        int tamaño_virtua
-        double Tamaño_Total_Virtual= Math.pow(2,tamaño_virtual);
         if(Tamaño_Total_Virtual>Tamaño){
                 return false;
         }
