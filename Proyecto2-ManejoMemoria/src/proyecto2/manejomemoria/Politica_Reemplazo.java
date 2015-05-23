@@ -68,7 +68,7 @@ public class Politica_Reemplazo {
         Lista_Paginas_En_Memoria_Principal.addLast(Nueva_Pagina);
         
         //Llamo a funcion que asigna la nueva pagina al marco disponible
-        Ubicacion_Pagina.Asignacion_a_Marco(Nueva_Pagina);
+        //Ubicacion_Pagina.Asignacion_a_Marco(Nueva_Pagina);
 }
     ////////////////////////////////////////////////////////////////////////////////////////
     //Se implementa con lista igual que FIFO pero la lista cambia cada vez que se referencia una pagina
