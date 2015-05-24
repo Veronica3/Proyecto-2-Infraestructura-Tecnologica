@@ -6,6 +6,7 @@ public class Controlador {
     DTO Estructura_DTO;
     Politica_Recuperacion Llamada_Politica_Recuperacion;
     Memoria_Virtual Memoria_Virtual;
+    Busca_Paginas Buscar_Pagina;
     //Constructor de controlador recibe DTO por medio del cual trabajan todas las funciones
     public Controlador(DTO Estructura) {
         Estructura_DTO=Estructura;
@@ -47,6 +48,11 @@ public class Controlador {
             ID_Proceso_De_Pagina= Referencia_Leida.ID_Proceso();
             Accion_W_R= Referencia_Leida.Tipo_de_Accion();
             
+            //BUSCA PAGINA referenciada en la MEMORIA VIRTUAL
+            Buscar_Pagina= new Busca_Paginas(Estructura_DTO);
+            Paginas Pagina_Encontrada=Buscar_Pagina.Busca_Pagina_En_Memoria_Virtual(ID_Proceso_De_Pagina,ID_Pagina_Referenciada);
+            //Llama a DEMANDA  o PREPAGINACION
+            Llamada_Politica_Recuperacion.Paginacion_Bajo_Demanda(Pagina_Encontrada);
             
         // Estructura_DTO.Paginas_Referenciadas
             

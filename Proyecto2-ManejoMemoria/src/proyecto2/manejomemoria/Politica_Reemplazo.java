@@ -6,14 +6,16 @@ import java.util.HashMap;
 public class Politica_Reemplazo {
     //Instancia para ubicar la nueva Pagina
     Politica_Ubicacion Ubicacion_Pagina;
+    //Estructura
+    DTO Estructura_DTO;
     //Lista de paginas en memoria principal
     LinkedList<Paginas> Lista_Paginas_En_Memoria_Principal=new LinkedList<>();
     //Mapa de MARCOS
     HashMap<Integer, Marco> Mapa_Marcos = new HashMap<Integer, Marco>();
     //Busca Paginas para ALGORITMOS de LRU y MRU
-    Busca_Paginas Buscar_Pagina= new Busca_Paginas();
+    Busca_Paginas Buscar_Pagina;
     //Para PRUEBAS
-    Imprimir_Para_Pruebas Imprime= new Imprimir_Para_Pruebas();
+    Imprimir_Para_Pruebas Imprime= new Imprimir_Para_Pruebas(Estructura_DTO);
     //Lista para algoritmo RELOJ
     Lista_Circular Lista_Reloj= new Lista_Circular();
     
@@ -119,8 +121,9 @@ public class Politica_Reemplazo {
     }
     ////////////////////////////////////////////////////////////////////////////////////////
     public void Remover_Pagina_Del_Marco(Paginas Pagina_A_Remover){
+        Buscar_Pagina= new Busca_Paginas(Estructura_DTO);
         //Obtengo ID del marco donde se encuentra la pagina a remover
-        int ID_Marco= Buscar_Pagina.Busca_Pagina_En_Memoria_Principal(Lista_Paginas_En_Memoria_Principal,Mapa_Marcos,Pagina_A_Remover);
+        /*int ID_Marco= Buscar_Pagina.Busca_Pagina_En_Memoria_Principal(Lista_Paginas_En_Memoria_Principal,Mapa_Marcos,Pagina_A_Remover);
         //Valida que el MARCO EXISTA
         if (ID_Marco!=-1){
             //Creo un nuevo marco, que obtiene la pagina a remover
@@ -133,7 +136,7 @@ public class Politica_Reemplazo {
         //System.out.println("Marco a remover pagina "+ marco.ID_Marco);
         
         Imprime.imprime_lista_marcos(Mapa_Marcos);
-    }
+    }*/
     ////////////////////////////////////////////////////////////////////////////////////////
    /* public void Ubicar_Nueva_Pagina(){
         
@@ -143,7 +146,7 @@ public class Politica_Reemplazo {
     ////////////////////////////////////////////////////////////////////////////////////////
     /*Utilizada desde las referencias, cuando se realiza la conversion y dice cual pagina se ocupa
     Cambia la posicion de las paginas, en la lista de paginas general del sistema*/
-    public void Pagina_Referenciada(Paginas Pagina_Referenciada){
+   /* public void Pagina_Referenciada(Paginas Pagina_Referenciada){
         System.out.println("\nESTAMOS EN REFERENCIAS**********");
         //Busca si la pagina referenciada esta en memoria
         if (Buscar_Pagina.Busca_Pagina_En_Memoria_Principal(Lista_Paginas_En_Memoria_Principal, Mapa_Marcos,Pagina_Referenciada)!=-1){
@@ -168,26 +171,6 @@ public class Politica_Reemplazo {
             //APLICO REEMPLAZO
             System.out.println("FALLO DE PAGINA");
         //Lista_Paginas_En_Memoria_Principal.
+    }*/
     }
- 
-    ////////////////////////////////////////////////////////////////////////////////////////
-    //MAIN
-     public static void main(String[] args) {
-         //Lista de paginas
-        LinkedList<Paginas> Lista_Paginas_En_Memoria_Principal= new LinkedList<>();
-            //Nuevas paginas
-         
-         Politica_Reemplazo nuevo= new Politica_Reemplazo();
-         nuevo.llena();
-         nuevo.Pagina_Referenciada(nuevo.pg2);
-         nuevo.Pagina_Referenciada(nuevo.pg1);
-         nuevo.Pagina_Referenciada(nuevo.pg4);
-         nuevo.Politica_Menos_Utilizado_Recientemente(nuevo.pg5);
-         /*if ( nuevo.Busca_Pagina_En_Memoria_Principal(nuevo.pg5)){
-             System.out.println("Si esta");
-         }
-         else
-             System.out.println("No esta");*/
-    }
-    
 }
