@@ -32,7 +32,7 @@ public class Proyecto2ManejoMemoria {
     //crear el mapa virtual
      Memoria_Virtual V= new Memoria_Virtual(COnf);
        V.Crear_Memoria_Virtual();
-        LinkedList Lista= V.Realizar_Conversion_de_Referencias(COnf,COnf.Lista_Referencias.get(1));
+        LinkedList Lista= V.Realizar_Conversion_de_Referencias(COnf.Lista_Referencias.get(1));
         //Imprime paginas
        /*LinkedHashMap <String,Paginas>M=COnf.Memoria_Virtual;
        Iterator ii= M.keySet().iterator();

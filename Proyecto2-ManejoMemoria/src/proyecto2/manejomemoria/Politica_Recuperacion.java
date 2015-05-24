@@ -4,8 +4,10 @@ import java.util.*;
 //Politica de recuparacion... Para traer paginas de MEMORIA VIRTUAL a MEMORIA PRINCIPAL
 public class Politica_Recuperacion {
     LinkedList<Paginas> Lista_Paginas_En_Memoria_Principal;
+    DTO Estructura_DTO;
     //Constructor de la clase
-    public Politica_Recuperacion() {
+    public Politica_Recuperacion(DTO Estructura) {
+        Estructura_DTO=Estructura;
     }
     //Verifica si una pagina esta en memoria principal
     public boolean Esta_En_Memoria_Principal(LinkedList Lista_Paginas_MM, Paginas Pagina_Referenciada){

@@ -75,10 +75,10 @@ public class Memoria_Virtual {
 
        /*Función que lee la referencia y retorna la dirección el id del proceso, la página y el desplazamiento
    */
-   public LinkedList Realizar_Conversion_de_Referencias(DTO Configuracion, Interface_Referencia Referencia){
+   public LinkedList Realizar_Conversion_de_Referencias(Interface_Referencia Referencia){
         LinkedList <Integer> ResultadoL= new LinkedList();
         int NReferencia= Referencia.Numero_Direccion_Referencia();//la referencia esta en bytes        
-        int dividendo= Configuracion.Total_Tamaño_Pagina_Memoria*1024;//convertir de KB a B
+        int dividendo= Informacion_Configuracion.Total_Tamaño_Pagina_Memoria*1024;//convertir de KB a B
         int Pagina= NReferencia/dividendo;
         int Desplazamiento= NReferencia%dividendo;
         ResultadoL.add(Pagina);//almacena el numero de página
