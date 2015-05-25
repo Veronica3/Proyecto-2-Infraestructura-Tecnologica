@@ -33,7 +33,7 @@ public class Manejo_de_Archivos {
             LProcesos.put(null,null);
         else {
             for (int i = 0; i < Informacion_de_Archivo.size(); i++) {//recorre la lista de elementos
-                    NuevoProceso= EsProceso(Informacion_de_Archivo.get(i).toString(), LProcesos);
+                    NuevoProceso= EsProceso(Informacion_de_Archivo.get(i).toString(), LProcesos, Configuracion);
                     if(NuevoProceso!= null){
                             LProcesos.put(NuevoProceso.ID_Proceso(), NuevoProceso);//Almacena el proceso en lista de procesos
                            }
@@ -43,7 +43,7 @@ public class Manejo_de_Archivos {
     }
          
     //Funcion que recibe una línea, verifica que se cumpla con las validaciones, si se cumple crea un proceso con los datos
-    private Interface_Proceso EsProceso(String Linea_Informacion, LinkedHashMap<Integer,Interface_Proceso> LProcesos){
+    private Interface_Proceso EsProceso(String Linea_Informacion, LinkedHashMap<Integer,Interface_Proceso> LProcesos, DTO Configuracion){
         Validaciones V=new Validaciones();
         String Datos_Proceso[] = Linea_Informacion.split(",");
         int ID_Proceso;
@@ -69,7 +69,7 @@ public class Manejo_de_Archivos {
                     Tamaño_T= Integer.parseInt(Datos_Proceso[1]);
                     Nombre_Proceso=Datos_Proceso[3];
                     Estado=Boolean.valueOf(Datos_Proceso[4]);//convierte el estado a un boolean
-                    Interface_Proceso Proceso= new Proceso(ID_Proceso, Nombre_Proceso,Prioridad,Tamaño_T,Estado);//se crea el proceso
+                    Interface_Proceso Proceso= new Proceso(ID_Proceso, Nombre_Proceso,Prioridad,Estado, Tamaño_T,Configuracion.Working_Set);//se crea el proceso
                     return Proceso;//Retorno el proceso
                }
                else{
