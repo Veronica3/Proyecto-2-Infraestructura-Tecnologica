@@ -9,16 +9,18 @@ public class Proceso implements Interface_Proceso{
     int Prioridad;
     boolean Bloqueado;  // Pagina 362 > Si el marco esta bloquado no se puede reemplazar la pag
     int Cantidad_de_memoria;
+    int Working_Set;
     int Cantidad_Paginas=0;
-    
-    public Proceso(int idP, String NombreP, int PrioridadP,int MemoriaTP, boolean Bloqueado) { //Constructor del proceso
-        ID_Proceso= idP;
-        Nombre_Proceso= NombreP;
-        Prioridad= PrioridadP;
-        Cantidad_de_memoria= MemoriaTP;    
-        this.Bloqueado=Bloqueado;
+
+    public Proceso(int ID_Proceso, String Nombre_Proceso, int Prioridad, boolean Bloqueado, int Cantidad_de_memoria, int Working_Set) {
+        this.ID_Proceso = ID_Proceso;
+        this.Nombre_Proceso = Nombre_Proceso;
+        this.Prioridad = Prioridad;
+        this.Bloqueado = Bloqueado;
+        this.Cantidad_de_memoria = Cantidad_de_memoria;
+        this.Working_Set = Working_Set;
     }
-    
+
     public void Asignar_Paginas(int Cantidad_PaginasP){
         Cantidad_Paginas= Cantidad_PaginasP;
     }

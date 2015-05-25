@@ -6,43 +6,56 @@ public class Memoria_Fisica {
     public Memoria_Fisica() {
     }
     
-    /*Controla la creacion de la memoria fisica,busca la cantidad de columnas y filas que necesita 
-    y verifica que se encuentre completa seg[un lo especificado en el DTO*/
+    /*Crea la cantidad de marcos correspondientes a los parametros entrantes*/
        
-    public void Controla_Memoria_Fisica(DTO DTO){
-        int cantidad_paginas=(int) DTO.Tamaño_Memoria_Fisica/DTO.Tamaño_Paginas;
-        int tamaño_Columna = (int) Math.floor(Math.sqrt(cantidad_paginas));
-        int tamaño_Fila=Ajusta_Cantidad_Filas(tamaño_Columna, cantidad_paginas);
-        Crea_Matriz(tamaño_Columna, tamaño_Fila, DTO,0);
-        int Columnas_Faltantes=cantidad_paginas-(tamaño_Columna*tamaño_Fila);
-        System.out.println(Columnas_Faltantes);
-        System.out.println(tamaño_Fila);
-        Crea_Matriz(Columnas_Faltantes, 1, DTO,DTO.Memoria_Fisica.size());
+    public void Crea_Memoria_Fisica(DTO DTO){
+        int Cantidad_Paginas=(int) DTO.Tamaño_Memoria_Fisica/DTO.Tamaño_Paginas;
+        for (int i = 0; i < Cantidad_Paginas; i++) {
+            Marco Marco=new Marco(i,null,0);
+            DTO.Memoria_Fisica.add(Marco);
+        }
         
-        for (int i = 0; i < DTO.Memoria_Fisica.size(); i++) {
-            for (int j = 0; j < DTO.Memoria_Fisica.get(i).size(); j++) {
-                System.out.print(j);
+          
+    }
+    /*Asignacion de marcos por proceso segun el working set*/
+    public void Asignacion_Marcos_Procesos(DTO DTO){
+        for (int i = 0; i < DTO.Lista_Procesos.size(); i++) {
+            Asigna_Proceso_Dueño(DTO,DTO.Lista_Procesos.get(i).ID_Proceso());
+        }
+        
+    }
+    /*Se incorpora el ID_Proceso al marco correspondiente*/
+    private void Asigna_Proceso_Dueño(DTO DTO,int ID_PROCESO){
+        int Memoria_Asignada=0;
+        while (Memoria_Asignada<DTO.Working_Set) {            
+            for (int i = 0; i < DTO.Memoria_Fisica.size(); i++) {
+                if(DTO.Memoria_Fisica.get(i).ID_Proceso_Dueño==0){
+                    DTO.Memoria_Fisica.get(i).ID_Proceso_Dueño=ID_PROCESO; 
+                    Memoria_Asignada+=1;
+                    break;
+                }  
+                
             }
-        }    
-    }
-    //Crea la Matriz de la MemariaFisica, seg[un las columnas y las filas que se le manden
-    private void Crea_Matriz(int Tamaño_Columna,int Tamaño_Fila,DTO DTO,int Tamaño_general ){   
-        for (int i = 0; i < Tamaño_Fila; i++) {
-            DTO.Memoria_Fisica.put(Tamaño_general+i, new LinkedHashMap<Integer,Marco>());
-            for (int j = 0; j < Tamaño_Columna; j++) {
-                DTO.Memoria_Fisica.get(Tamaño_general+i).put(j, null);
-                        }
         }
-    }
-    // Se encarga de sumarle una a las filas o dejarla igual que las columnas, esto para que sean menos las faltantes.
-    private int Ajusta_Cantidad_Filas(int Tamaño_Columna,int cantidad_paginas ){
-        int Total_Actual=Tamaño_Columna*(Tamaño_Columna+1);
-        if(Total_Actual<cantidad_paginas){
-            return Tamaño_Columna+1;
-        }
-        else{
-            return Tamaño_Columna;
-        }
-    }
     
+    }
+    public static void main(String[] args) {
+        DTO DTO= new DTO( "Politica_Recuperacion", "Politica_Ubicacion", "Politica_Reemplazo", "Politica_Limpieza",4, "Tamaño_Conjunto",  2, 5,3,"Ambito_Reemplazo", 5, 4,250, 32,10, "K");
+        
+        Proceso P1= new Proceso(3,"P0",7,89,true);
+        Proceso P2= new Proceso(1,"P1",7,89,true);
+        Proceso P3= new Proceso(2,"P2",7,89,true);
+        DTO.Lista_Procesos.put(0,P1);
+        DTO.Lista_Procesos.put(1,P2);
+        DTO.Lista_Procesos.put(2,P3);
+        Memoria_Fisica Manejo_Memoria=new Memoria_Fisica();
+        Manejo_Memoria.Crea_Memoria_Fisica(DTO);
+        Manejo_Memoria.Asignacion_Marcos_Procesos(DTO);
+        for (int i = 0; i < DTO.Memoria_Fisica.size(); i++) {
+            System.out.print(DTO.Memoria_Fisica.get(i).ID_Marco);
+            System.out.print(">");
+            System.out.print(DTO.Memoria_Fisica.get(i).ID_Proceso_Dueño);
+        } 
+        
+    }
 }
