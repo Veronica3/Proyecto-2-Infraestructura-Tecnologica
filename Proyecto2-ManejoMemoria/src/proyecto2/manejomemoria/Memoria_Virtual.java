@@ -10,6 +10,7 @@ public class Memoria_Virtual {
         Informacion_Configuracion= Informacion;
           /*se crea una estructura mapa con llave valor, 
         la cual almacenara la información correspondiente al disco*/
+
     }
     //Metodo encargado de crear la memoria virtual
     //Validar si la memoria virtual esta vacía, si es asi pregunto si la cantidad de memoria que requiere le proceso es men
