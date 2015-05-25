@@ -17,6 +17,7 @@ public class Memoria_Fisica {
         
           
     }
+    public void Manejo_Multiprogracion(){}
     /*Asignacion de marcos por proceso segun el working set*/
     public void Asignacion_Marcos_Procesos(DTO DTO){
         for (int i = 0; i < DTO.Lista_Procesos.size(); i++) {
@@ -24,6 +25,7 @@ public class Memoria_Fisica {
         }
         
     }
+    
     /*Se incorpora el ID_Proceso al marco correspondiente*/
     private void Asigna_Proceso_Dueño(DTO DTO,int ID_PROCESO){
         int Memoria_Asignada=0;
@@ -39,12 +41,13 @@ public class Memoria_Fisica {
         }
     
     }
+    
     public static void main(String[] args) {
         DTO DTO= new DTO( "Politica_Recuperacion", "Politica_Ubicacion", "Politica_Reemplazo", "Politica_Limpieza",4, "Tamaño_Conjunto",  2, 5,3,"Ambito_Reemplazo", 5, 4,250, 32,10, "K");
         
-        Proceso P1= new Proceso(3,"P0",7,89,true);
-        Proceso P2= new Proceso(1,"P1",7,89,true);
-        Proceso P3= new Proceso(2,"P2",7,89,true);
+        Proceso P1= new Proceso(3,"P0",7,true,89,4);
+        Proceso P2= new Proceso(1,"P1",7,true,89,4);
+        Proceso P3= new Proceso(2,"P2",7,true,89,4);
         DTO.Lista_Procesos.put(0,P1);
         DTO.Lista_Procesos.put(1,P2);
         DTO.Lista_Procesos.put(2,P3);
