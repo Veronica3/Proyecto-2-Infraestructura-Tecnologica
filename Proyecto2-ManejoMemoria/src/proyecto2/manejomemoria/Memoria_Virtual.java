@@ -5,7 +5,7 @@ import java.util.*;
 import java.math.*;
 
 public class Memoria_Virtual {
-            DTO Informacion_Configuracion;
+        DTO Informacion_Configuracion;
     public Memoria_Virtual(DTO Informacion) {
         Informacion_Configuracion= Informacion;
           /*se crea una estructura mapa con llave valor, 
@@ -17,7 +17,7 @@ public class Memoria_Virtual {
     //sino no lo incluyo
     public void Crear_Memoria_Virtual(){
         //recorro la lista de procesos
-         LinkedHashMap <Integer, Interface_Proceso> ListaProcesos= Informacion_Configuracion.Lista_Procesos;
+        LinkedHashMap <Integer, Interface_Proceso> ListaProcesos= Informacion_Configuracion.Lista_Procesos;
         Iterator e= ListaProcesos.keySet().iterator();
        while(e.hasNext()){//recorro lista de procesos 
            Integer key=(int)e.next();
@@ -71,6 +71,7 @@ public class Memoria_Virtual {
             Informacion_Configuracion.Memoria_Virtual.put(Proceso.ID_Proceso()+"_"+ID_Pagina, Pagina);
             ID_Pagina++;
         }
+        
 }        
 
        /*Función que lee la referencia y retorna la dirección el id del proceso, la página y el desplazamiento

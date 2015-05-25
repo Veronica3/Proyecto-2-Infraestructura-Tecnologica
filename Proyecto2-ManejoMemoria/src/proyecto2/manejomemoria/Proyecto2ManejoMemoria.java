@@ -29,12 +29,22 @@ public class Proyecto2ManejoMemoria {
        for (int i = 0; i < Q.size(); i++) {
             System.out.println(Q.get(i).ID_Proceso()+" "+Q.get(i).Numero_Direccion_Referencia()+" "+Q.get(i).Tipo_de_Accion());
         }
-       Politica_Recuperacion Recuperacion= new Politica_Recuperacion(COnf);
-       Recuperacion.Prepaginacion();
+       
+        
+        
+       
     //crear el mapa virtual
-       /* Memoria_Virtual V= new Memoria_Virtual(COnf);
+        Memoria_Virtual V= new Memoria_Virtual(COnf);
         V.Crear_Memoria_Virtual();
-        LinkedList Lista= V.Realizar_Conversion_de_Referencias(COnf.Lista_Referencias.get(1));*/
+        LinkedList Lista= V.Realizar_Conversion_de_Referencias(COnf.Lista_Referencias.get(1));
+        
+         //Pruebas
+        Politica_Recuperacion Recuperacion= new Politica_Recuperacion(COnf);
+        Recuperacion.Prepaginacion();
+       //
+        Imprimir_Para_Pruebas Imprime= new Imprimir_Para_Pruebas(COnf);
+        /*Imprime.imprime_lista_memoria_virtual();
+        Imprime.imprime_lista_procesos();*/
         //Imprime paginas
        /*LinkedHashMap <String,Paginas>M=COnf.Memoria_Virtual;
        Iterator ii= M.keySet().iterator();

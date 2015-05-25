@@ -39,6 +39,7 @@ public class Manejo_de_Archivos {
                            }
             }       
         }
+       
     }
          
     //Funcion que recibe una línea, verifica que se cumpla con las validaciones, si se cumple crea un proceso con los datos
