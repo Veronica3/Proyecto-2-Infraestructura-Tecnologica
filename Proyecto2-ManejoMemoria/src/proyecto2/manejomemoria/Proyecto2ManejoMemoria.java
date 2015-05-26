@@ -36,7 +36,10 @@ public class Proyecto2ManejoMemoria {
         V.Crear_Memoria_Virtual();
          System.out.println(COnf.Memoria_Virtual.get(0).ID_Proceso);
         V.Recorrer_Lista_Procesos_Asinar_Memoria_Virtual();
-        System.out.println(COnf.Memoria_Virtual.get(0).ID_Proceso);
+        /*for (int i = 0; i < COnf.Memoria_Virtual.size(); i++) {
+             System.out.println(COnf.Memoria_Virtual.get(i).ID_Proceso);
+        }*/
+       
         
         
          //Pruebas
