@@ -9,7 +9,7 @@ public class DTO {
     LinkedList<Paginas> Paginas_Referenciadas= new LinkedList<>();
     //Memoria FISICA Y VIRTUAL
     LinkedList<Marco> Memoria_Fisica = new LinkedList< Marco>();
-    LinkedHashMap<String, Paginas> Memoria_Virtual=new LinkedHashMap<String, Paginas>();
+    LinkedList<Paginas> Memoria_Virtual=new LinkedList<Paginas>();
     //Lista de PROCESOS y REFERENCIAS
     LinkedHashMap<Integer,Interface_Proceso> Lista_Procesos= new LinkedHashMap();
     LinkedList <Interface_Referencia> Lista_Referencias = new LinkedList();

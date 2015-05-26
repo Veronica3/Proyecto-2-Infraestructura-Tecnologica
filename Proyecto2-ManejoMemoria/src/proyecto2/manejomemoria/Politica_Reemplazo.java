@@ -33,7 +33,8 @@ public class Politica_Reemplazo {
      Marco m2= new Marco(2, 20, 0, 19, pg2);
      Marco m3= new Marco(3, 20, 0, 19, pg3);
      Marco m4= new Marco(4, 20, 0, 19, pg4);
-     //Mapa de marcos
+     
+    //Mapa de marcos
      
     ////////////////////////////////////////////////////////////////////////////////////////
      //FUNCION DE PRUEBA

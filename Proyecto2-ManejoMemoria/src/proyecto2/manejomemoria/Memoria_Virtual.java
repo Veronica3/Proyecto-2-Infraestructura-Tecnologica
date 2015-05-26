@@ -12,21 +12,28 @@ public class Memoria_Virtual {
         la cual almacenara la información correspondiente al disco*/
 
     }
-    //Metodo encargado de crear la memoria virtual
-    //Validar si la memoria virtual esta vacía, si es asi pregunto si la cantidad de memoria que requiere le proceso es men
-    //menor a la cantidad valida de memoria si es así voy a asignar las paginas al proceso
-    //sino no lo incluyo
+ 
     public void Crear_Memoria_Virtual(){
-        //recorro la lista de procesos
-        LinkedHashMap <Integer, Interface_Proceso> ListaProcesos= Informacion_Configuracion.Lista_Procesos;
-        Iterator e= ListaProcesos.keySet().iterator();
-       while(e.hasNext()){//recorro lista de procesos 
+        //Creo la lista que contiene la memoria virtual
+        Paginas Pagina;
+        for (int i = 0; i < Informacion_Configuracion.Cantidad_Total_Paginas_Memoria_Virtual; i++) {
+              Pagina= new Paginas(0,0); 
+              Informacion_Configuracion.Memoria_Virtual.add(Pagina);
+                       
+        }
+    }
+    //Metodo que recorre la lista de procesos y asigna al proceso las paginas
+    public void Recorrer_Lista_Procesos_Asinar_Memoria_Virtual(){
+         LinkedHashMap <Integer, Interface_Proceso> R= Informacion_Configuracion.Lista_Procesos;
+        Iterator e= R.keySet().iterator();
+       while(e.hasNext()){
            Integer key=(int)e.next();
-            if (Informacion_Configuracion.Memoria_Virtual.isEmpty()){ //inicializo las variables 
-                //revisar
-            }
-            //realizo unas operaciones
-            int Convertir_Tamaño_Proceso= ListaProcesos.get(key).Tamaño_Total_Proceso(); // paso de KB, la memoria total requerida
+            Asignar_Paginas_Proceso(R.get(key));
+            
+        }
+    }
+       private int Cantidad_Paginas_Proceso(Interface_Proceso Proceso){
+         int Convertir_Tamaño_Proceso= Proceso.Tamaño_Total_Proceso(); // paso de KB, la memoria total requerida
                 //saber en cuantas paginas almaceno el proceso
             int Cantidad_Paginas;
             double tamaño=Convertir_Tamaño_Proceso/Informacion_Configuracion.Total_Tamaño_Pagina_Memoria;
@@ -36,46 +43,39 @@ public class Memoria_Virtual {
             else{
                 Cantidad_Paginas=(int)tamaño+1;
             }
-             
-            if (Almaceno_Proceso_en_Memoria_Virtual(Cantidad_Paginas)){//verifica que el proceso se pueda 
-                //almacenar en  memoria virtual 
-                System.out.println("Proceso: "+ListaProcesos.get(key).ID_Proceso()+ " TamañoT: "+ListaProcesos.get(key).Tamaño_Total_Proceso()
-                +"Cantidad Paginas "+Cantidad_Paginas);
-                 Crear_Paginas(ListaProcesos.get(key),Cantidad_Paginas);//crea las páginas y se las asigna al proceso
-                }
-        }
-       
-    }   
-    //Pregunta si se puede almacenar proceso en memoria virtual, debido al tamaño de memoria que requiere
-    public boolean Almaceno_Proceso_en_Memoria_Virtual(double Cantidad_Paginas){
-        
-        if(Informacion_Configuracion.Cantidad_Total_Paginas_Memoria_Virtual>Informacion_Configuracion.Memoria_Virtual.size()){
-                double Suma= Cantidad_Paginas+Informacion_Configuracion.Memoria_Virtual.size();
-               if (Informacion_Configuracion.Cantidad_Total_Paginas_Memoria_Virtual>Suma){
-                    return true;
-               }
-               else{
-                   return false;//no cabe en memoria virtual 
-               }
-               
-        }
-        else{
-            return false;// no cabe en memoria virtual
-        }
-    }
-    //Crea las paginas que se le asignnaran a cada proceso en memoria virtual
-    private void Crear_Paginas(Interface_Proceso Proceso, double Cantidad_Paginas){
+            return Cantidad_Paginas;
+       }
+        //Funcion que asigna al proceso la cantidad de paginas que requiere
+     //Validar que exista las páginas libres que requiera 
+      private void Asignar_Paginas_Proceso(Interface_Proceso Proceso){
+        int Cantidad_Paginas= Cantidad_Paginas_Proceso(Proceso);
         Paginas Pagina;
         int ID_Pagina=0;
         for (int i = 0; i <Cantidad_Paginas ; i++) {
-            Pagina= new Paginas(ID_Pagina, Proceso.ID_Proceso()); 
-            Informacion_Configuracion.Memoria_Virtual.put(Proceso.ID_Proceso()+"_"+ID_Pagina, Pagina);
+            Pagina= Retornar_Pagina_Desocupada();
+            if (Pagina!=null){//significa que la pagina está desocupada y lasogno
+            Pagina.ID_Proceso= Proceso.ID_Proceso(); 
+            Pagina.ID_Pagina=ID_Pagina;
             ID_Pagina++;
+            }
+            else{
+                break; //la memoria virtual ya esta llena
+            }
         }
         
 }        
-
-       /*Función que lee la referencia y retorna la dirección el id del proceso, la página y el desplazamiento
+     //Función que busca el primer elemento en memoria virtual que no este asignado a algún proceso
+      private Paginas Retornar_Pagina_Desocupada(){
+          //recorre toda la lista de memoria virtual 
+          for (int i = 0; i < Informacion_Configuracion.Memoria_Virtual.size(); i++) {
+              //l primera pagina que encuentre desocupada la retorna
+              if ( Informacion_Configuracion.Memoria_Virtual.get(i).ID_Proceso==0){
+                  return Informacion_Configuracion.Memoria_Virtual.get(i);
+              }                 
+          }
+          return null;
+      }
+            /*Función que lee la referencia y retorna la dirección el id del proceso, la página y el desplazamiento
    */
    public LinkedList Realizar_Conversion_de_Referencias(Interface_Referencia Referencia){
         LinkedList <Integer> ResultadoL= new LinkedList();
@@ -86,9 +86,7 @@ public class Memoria_Virtual {
         ResultadoL.add(Pagina);//almacena el numero de página
         ResultadoL.add(Desplazamiento);//almacena el desplazamiento 
         return ResultadoL;       
-    }
-        
-   
+    }   
 }
 
 
