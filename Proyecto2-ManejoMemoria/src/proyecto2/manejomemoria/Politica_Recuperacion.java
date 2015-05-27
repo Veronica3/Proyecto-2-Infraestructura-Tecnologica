@@ -36,33 +36,19 @@ public class Politica_Recuperacion {
     }
     //Trae a memoria un conjunto de paginas
     public void Prepaginacion(){
-        
+         LinkedList<Paginas> Memoria_Virtual=Estructura_DTO.Memoria_Virtual;
         int Cantidad_de_Procesos= Estructura_DTO.Lista_Procesos.size();
         //ID's
         int ID_Proceso_Buscado=2;
-       // int ID_Pagina_Buscado=1;
-        //Contadores 
-       // int Contador_ID_Proceso=0;
-        
-        //Key
-        Iterator<String> keySetIterator = Estructura_DTO.Memoria_Virtual.keySet().iterator();
         int Contador_ID_Pagina=0;
         //Ciclo de busqueda en los marcos
-        while(keySetIterator.hasNext()){
-            
-            //Agarra la llave actual
-            String key = keySetIterator.next();
-            //Parte la clave en ID_PROCESO ID_PAGINA
-            String[] Clave_Memoria_Virtual = key.split("_");
-            int ID_Proceso_Pagina = Integer.parseInt(Clave_Memoria_Virtual[0]); 
-            int ID_Pagina_Referenciada = Integer.parseInt(Clave_Memoria_Virtual[1]);
-            //System.out.println("ID proceso pagina mapa "+ID_Proceso_Pagina+" ID proceso buscado "+ ID_Proceso_Buscado);
-            System.out.println("FUERA if: Id pro pag "+ID_Proceso_Pagina+" ID proce buscad "+ID_Proceso_Buscado);  
+        for (int i = 0; i < Memoria_Virtual.size(); i++) {
+            System.out.println("for");
             //Pregunta si la pagina actual es del proceso Referenciado
-            if (ID_Proceso_Pagina==ID_Proceso_Buscado){
+            if (Memoria_Virtual.get(i).ID_Proceso==ID_Proceso_Buscado){
                 //Entra si todavia no se ha completado el numero de paginas
                 if (Contador_ID_Pagina<3/*working set*/){
-                   Paginas Pagina=Estructura_DTO.Memoria_Virtual.get(key);
+                   Paginas Pagina=Estructura_DTO.Memoria_Virtual.get(i);
                    Estructura_DTO.Paginas_Referenciadas.add(Pagina);
                    Contador_ID_Pagina+=1;
                 }
@@ -70,7 +56,7 @@ public class Politica_Recuperacion {
             }
            
             else{
-               Paginas Pagina=Estructura_DTO.Memoria_Virtual.get(key);
+               Paginas Pagina=Estructura_DTO.Memoria_Virtual.get(i);
                Estructura_DTO.Paginas_Referenciadas.add(Pagina);
                ID_Proceso_Buscado+=1;
                Contador_ID_Pagina=1;

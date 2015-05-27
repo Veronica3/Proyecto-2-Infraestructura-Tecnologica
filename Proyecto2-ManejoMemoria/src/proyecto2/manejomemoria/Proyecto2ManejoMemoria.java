@@ -7,8 +7,8 @@ public class Proyecto2ManejoMemoria {
     public static void main(String[] args) throws IOException{
        Manejo_de_Archivos Manejo_Archivos= new Manejo_de_Archivos();
         DTO COnf= new DTO( "Politica_Recuperacion", "Politica_Ubicacion", "Politica_Reemplazo", "Politica_Limpieza",4, "Tamaño_Conjunto",  2, 5,3,"Ambito_Reemplazo", 5, 4,250,32,12, "K");
-        COnf.Agregar_Archivos( "C:\\Users\\vero0_000\\Dropbox\\Documents\\NetBeansProjects\\Proyecto-2-Infraestructura-Tecnologica\\Proyecto2-ManejoMemoria\\src\\proyecto2\\manejomemoria\\Procesos.txt",
-        "C:\\Users\\vero0_000\\Dropbox\\Documents\\NetBeansProjects\\Proyecto-2-Infraestructura-Tecnologica\\Proyecto2-ManejoMemoria\\src\\proyecto2\\manejomemoria\\Referencias.txt");
+        COnf.Agregar_Archivos( "C:\\Users\\Gabriela\\Documents\\NetBeansProjects\\Proyecto-2-Infraestructura-Tecnologica\\Proyecto2-ManejoMemoria\\src\\proyecto2\\manejomemoria\\Procesos.txt",
+        "C:\\Users\\Gabriela\\Documents\\NetBeansProjects\\Proyecto-2-Infraestructura-Tecnologica\\Proyecto2-ManejoMemoria\\src\\proyecto2\\manejomemoria\\Referencias.txt");
 //Abre el archivo y toma los datosC:\\Users\\vero0_000\\Dropbox\\Documents\\NetBeansProjects\\Proyecto-2-Infraestructura-Tecnologica\\Proyecto2-ManejoMemoria\\src\\proyecto2\\manejomemoria\\
        LinkedList L= Manejo_Archivos.Leer_archivo(COnf.Nombre_Archivo_Procesos);
        //crea la lista de procesos
@@ -36,6 +36,10 @@ public class Proyecto2ManejoMemoria {
         V.Crear_Memoria_Virtual();
          System.out.println(COnf.Memoria_Virtual.get(0).ID_Proceso);
         V.Recorrer_Lista_Procesos_Asinar_Memoria_Virtual();
+        
+        //PRUEBA PARA RECUPERACION
+        Politica_Recuperacion PR= new Politica_Recuperacion(COnf);
+        PR.Prepaginacion();
         /*for (int i = 0; i < COnf.Memoria_Virtual.size(); i++) {
              System.out.println(COnf.Memoria_Virtual.get(i).ID_Proceso);
         }*/

@@ -16,10 +16,10 @@ public class Imprimir_Para_Pruebas {
     ////////////////////////////////////////////////////////////////////////////////////////
     //Funcion para PRUEBA IMPRESION
     public void imprime_lista_paginas(){
-       
+        LinkedList<Paginas> Lista_Paginas_Referenciadas=Estrutura_DTO.Paginas_Referenciadas;
         System.out.println("\nIMPRIME PAGINAS**********");
-        for (int i = 0; i < Estrutura_DTO.Paginas_Referenciadas.size(); i++) {
-            System.out.println("PG  "+ Estrutura_DTO.Paginas_Referenciadas.get(i).ID_Pagina+ " Proceso> "+ Estrutura_DTO.Paginas_Referenciadas.get(i).ID_Proceso);
+        for (int i = 0; i < Lista_Paginas_Referenciadas.size(); i++) {
+            System.out.println("PG  "+ Lista_Paginas_Referenciadas.get(i).ID_Pagina+ " Proceso> "+ Lista_Paginas_Referenciadas.get(i).ID_Proceso);
         }
         System.out.println("*************************************************");
 
