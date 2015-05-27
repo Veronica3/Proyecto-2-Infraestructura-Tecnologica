@@ -1,0 +1,611 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <NonVisualComponents>
+    <Component class="javax.swing.ButtonGroup" name="Grupo_RB_Pol&#xed;tica_Recuperaci&#xf3;n">
+    </Component>
+    <Component class="javax.swing.ButtonGroup" name="Grupo_RB_Pol&#xed;tica_Ubicaci&#xf3;n">
+    </Component>
+    <Component class="javax.swing.ButtonGroup" name="Grupo_RB_Pol&#xed;tica_Reemplazo">
+    </Component>
+    <Component class="javax.swing.ButtonGroup" name="Grupo_RB_Tama&#xf1;o_residente">
+    </Component>
+    <Component class="javax.swing.ButtonGroup" name="Grupo_RB_Ambito_reemplazo_residente">
+    </Component>
+    <Component class="javax.swing.ButtonGroup" name="Grupo_RB_Pol&#xed;tica_Limpieza">
+    </Component>
+  </NonVisualComponents>
+  <Properties>
+    <Property name="defaultCloseOperation" type="int" value="3"/>
+    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+      <Color blue="99" green="99" red="0" type="rgb"/>
+    </Property>
+    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+      <Color blue="99" green="99" red="0" type="rgb"/>
+    </Property>
+  </Properties>
+  <SyntheticProperties>
+    <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
+  </SyntheticProperties>
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace max="32767" attributes="0"/>
+              <Component id="Configuración_Sistema" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="390" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="Descripción_Programa" min="-2" pref="271" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="Indicaciones_Programa" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                              <Component id="Indicaciones2" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="Política_recuperación" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="RB_Bajo_Demanda" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="RB_Paginación_Adelantada" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="Política_Ubicación" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="RB_Primer_Ajuste" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="RB_Siguiente_Ajuste" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="Política_reemplazo" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="RB_Optimo" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="RB_FIFO" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="RB_Reloj" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="RB_LRU" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="Grado_multiprogramación" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="Text_Grado_Multiprogramación" min="-2" pref="36" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="Control_carga" min="-2" max="-2" attributes="0"/>
+                                  <Component id="RB_Limpieza_adelantada" min="-2" max="-2" attributes="0"/>
+                                  <Component id="RB_Bajo_Demanda_L" min="-2" max="-2" attributes="0"/>
+                                  <Component id="Política_Limpieza" min="-2" max="-2" attributes="0"/>
+                                  <Component id="Gestión_conjunto_residente" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="Tamaño_Conjunto_residente" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="RB_Fijo" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="RB_Variable" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="RB_Global" min="-2" max="-2" attributes="0"/>
+                                  <Component id="Ambito_reemplazo_conjunto" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="RB_Local" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                      <EmptySpace min="-2" pref="178" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="Cantidad_referencias" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="Text_Cantidad_referencias" max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="Indicaciones_tamaño_memorias" min="-2" max="-2" attributes="0"/>
+                                  <Component id="Distribucción_direcciones" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="1" attributes="0">
+                                          <Group type="102" attributes="0">
+                                              <Component id="Tamaño_pagina" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+                                              <Component id="Text_tamaño_pagina" min="-2" pref="33" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="Cantidad_memoria" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                              <Component id="Text_Tamaño_direcciones" min="-2" pref="35" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="bits" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="Indicación3" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <Component id="Cantidad_memoria_fisica" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                                      <Component id="Text_Cantidad_memoria_fisica" min="-2" pref="36" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="KB" min="-2" pref="21" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="Visualizar_estado" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="0" pref="38" max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
+                  </Group>
+              </Group>
+              <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="289" max="-2" attributes="0"/>
+              <Component id="Botón_Crear_Sistema" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
+              <Component id="Salir" min="-2" pref="90" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
+              <Component id="jButton1" min="-2" pref="103" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="Descripción_Programa" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+              <Component id="Configuración_Sistema" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+              <Component id="Indicaciones_Programa" min="-2" pref="14" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="Indicaciones2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="Indicaciones_tamaño_memorias" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="89" max="-2" attributes="0"/>
+                      <Component id="Política_Ubicación" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="RB_Primer_Ajuste" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="RB_Siguiente_Ajuste" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="Política_recuperación" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="Gestión_conjunto_residente" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="Cantidad_memoria" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="Text_Tamaño_direcciones" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="bits" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="RB_Bajo_Demanda" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="Tamaño_Conjunto_residente" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="RB_Paginación_Adelantada" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="RB_Fijo" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="RB_Variable" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="Ambito_reemplazo_conjunto" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="Indicación3" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="RB_Global" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="Cantidad_memoria_fisica" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="Text_Cantidad_memoria_fisica" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="KB" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="RB_Local" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                      <Component id="Distribucción_direcciones" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="Tamaño_pagina" alignment="3" min="-2" pref="21" max="-2" attributes="0"/>
+                          <Component id="Text_tamaño_pagina" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="Política_reemplazo" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="RB_Optimo" min="-2" pref="23" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="RB_FIFO" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="RB_LRU" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="RB_Reloj" min="-2" pref="26" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="Política_Limpieza" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="Visualizar_estado" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="RB_Bajo_Demanda_L" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="Cantidad_referencias" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="Text_Cantidad_referencias" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="RB_Limpieza_adelantada" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
+                      <Component id="Control_carga" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="Grado_multiprogramación" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="Text_Grado_Multiprogramación" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+              </Group>
+              <EmptySpace pref="26" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="Botón_Crear_Sistema" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="Salir" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Component class="javax.swing.JLabel" name="Configuraci&#xf3;n_Sistema">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="14" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Configuraci&#xf3;n del sistema"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="Descripci&#xf3;n_Programa">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="12" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Programa de simulaci&#xf3;n de gesti&#xf3;n de memoria."/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="Indicaciones_Programa">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Existen diferentes algoritmos para los aspectos de la gesti&#xf3;n de la memoria "/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="Pol&#xed;tica_recuperaci&#xf3;n">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="11" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Pol&#xed;tica de recuperaci&#xf3;n"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JRadioButton" name="RB_Bajo_Demanda">
+      <Properties>
+        <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+          <ComponentRef name="Grupo_RB_Pol&#xed;tica_Recuperaci&#xf3;n"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Bajo Demanda"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JRadioButton" name="RB_Paginaci&#xf3;n_Adelantada">
+      <Properties>
+        <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+          <ComponentRef name="Grupo_RB_Pol&#xed;tica_Recuperaci&#xf3;n"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Paginaci&#xf3;n Adelantada"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="Pol&#xed;tica_Ubicaci&#xf3;n">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="11" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Pol&#xed;tica de ubicaci&#xf3;n"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JRadioButton" name="RB_Primer_Ajuste">
+      <Properties>
+        <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+          <ComponentRef name="Grupo_RB_Pol&#xed;tica_Ubicaci&#xf3;n"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Primer Ajuste"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="RB_Primer_AjusteActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JRadioButton" name="RB_Siguiente_Ajuste">
+      <Properties>
+        <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+          <ComponentRef name="Grupo_RB_Pol&#xed;tica_Ubicaci&#xf3;n"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Siguiente Ajuste"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="RB_Siguiente_AjusteActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="Pol&#xed;tica_reemplazo">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="11" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Pol&#xed;tica de reemplazo"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JRadioButton" name="RB_Optimo">
+      <Properties>
+        <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+          <ComponentRef name="Grupo_RB_Pol&#xed;tica_Reemplazo"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="&#xd3;ptimo"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JRadioButton" name="RB_LRU">
+      <Properties>
+        <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+          <ComponentRef name="Grupo_RB_Pol&#xed;tica_Reemplazo"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Usado menos recientemente"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JRadioButton" name="RB_FIFO">
+      <Properties>
+        <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+          <ComponentRef name="Grupo_RB_Pol&#xed;tica_Reemplazo"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="FIFO"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JRadioButton" name="RB_Reloj">
+      <Properties>
+        <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+          <ComponentRef name="Grupo_RB_Pol&#xed;tica_Reemplazo"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Del reloj"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="Gesti&#xf3;n_conjunto_residente">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="11" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Gesti&#xf3;n del conjunto residente"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="Tama&#xf1;o_Conjunto_residente">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="11" style="2"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Tama&#xf1;o del conjunto residente"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JRadioButton" name="RB_Fijo">
+      <Properties>
+        <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+          <ComponentRef name="Grupo_RB_Tama&#xf1;o_residente"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Fijo"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JRadioButton" name="RB_Variable">
+      <Properties>
+        <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+          <ComponentRef name="Grupo_RB_Tama&#xf1;o_residente"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Variable"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="Ambito_reemplazo_conjunto">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="11" style="2"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="&#xc1;mbito de reemplazo"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JRadioButton" name="RB_Global">
+      <Properties>
+        <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+          <ComponentRef name="Grupo_RB_Ambito_reemplazo_residente"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Global"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="RB_GlobalActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JRadioButton" name="RB_Local">
+      <Properties>
+        <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+          <ComponentRef name="Grupo_RB_Ambito_reemplazo_residente"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Local"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="Pol&#xed;tica_Limpieza">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="11" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Pol&#xed;tica de limpieza"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JRadioButton" name="RB_Bajo_Demanda_L">
+      <Properties>
+        <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+          <ComponentRef name="Grupo_RB_Pol&#xed;tica_Limpieza"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Bajo demanda"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JRadioButton" name="RB_Limpieza_adelantada">
+      <Properties>
+        <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+          <ComponentRef name="Grupo_RB_Pol&#xed;tica_Limpieza"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Limpieza adelantada"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="Control_carga">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="11" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Control de carga"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="Grado_multiprogramaci&#xf3;n">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Grado multiprogramaci&#xf3;n:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="Text_Grado_Multiprogramaci&#xf3;n">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Text_Grado_Multiprogramaci&#xf3;nActionPerformed"/>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="Text_Grado_Multiprogramaci&#xf3;nKeyTyped"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="Indicaciones2">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Escoger un algoritmo para cada aspecto de la gesti&#xf3;n de memoria:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="Indicaciones_tama&#xf1;o_memorias">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Asignaci&#xf3;n del tama&#xf1;o de la memoria f&#xed;sica y el tama&#xf1;o de la memoria virtual"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="Cantidad_memoria">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Tama&#xf1;o de direcciones:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="Text_Tama&#xf1;o_direcciones">
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="Text_Tama&#xf1;o_direccionesKeyTyped"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="bits">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="11" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="bits"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="Distribucci&#xf3;n_direcciones">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="11" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Distribuci&#xf3;n en bits de las direcciones"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="Tama&#xf1;o_pagina">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Tama&#xf1;o de p&#xe1;gina:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="Text_tama&#xf1;o_pagina">
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="Text_tama&#xf1;o_paginaKeyTyped"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="Indicaci&#xf3;n3">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="11" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="La unidad de medida que utiliza la memoria son Kilobytes (KB)"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="Cantidad_memoria_fisica">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Cantidad memoria f&#xed;sica: "/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="Text_Cantidad_memoria_fisica">
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="Text_Cantidad_memoria_fisicaKeyTyped"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="KB">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="11" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="KB"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="Visualizar_estado">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="11" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Visualizar estado memoria virtual y memoria f&#xed;sica"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="Cantidad_referencias">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Cantidad de referencias para visualizar estado memoria f&#xed;sica y virtual: "/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="Text_Cantidad_referencias">
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="Text_Cantidad_referenciasKeyTyped"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="Bot&#xf3;n_Crear_Sistema">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="12" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Crear Sistema"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Bot&#xf3;n_Crear_SistemaActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="Salir">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="14" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Salir"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SalirActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="jButton1">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="12" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Regresar"/>
+      </Properties>
+    </Component>
+  </SubComponents>
+</Form>
