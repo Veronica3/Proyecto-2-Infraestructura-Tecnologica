@@ -17,23 +17,35 @@ public class Busca_Paginas {
         for (int i = 0; i < Memoria_Virtual.size(); i++) {
            //Pregunta si ID de proceso y Pagina coinciden
             if (Memoria_Virtual.get(i).ID_Pagina==ID_Pagina_Referenciada && Memoria_Virtual.get(i).ID_Proceso==ID_Proceso_Pagina){
-                Pagina_Retornada= Memoria_Virtual.get(i);
+                return Pagina_Retornada= Memoria_Virtual.get(i);
             }
-            //Paginas Pagina=Memoria_Virtual.get(i);
                      
         }
         return Pagina_Retornada;
     
     }
+    public int Busca_Pagina_En_Memoria_Fisica(Paginas Pagina_Referenciada){
+        LinkedList<Marco> Memoria_Fisica=Estructura_DTO.Memoria_Fisica;
+        //Ciclo de busqueda en los marcos
+        for (int i = 0; i < Memoria_Fisica.size(); i++) {
+           //Pregunta si ID de proceso y Pagina coinciden
+            if (Memoria_Fisica.get(i).Pagina.ID_Pagina==Pagina_Referenciada.ID_Pagina && Memoria_Fisica.get(i).Pagina.ID_Proceso==Pagina_Referenciada.ID_Proceso){
+                return Memoria_Fisica.get(i).ID_Marco;
+            }
+                     
+        }
+        return -1;
+    
+    }
        ////////////////////////////////////////////////////////////////////////////////////////
     //Funcion para buscar la pagina en los marcos
       public Paginas Busca_Pagina_En_Memoria_Principal (Paginas Pagina_Referenciada){
-         LinkedList<Paginas> Memoria_Virtual=Estructura_DTO.Memoria_Virtual;
+         LinkedList<Paginas> Lista_Memoria_Principal=Estructura_DTO.Lista_Paginas_En_Memoria_Principal;
         //Ciclo de busqueda en los marcos
-        for (int i = 0; i < Memoria_Virtual.size(); i++) {
+        for (int i = 0; i < Lista_Memoria_Principal.size(); i++) {
            //Pregunta si ID de proceso y Pagina coinciden
-            if (Memoria_Virtual.get(i).ID_Pagina==Pagina_Referenciada.ID_Pagina && Memoria_Virtual.get(i).ID_Proceso==Pagina_Referenciada.ID_Proceso){
-                Pagina_Retornada= Memoria_Virtual.get(i);
+            if (Lista_Memoria_Principal.get(i).ID_Pagina==Pagina_Referenciada.ID_Pagina && Lista_Memoria_Principal.get(i).ID_Proceso==Pagina_Referenciada.ID_Proceso){
+                return Pagina_Retornada= Lista_Memoria_Principal.get(i);
             }         
         }
         return Pagina_Retornada;

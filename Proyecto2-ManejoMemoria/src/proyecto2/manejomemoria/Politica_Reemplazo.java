@@ -4,14 +4,10 @@ import java.util.*;
 import java.util.HashMap;
 
 public class Politica_Reemplazo {
-    //Instancia para ubicar la nueva Pagina
-    Politica_Ubicacion Ubicacion_Pagina;
-    //Estructura
-    DTO Estructura_DTO;
-    //Lista de paginas en memoria principal
-    LinkedList<Paginas> Lista_Paginas_En_Memoria_Principal=new LinkedList<>();
-    //Mapa de MARCOS
-    HashMap<Integer, Marco> Mapa_Marcos = new HashMap<Integer, Marco>();
+    
+    Politica_Ubicacion Ubicacion_Pagina= new Politica_Ubicacion(); //Instancia para ubicar la nueva Pagina
+    DTO Estructura_DTO; //Estructura
+    LinkedList<Paginas> Lista_Paginas_En_Memoria_Principal;
     //Busca Paginas para ALGORITMOS de LRU y MRU
     Busca_Paginas Buscar_Pagina;
     //Para PRUEBAS
@@ -19,38 +15,28 @@ public class Politica_Reemplazo {
     //Lista para algoritmo RELOJ
     Lista_Circular Lista_Reloj= new Lista_Circular();
     
-   // PRUEBAS 
-     //Nuevas paginas
-     Paginas pg1= new Paginas(1, 1);
-     Paginas pg2= new Paginas(2, 1);
-     Paginas pg3= new Paginas(3, 2);
-     Paginas pg4= new Paginas(4, 3);
      //Pagina que no se ha asignado a un marco
      Paginas pg5= new Paginas(5, 3);
-     
+
+    public Politica_Reemplazo(DTO Estructura_DTO) {
+        
+        this.Estructura_DTO = Estructura_DTO;
+        this.Lista_Paginas_En_Memoria_Principal= Estructura_DTO.Lista_Paginas_En_Memoria_Principal;
+        
+    }
+
      //Nuevos Marcos
-    /* Marco m1= new Marco(1, 20, 0, 19, pg1);
-     Marco m2= new Marco(2, 20, 0, 19, pg2);
-     Marco m3= new Marco(3, 20, 0, 19, pg3);
-     Marco m4= new Marco(4, 20, 0, 19, pg4);
-     */
+     Marco m1= new Marco(1, Estructura_DTO.Memoria_Virtual.get(0),2);
+     Marco m2= new Marco(2, Estructura_DTO.Memoria_Virtual.get(1),3);
+     Marco m3= new Marco(3, Estructura_DTO.Memoria_Virtual.get(2),4);
+     Marco m4= new Marco(4, Estructura_DTO.Memoria_Virtual.get(3),5);
+     
     //Mapa de marcos
      
     ////////////////////////////////////////////////////////////////////////////////////////
      //FUNCION DE PRUEBA
    public void llena(){
          
-         //Llena la lista
-         System.out.println(pg1.ID_Pagina);
-         Lista_Paginas_En_Memoria_Principal.addFirst(pg1);
-         Lista_Paginas_En_Memoria_Principal.addFirst(pg2);
-         Lista_Paginas_En_Memoria_Principal.addFirst(pg3);
-         Lista_Paginas_En_Memoria_Principal.addFirst(pg4);
-        // Lista_Paginas_En_Memoria_Principal.addFirst(pg5);
-         //Agrego marcos 
-        
-         //Cargo paginas a marcos bit de presente pasa a true
-       
          
     }
     ////////////////////////////////////////////////////////////////////////////////////////
@@ -117,10 +103,11 @@ public class Politica_Reemplazo {
     ////////////////////////////////////////////////////////////////////////////////////////
     public void Remover_Pagina_Del_Marco(Paginas Pagina_A_Remover){
         Buscar_Pagina= new Busca_Paginas(Estructura_DTO);
+        
         //Obtengo ID del marco donde se encuentra la pagina a remover
-        /*int ID_Marco= Buscar_Pagina.Busca_Pagina_En_Memoria_Principal(Lista_Paginas_En_Memoria_Principal,Mapa_Marcos,Pagina_A_Remover);
+        int ID_Marco= Buscar_Pagina.Busca_Pagina_En_Memoria_Fisica(Pagina_A_Remover);
         //Valida que el MARCO EXISTA
-        if (ID_Marco!=-1){
+      /*  if (ID_Marco!=-1){
             //Creo un nuevo marco, que obtiene la pagina a remover
             Marco marco= Mapa_Marcos.get(ID_Marco);
             //remuevo la pagina del marco
