@@ -1,4 +1,3 @@
-
 package proyecto2.manejomemoria;
 import java.util.*;
 //Politica de recuparacion... Para traer paginas de MEMORIA VIRTUAL a MEMORIA PRINCIPAL
@@ -22,6 +21,9 @@ public class Politica_Recuperacion {
     public void Paginacion_Bajo_Demanda( Paginas Pagina_Referenciada){
         
         if (Esta_En_Memoria_Principal(Pagina_Referenciada)){
+            System.out.println("La pagina ya se encuentra en memoria principal");
+        }
+        else {
             int ID_Proceso_Pagina= Pagina_Referenciada.ID_Proceso;
             int ID_Pagina_Referenciada= Pagina_Referenciada.ID_Pagina;
             Paginas Pagina_Buscada_En_Memoria_Virtual= Buscar_Pagina.Busca_Pagina_En_Memoria_Virtual(ID_Proceso_Pagina, ID_Pagina_Referenciada);
@@ -29,8 +31,8 @@ public class Politica_Recuperacion {
             if (Pagina_Buscada_En_Memoria_Virtual!=null){
                 //LLAMA A POLITICA DE UBICACION Y LE ENVIA LA PAGINA
             }
-            
         }
+            
     }
     //Trae a memoria un conjunto de paginas
     public void Prepaginacion(){
@@ -58,6 +60,7 @@ public class Politica_Recuperacion {
             System.out.println("FUERA if: Id pro pag "+ID_Proceso_Pagina+" ID proce buscad "+ID_Proceso_Buscado);  
             //Pregunta si la pagina actual es del proceso Referenciado
             if (ID_Proceso_Pagina==ID_Proceso_Buscado){
+                //Entra si todavia no se ha completado el numero de paginas
                 if (Contador_ID_Pagina<3/*working set*/){
                    Paginas Pagina=Estructura_DTO.Memoria_Virtual.get(key);
                    Estructura_DTO.Paginas_Referenciadas.add(Pagina);
@@ -73,6 +76,7 @@ public class Politica_Recuperacion {
                Contador_ID_Pagina=1;
             }
           }
+        //LLAMO A FUNCION DE UBICACION-
         Imprimir_Para_Pruebas Imprime= new Imprimir_Para_Pruebas(Estructura_DTO);
         Imprime.imprime_lista_paginas();
         

@@ -29,11 +29,11 @@ public class Politica_Reemplazo {
      Paginas pg5= new Paginas(5, 3);
      
      //Nuevos Marcos
-     Marco m1= new Marco(1, 20, 0, 19, pg1);
+    /* Marco m1= new Marco(1, 20, 0, 19, pg1);
      Marco m2= new Marco(2, 20, 0, 19, pg2);
      Marco m3= new Marco(3, 20, 0, 19, pg3);
      Marco m4= new Marco(4, 20, 0, 19, pg4);
-     
+     */
     //Mapa de marcos
      
     ////////////////////////////////////////////////////////////////////////////////////////
@@ -48,15 +48,9 @@ public class Politica_Reemplazo {
          Lista_Paginas_En_Memoria_Principal.addFirst(pg4);
         // Lista_Paginas_En_Memoria_Principal.addFirst(pg5);
          //Agrego marcos 
-         Mapa_Marcos.put(1,m1);
-         Mapa_Marcos.put(2,m2);
-         Mapa_Marcos.put(3,m3);
-         Mapa_Marcos.put(4,m4);
+        
          //Cargo paginas a marcos bit de presente pasa a true
-       /*  pg1.Bit_Presente=true;
-         pg2.Bit_Presente=true;
-         pg3.Bit_Presente=true;
-         pg4.Bit_Presente=true;*/
+       
          
     }
     ////////////////////////////////////////////////////////////////////////////////////////

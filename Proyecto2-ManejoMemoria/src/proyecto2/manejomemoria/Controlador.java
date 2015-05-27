@@ -1,4 +1,3 @@
-
 package proyecto2.manejomemoria;
 import java.util.*;
 
@@ -21,7 +20,7 @@ public class Controlador {
         }
         else{
             Llamada_Politica_Recuperacion.Prepaginacion();
-            /*LUEGO LEO REFERENCIAS DE PROCESOS?*/
+            //LUEGO LEO REFERENCIAS DE PROCESOS?
             Leer_Referencias();
         }
     }
