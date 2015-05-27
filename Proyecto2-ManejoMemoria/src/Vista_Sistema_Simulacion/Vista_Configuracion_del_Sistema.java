@@ -1,6 +1,7 @@
 
 package Vista_Sistema_Simulacion;
 import proyecto2.manejomemoria.*;
+import java.util.*;
 
 public class Vista_Configuracion_del_Sistema extends javax.swing.JFrame {
 
@@ -70,7 +71,17 @@ public class Vista_Configuracion_del_Sistema extends javax.swing.JFrame {
         Text_Cantidad_referencias = new javax.swing.JTextField();
         Botón_Crear_Sistema = new javax.swing.JButton();
         Salir = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        Botón_Regresar = new javax.swing.JButton();
+        Tiempo_Limpieza = new javax.swing.JLabel();
+        Text_Tiempo_Limpieza = new javax.swing.JTextField();
+        Cantidad_Tamaño_Conjuto_residente = new javax.swing.JLabel();
+        Text_Tamaño_conjunto_residente = new javax.swing.JTextField();
+        Minimo = new javax.swing.JLabel();
+        Text_Minimo = new javax.swing.JTextField();
+        Maximo = new javax.swing.JLabel();
+        Text_Maximo = new javax.swing.JTextField();
+        Periodo_aumento_conjunto_resident = new javax.swing.JLabel();
+        Text_Periodo_aumento = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 153, 153));
@@ -161,6 +172,11 @@ public class Vista_Configuracion_del_Sistema extends javax.swing.JFrame {
 
         Grupo_RB_Política_Limpieza.add(RB_Limpieza_adelantada);
         RB_Limpieza_adelantada.setText("Limpieza adelantada");
+        RB_Limpieza_adelantada.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                RB_Limpieza_adelantadaKeyPressed(evt);
+            }
+        });
 
         Control_carga.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         Control_carga.setText("Control de carga");
@@ -245,8 +261,68 @@ public class Vista_Configuracion_del_Sistema extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jButton1.setText("Regresar");
+        Botón_Regresar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        Botón_Regresar.setText("Regresar");
+        Botón_Regresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Botón_RegresarActionPerformed(evt);
+            }
+        });
+
+        Tiempo_Limpieza.setText("Tiempo de limpieza:");
+
+        Text_Tiempo_Limpieza.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Text_Tiempo_LimpiezaActionPerformed(evt);
+            }
+        });
+        Text_Tiempo_Limpieza.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                Text_Tiempo_LimpiezaKeyTyped(evt);
+            }
+        });
+
+        Cantidad_Tamaño_Conjuto_residente.setText("Tamaño:");
+
+        Text_Tamaño_conjunto_residente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Text_Tamaño_conjunto_residenteActionPerformed(evt);
+            }
+        });
+        Text_Tamaño_conjunto_residente.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                Text_Tamaño_conjunto_residenteKeyTyped(evt);
+            }
+        });
+
+        Minimo.setText("Mínimo:");
+
+        Text_Minimo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Text_MinimoActionPerformed(evt);
+            }
+        });
+        Text_Minimo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                Text_MinimoKeyTyped(evt);
+            }
+        });
+
+        Maximo.setText("Máximo:");
+
+        Text_Maximo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                Text_MaximoKeyTyped(evt);
+            }
+        });
+
+        Periodo_aumento_conjunto_resident.setText("Periodo de aumento:");
+
+        Text_Periodo_aumento.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                Text_Periodo_aumentoKeyTyped(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -264,47 +340,46 @@ public class Vista_Configuracion_del_Sistema extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(32, 32, 32)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Indicaciones_Programa)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(20, 20, 20)
-                                .addComponent(Indicaciones2))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(Política_recuperación)
-                                    .addComponent(RB_Bajo_Demanda)
-                                    .addComponent(RB_Paginación_Adelantada)
-                                    .addComponent(Política_Ubicación)
-                                    .addComponent(RB_Primer_Ajuste)
-                                    .addComponent(RB_Siguiente_Ajuste)
-                                    .addComponent(Política_reemplazo)
-                                    .addComponent(RB_Optimo)
-                                    .addComponent(RB_FIFO)
-                                    .addComponent(RB_Reloj)
-                                    .addComponent(RB_LRU))
-                                .addGap(52, 52, 52)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(Indicaciones_Programa)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(Grado_multiprogramación)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(Text_Grado_Multiprogramación, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(Control_carga)
-                                    .addComponent(RB_Limpieza_adelantada)
-                                    .addComponent(RB_Bajo_Demanda_L)
-                                    .addComponent(Política_Limpieza)
-                                    .addComponent(Gestión_conjunto_residente)
-                                    .addComponent(Tamaño_Conjunto_residente)
-                                    .addComponent(RB_Fijo)
-                                    .addComponent(RB_Variable)
-                                    .addComponent(RB_Global)
-                                    .addComponent(Ambito_reemplazo_conjunto)
-                                    .addComponent(RB_Local))))
-                        .addGap(178, 178, 178)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(Cantidad_referencias)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(Text_Cantidad_referencias))
-                            .addGroup(layout.createSequentialGroup()
+                                        .addGap(20, 20, 20)
+                                        .addComponent(Indicaciones2))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(Política_recuperación)
+                                            .addComponent(RB_Bajo_Demanda)
+                                            .addComponent(RB_Paginación_Adelantada)
+                                            .addComponent(Política_Ubicación)
+                                            .addComponent(RB_Primer_Ajuste)
+                                            .addComponent(RB_Siguiente_Ajuste))
+                                        .addGap(78, 78, 78)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(Gestión_conjunto_residente)
+                                            .addComponent(RB_Local)
+                                            .addComponent(RB_Fijo)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(Cantidad_Tamaño_Conjuto_residente)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(Text_Tamaño_conjunto_residente, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(Periodo_aumento_conjunto_resident)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(Text_Periodo_aumento, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(RB_Global)
+                                            .addComponent(Ambito_reemplazo_conjunto)
+                                            .addComponent(RB_Variable)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(Minimo)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(Text_Minimo, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(Maximo)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(Text_Maximo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(Tamaño_Conjunto_residente))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(Indicaciones_tamaño_memorias)
                                     .addComponent(Distribucción_direcciones)
@@ -326,18 +401,51 @@ public class Vista_Configuracion_del_Sistema extends javax.swing.JFrame {
                                         .addGap(33, 33, 33)
                                         .addComponent(Text_Cantidad_memoria_fisica, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(KB, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(Visualizar_estado))
-                                .addGap(0, 38, Short.MAX_VALUE)))))
+                                        .addComponent(KB, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(Política_reemplazo)
+                                    .addComponent(RB_Optimo)
+                                    .addComponent(RB_FIFO)
+                                    .addComponent(RB_Reloj)
+                                    .addComponent(RB_LRU))
+                                .addGap(36, 36, 36)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(RB_Limpieza_adelantada)
+                                    .addComponent(RB_Bajo_Demanda_L)
+                                    .addComponent(Política_Limpieza)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addGap(21, 21, 21)
+                                            .addComponent(Tiempo_Limpieza)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(Text_Tiempo_Limpieza, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addGap(1, 1, 1)
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addGroup(layout.createSequentialGroup()
+                                                    .addComponent(Control_carga)
+                                                    .addGap(54, 54, 54))
+                                                .addGroup(layout.createSequentialGroup()
+                                                    .addComponent(Grado_multiprogramación)
+                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                    .addComponent(Text_Grado_Multiprogramación, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                    .addComponent(Botón_Crear_Sistema))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(19, 19, 19)
+                                        .addComponent(Salir, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(61, 61, 61)
+                                        .addComponent(Botón_Regresar, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(251, 251, 251)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(Visualizar_estado)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(Cantidad_referencias)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(Text_Cantidad_referencias, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)))))))))
                 .addGap(24, 24, 24))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(289, 289, 289)
-                .addComponent(Botón_Crear_Sistema)
-                .addGap(61, 61, 61)
-                .addComponent(Salir, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(61, 61, 61)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -355,12 +463,12 @@ public class Vista_Configuracion_del_Sistema extends javax.swing.JFrame {
                 .addGap(10, 10, 10)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(89, 89, 89)
-                        .addComponent(Política_Ubicación)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(RB_Primer_Ajuste)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(RB_Siguiente_Ajuste))
+                        .addGap(27, 27, 27)
+                        .addComponent(Distribucción_direcciones)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(Tamaño_pagina, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Text_tamaño_pagina, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(Política_recuperación)
@@ -379,59 +487,92 @@ public class Vista_Configuracion_del_Sistema extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(RB_Variable)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(Ambito_reemplazo_conjunto)
-                            .addComponent(Indicación3))
-                        .addGap(5, 5, 5)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(RB_Global)
-                            .addComponent(Cantidad_memoria_fisica)
-                            .addComponent(Text_Cantidad_memoria_fisica, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(KB))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(RB_Local))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(27, 27, 27)
-                        .addComponent(Distribucción_direcciones)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(Tamaño_pagina, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Text_tamaño_pagina, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Indicación3)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(Cantidad_Tamaño_Conjuto_residente)
+                                .addComponent(Text_Tamaño_conjunto_residente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(Periodo_aumento_conjunto_resident)
+                                .addComponent(Text_Periodo_aumento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(3, 3, 3)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(20, 20, 20)
+                                        .addComponent(Política_Ubicación))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(12, 12, 12)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                            .addComponent(Minimo)
+                                            .addComponent(Text_Minimo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(Maximo)
+                                            .addComponent(Text_Maximo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(RB_Primer_Ajuste)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(RB_Siguiente_Ajuste))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(15, 15, 15)
+                                        .addComponent(Ambito_reemplazo_conjunto)
+                                        .addGap(5, 5, 5)
+                                        .addComponent(RB_Global)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(RB_Local))))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(Cantidad_memoria_fisica)
+                                .addComponent(Text_Cantidad_memoria_fisica, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(KB)))))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(Política_reemplazo)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(RB_Optimo, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(RB_FIFO)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(RB_LRU)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(RB_Reloj, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(Política_Limpieza)
-                            .addComponent(Visualizar_estado))
+                        .addGap(21, 21, 21)
+                        .addComponent(Visualizar_estado)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(RB_Bajo_Demanda_L)
                             .addComponent(Cantidad_referencias)
                             .addComponent(Text_Cantidad_referencias, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(RB_Limpieza_adelantada))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(75, 75, 75)
-                        .addComponent(Control_carga)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(29, 29, 29)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(68, 68, 68)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                            .addComponent(Tiempo_Limpieza)
+                                            .addComponent(Text_Tiempo_Limpieza, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(Política_Limpieza)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(RB_Bajo_Demanda_L)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(RB_Limpieza_adelantada)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(22, 22, 22)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                            .addComponent(Grado_multiprogramación)
+                                            .addComponent(Text_Grado_Multiprogramación, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(Control_carga)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(Política_reemplazo)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(RB_Optimo, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(RB_FIFO)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(RB_LRU)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(RB_Reloj, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(Grado_multiprogramación)
-                            .addComponent(Text_Grado_Multiprogramación, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Botón_Crear_Sistema)
-                    .addComponent(Salir)
-                    .addComponent(jButton1))
+                            .addComponent(Botón_Crear_Sistema)
+                            .addComponent(Salir)
+                            .addComponent(Botón_Regresar))))
                 .addContainerGap())
         );
 
@@ -485,40 +626,103 @@ public class Vista_Configuracion_del_Sistema extends javax.swing.JFrame {
     }//GEN-LAST:event_Text_Cantidad_referenciasKeyTyped
 
     private void Botón_Crear_SistemaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Botón_Crear_SistemaActionPerformed
+        
         //aquí inicializo el constructor del DTO
+        int Tiempo_de_Limpieza=Integer.parseInt(this.Text_Tiempo_Limpieza.getText());
+        int Minimo_Marcos=Integer.parseInt(this.Text_Minimo.getText());
+        int Maximo_Marcos=Integer.parseInt(this.Text_Maximo.getText());
+        int Tamano_aumento=Integer.parseInt(this.Text_Periodo_aumento.getText());
+        int Grado_Multiprogramacion=Integer.parseInt(this.Text_Grado_Multiprogramación.getText());
+        int Working_Set=Integer.parseInt(this.Text_Tamaño_conjunto_residente.getText());
+        int Tamaño_Memoria_Fisica=Integer.parseInt(this.Text_Cantidad_memoria_fisica.getText());
+        int Bits=Integer.parseInt(this.Text_Tamaño_direcciones.getText());//Tamaño de las direcciones
+        int Tamaño_Paginas= Integer.parseInt(this.Text_tamaño_pagina.getText());
+        String Unidad_Medida= "KB";
+        int Visualizar_Memorias_Cantidad_Referencias=Integer.parseInt(this.Text_Cantidad_referencias.getText());
+        
+        LinkedList<Integer> Validar_Numeros= new LinkedList();
+        Validar_Numeros.add(Tiempo_de_Limpieza);
+        Validar_Numeros.add(Minimo_Marcos);
+        Validar_Numeros.add(Maximo_Marcos);
+        Validar_Numeros.add(Tamano_aumento);
+        Validar_Numeros.add(Grado_Multiprogramacion);
+        Validar_Numeros.add(Working_Set);
+        Validar_Numeros.add(Tamaño_Memoria_Fisica);
+        Validar_Numeros.add(Bits);
+        Validar_Numeros.add(Tamaño_Paginas);
+        Validar_Numeros.add(Visualizar_Memorias_Cantidad_Referencias);
+        proyecto2.manejomemoria.Validaciones Validar_Datos= new Validaciones();
+        boolean Numeros_Son_Validos= Validar_Datos.Datos_Numericos_Vista_Validos(Validar_Numeros);//Validacion
+        if (!Numeros_Son_Validos){//existe un cero en la configuracion del sistema que es invalido
+             //Mensaje_Error.showMessageDialog(null,"Revise los numeros ingresados, no se permite el cero, ni numeros negativos","Dato inválido",Mensaje_Error.ERROR_MESSAGE);
+        }
         String Politica_Recuperacion;
         String Politica_Ubicacion;
         String Politica_Reemplazo;
         String Politica_Limpieza;
-        int Tiempo_de_Limpieza;
         String Tamaño_Conjunto;
-        int Minimo_Marcos;
-        int Maximo_Marcos;
-        int Tamano_aumento;
         String Ambito_Reemplazo;
-        int Grado_Multiprogramacion;
-        int Working_Set;
-        int Tamaño_Memoria_Fisica;
-        int Bits;//Tamaño de las direcciones
-        int Tamaño_Paginas;
-        String Unidad_Medida= "KB";
-        
-        Tamaño_Paginas= Integer.parseInt(this.Text_tamaño_pagina.getText());
-        Bits= Integer.parseInt(this.Text_Tamaño_direcciones.getText());
-        
-        //Validacion
-        if (Tamaño_Paginas<Bits){//si esto se cumple se puede seguir con la configuracion         
-        
-        proyecto2.manejomemoria.DTO Configuracion_sistema= new DTO( Politica_Recuperacion,  Politica_Ubicacion, 
+        /*proyecto2.manejomemoria.DTO Configuracion_sistema= new DTO( Politica_Recuperacion,  Politica_Ubicacion, 
                  Politica_Reemplazo,  Politica_Limpieza,  Tiempo_de_Limpieza,  Tamaño_Conjunto,  Minimo_Marcos,
                          Maximo_Marcos,  Tamano_aumento,  Ambito_Reemplazo,  Grado_Multiprogramacion,  Working_Set,
                                  Tamaño_Memoria_Fisica,  Bits,  Tamaño_Paginas,  Unidad_Medida);
-        }
+        */
+        //
     }//GEN-LAST:event_Botón_Crear_SistemaActionPerformed
 
     private void SalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalirActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_SalirActionPerformed
+
+    private void Botón_RegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Botón_RegresarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Botón_RegresarActionPerformed
+
+    private void Text_Tiempo_LimpiezaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Text_Tiempo_LimpiezaKeyTyped
+      char c= evt.getKeyChar();//solo acepta numeros
+        if (c<'0' || c>'9')
+            evt.consume();
+    }//GEN-LAST:event_Text_Tiempo_LimpiezaKeyTyped
+
+    private void RB_Limpieza_adelantadaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_RB_Limpieza_adelantadaKeyPressed
+
+    }//GEN-LAST:event_RB_Limpieza_adelantadaKeyPressed
+
+    private void Text_Tiempo_LimpiezaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Text_Tiempo_LimpiezaActionPerformed
+
+    }//GEN-LAST:event_Text_Tiempo_LimpiezaActionPerformed
+
+    private void Text_Tamaño_conjunto_residenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Text_Tamaño_conjunto_residenteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Text_Tamaño_conjunto_residenteActionPerformed
+
+    private void Text_Tamaño_conjunto_residenteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Text_Tamaño_conjunto_residenteKeyTyped
+        char c= evt.getKeyChar();//solo acepta numeros
+        if (c<'0' || c>'9')
+            evt.consume();
+    }//GEN-LAST:event_Text_Tamaño_conjunto_residenteKeyTyped
+
+    private void Text_MinimoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Text_MinimoKeyTyped
+        char c= evt.getKeyChar();//solo acepta numeros
+        if (c<'0' || c>'9')
+            evt.consume();
+    }//GEN-LAST:event_Text_MinimoKeyTyped
+
+    private void Text_Periodo_aumentoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Text_Periodo_aumentoKeyTyped
+       char c= evt.getKeyChar();//solo acepta numeros
+        if (c<'0' || c>'9')
+            evt.consume();
+    }//GEN-LAST:event_Text_Periodo_aumentoKeyTyped
+
+    private void Text_MinimoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Text_MinimoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Text_MinimoActionPerformed
+
+    private void Text_MaximoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Text_MaximoKeyTyped
+      char c= evt.getKeyChar();//solo acepta numeros
+        if (c<'0' || c>'9')
+            evt.consume();
+    }//GEN-LAST:event_Text_MaximoKeyTyped
 
     /**
      * @param args the command line arguments
@@ -550,6 +754,7 @@ public class Vista_Configuracion_del_Sistema extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Vista_Configuracion_del_Sistema().setVisible(true);
+                
             }
         });
     }
@@ -557,6 +762,8 @@ public class Vista_Configuracion_del_Sistema extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Ambito_reemplazo_conjunto;
     private javax.swing.JButton Botón_Crear_Sistema;
+    private javax.swing.JButton Botón_Regresar;
+    private javax.swing.JLabel Cantidad_Tamaño_Conjuto_residente;
     private javax.swing.JLabel Cantidad_memoria;
     private javax.swing.JLabel Cantidad_memoria_fisica;
     private javax.swing.JLabel Cantidad_referencias;
@@ -577,6 +784,9 @@ public class Vista_Configuracion_del_Sistema extends javax.swing.JFrame {
     private javax.swing.JLabel Indicaciones_tamaño_memorias;
     private javax.swing.JLabel Indicación3;
     private javax.swing.JLabel KB;
+    private javax.swing.JLabel Maximo;
+    private javax.swing.JLabel Minimo;
+    private javax.swing.JLabel Periodo_aumento_conjunto_resident;
     private javax.swing.JLabel Política_Limpieza;
     private javax.swing.JLabel Política_Ubicación;
     private javax.swing.JLabel Política_recuperación;
@@ -601,10 +811,15 @@ public class Vista_Configuracion_del_Sistema extends javax.swing.JFrame {
     private javax.swing.JTextField Text_Cantidad_memoria_fisica;
     private javax.swing.JTextField Text_Cantidad_referencias;
     private javax.swing.JTextField Text_Grado_Multiprogramación;
+    private javax.swing.JTextField Text_Maximo;
+    private javax.swing.JTextField Text_Minimo;
+    private javax.swing.JTextField Text_Periodo_aumento;
+    private javax.swing.JTextField Text_Tamaño_conjunto_residente;
     private javax.swing.JTextField Text_Tamaño_direcciones;
+    private javax.swing.JTextField Text_Tiempo_Limpieza;
     private javax.swing.JTextField Text_tamaño_pagina;
+    private javax.swing.JLabel Tiempo_Limpieza;
     private javax.swing.JLabel Visualizar_estado;
     private javax.swing.JLabel bits;
-    private javax.swing.JButton jButton1;
     // End of variables declaration//GEN-END:variables
 }
