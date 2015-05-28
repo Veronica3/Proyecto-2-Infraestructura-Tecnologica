@@ -136,7 +136,7 @@
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="Política_reemplazo" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="RB_Optimo" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="RB_MRU" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="RB_FIFO" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="RB_Reloj" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="RB_LRU" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -341,7 +341,7 @@
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="Política_reemplazo" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="RB_Optimo" min="-2" pref="23" max="-2" attributes="0"/>
+                              <Component id="RB_MRU" min="-2" pref="23" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="RB_FIFO" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
@@ -447,12 +447,12 @@
         <Property name="text" type="java.lang.String" value="Pol&#xed;tica de reemplazo"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JRadioButton" name="RB_Optimo">
+    <Component class="javax.swing.JRadioButton" name="RB_MRU">
       <Properties>
         <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
           <ComponentRef name="Grupo_RB_Pol&#xed;tica_Reemplazo"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="&#xd3;ptimo"/>
+        <Property name="text" type="java.lang.String" value="M&#xe1;s recientemente utilizado"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JRadioButton" name="RB_LRU">
@@ -502,6 +502,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Fijo"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="RB_FijoActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JRadioButton" name="RB_Variable">
       <Properties>
@@ -510,6 +513,10 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Variable"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="RB_VariableActionPerformed"/>
+        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="RB_VariableKeyPressed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="Ambito_reemplazo_conjunto">
       <Properties>
@@ -553,6 +560,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Bajo demanda"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="RB_Bajo_Demanda_LActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JRadioButton" name="RB_Limpieza_adelantada">
       <Properties>
@@ -562,6 +572,7 @@
         <Property name="text" type="java.lang.String" value="Limpieza adelantada"/>
       </Properties>
       <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="RB_Limpieza_adelantadaActionPerformed"/>
         <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="RB_Limpieza_adelantadaKeyPressed"/>
       </Events>
     </Component>
@@ -710,9 +721,13 @@
     <Component class="javax.swing.JLabel" name="Tiempo_Limpieza">
       <Properties>
         <Property name="text" type="java.lang.String" value="Tiempo de limpieza:"/>
+        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="Text_Tiempo_Limpieza">
+      <Properties>
+        <Property name="enabled" type="boolean" value="false"/>
+      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Text_Tiempo_LimpiezaActionPerformed"/>
         <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="Text_Tiempo_LimpiezaKeyTyped"/>
@@ -732,9 +747,13 @@
     <Component class="javax.swing.JLabel" name="Minimo">
       <Properties>
         <Property name="text" type="java.lang.String" value="M&#xed;nimo:"/>
+        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="Text_Minimo">
+      <Properties>
+        <Property name="enabled" type="boolean" value="false"/>
+      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Text_MinimoActionPerformed"/>
         <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="Text_MinimoKeyTyped"/>
@@ -743,9 +762,13 @@
     <Component class="javax.swing.JLabel" name="Maximo">
       <Properties>
         <Property name="text" type="java.lang.String" value="M&#xe1;ximo:"/>
+        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="Text_Maximo">
+      <Properties>
+        <Property name="enabled" type="boolean" value="false"/>
+      </Properties>
       <Events>
         <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="Text_MaximoKeyTyped"/>
       </Events>
@@ -753,9 +776,13 @@
     <Component class="javax.swing.JLabel" name="Periodo_aumento_conjunto_resident">
       <Properties>
         <Property name="text" type="java.lang.String" value="Periodo de aumento:"/>
+        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="Text_Periodo_aumento">
+      <Properties>
+        <Property name="enabled" type="boolean" value="false"/>
+      </Properties>
       <Events>
         <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="Text_Periodo_aumentoKeyTyped"/>
       </Events>

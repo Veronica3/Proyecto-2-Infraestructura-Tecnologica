@@ -62,27 +62,6 @@ public class Validaciones {
        
    }
    //Metodo que valida que numero sea mayor a cero
-   private boolean Es_mayor_a_Cero(int Numero){
-       if (Numero>0){
-            return true;
-       }
-       else{
-           return false;
-       }
-   }
-   
-   public boolean Datos_Numericos_Vista_Validos(LinkedList<Integer> Elementos){
-       LinkedList <String> Resultado= new LinkedList();
-       String Valor_es_permitido;
-       String Mensaje;
-       
-       for (int i = 0; i < Elementos.size(); i++) {
-           if(!Es_mayor_a_Cero(Elementos.get(i))){
-               return false;
-           }
-       }
-       return true;
-       
-   }
-
 }
+   
+
