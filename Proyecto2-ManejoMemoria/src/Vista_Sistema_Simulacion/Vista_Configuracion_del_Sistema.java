@@ -2,7 +2,7 @@
 package Vista_Sistema_Simulacion;
 import proyecto2.manejomemoria.*;
 import javax.swing.JOptionPane;
-import java.util.*;
+
 
 public class Vista_Configuracion_del_Sistema extends javax.swing.JFrame {
 
