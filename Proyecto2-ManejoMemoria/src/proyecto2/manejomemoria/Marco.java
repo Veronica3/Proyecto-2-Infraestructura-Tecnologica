@@ -20,8 +20,6 @@ public class Marco {
         Ultimo_Colocado_Local=false;
        
     }
-    
    
-    
     
 }
