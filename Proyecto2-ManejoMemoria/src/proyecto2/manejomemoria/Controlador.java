@@ -49,13 +49,13 @@ public class Controlador {
         //Ciclo que lee cada una de las referencias de la lista
         for (int i = 0; i < Lista_Referencias.size(); i++) {
            // I.imprime_bitacora();
-            System.out.println("sIZE "+ Lista_Referencias.size());
+            
             Interface_Referencia Referencia_Leida=Lista_Referencias.get(i); //Crea una nueva interfaz en la cual se guarda la referencia leida en ese momento
             LinkedList Pagina_Referenciada= Memoria_Virtual.Realizar_Conversion_de_Referencias(Referencia_Leida);//Llamo a la funcion de Convertir a # de pagina
            
             ID_Pagina_Referenciada = (Integer) Pagina_Referenciada.get(0);//Convierte objeto en int, correspondiente al numero de pagina ID PAGINA, ID PROCESO, DESPLAZAMIENTO y ACCION
             Desplazamiento=(Integer) Pagina_Referenciada.get(1);
-            System.out.println("pagima refer "+ ID_Pagina_Referenciada);
+            System.out.println("pagina referenciada "+ ID_Pagina_Referenciada);
             ID_Proceso_De_Pagina= Referencia_Leida.ID_Proceso(); //Agarra datos de la referencia actual
             Accion_W_R= Referencia_Leida.Tipo_de_Accion();
             
