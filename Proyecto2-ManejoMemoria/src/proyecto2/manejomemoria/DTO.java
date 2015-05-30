@@ -3,7 +3,8 @@ package proyecto2.manejomemoria;
 import java.util.*;
 import java.math.*;
 public class DTO {
-    
+    //BITACORA
+    LinkedList<LinkedList<String>> Bitacora= new LinkedList<LinkedList<String>>();
     //Listas para reemplazos y ubicacion
     LinkedList<Paginas> Lista_Paginas_En_Memoria_Principal= new LinkedList<>();
     LinkedList<Paginas> Paginas_Referenciadas= new LinkedList<>();
