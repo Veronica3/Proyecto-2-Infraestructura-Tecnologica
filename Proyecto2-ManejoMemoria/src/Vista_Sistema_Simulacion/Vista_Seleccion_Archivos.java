@@ -1,14 +1,18 @@
 
 package Vista_Sistema_Simulacion;
-import proyecto2.manejomemoria.*;
 import javax.swing.JOptionPane;
 import javax.swing.JFileChooser;
-public class Vista_Seleccion_Archivos extends javax.swing.JFrame {
+import proyecto2.manejomemoria.*;
 
-    String Archivo_Referencias;
+public class Vista_Seleccion_Archivos extends javax.swing.JInternalFrame {
+
+     String Archivo_Referencias;
     String Archivo_Procesos;
-    public Vista_Seleccion_Archivos() {
+    proyecto2.manejomemoria.DTO Informacion_DTO;
+    
+    public Vista_Seleccion_Archivos(proyecto2.manejomemoria.DTO Informacion_DTO) {
         initComponents();
+        this.Informacion_DTO= Informacion_DTO;
     }
 
     /**
@@ -21,7 +25,6 @@ public class Vista_Seleccion_Archivos extends javax.swing.JFrame {
     private void initComponents() {
 
         Descripción_Programa = new javax.swing.JLabel();
-        Selección_Archivos = new javax.swing.JLabel();
         Indicaciones1 = new javax.swing.JLabel();
         Indicaciones2 = new javax.swing.JLabel();
         Indicaciones3 = new javax.swing.JLabel();
@@ -32,13 +35,11 @@ public class Vista_Seleccion_Archivos extends javax.swing.JFrame {
         Boton_Regresar = new javax.swing.JButton();
         Boton_Agregar_Archivos = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setClosable(true);
+        setTitle("Seleccionar archivos");
 
         Descripción_Programa.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         Descripción_Programa.setText("Programa de simulación de gestión de memoria.");
-
-        Selección_Archivos.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        Selección_Archivos.setText("Selección de Archivos");
 
         Indicaciones1.setText("Para el funcionamiento del sistema de simulación se requiere que seleccione dos archivos con extensión .txt:");
 
@@ -79,65 +80,62 @@ public class Vista_Seleccion_Archivos extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(Selección_Archivos)
-                .addGap(349, 349, 349))
             .addGroup(layout.createSequentialGroup()
-                .addGap(45, 45, 45)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Descripción_Programa, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(32, 32, 32)
-                                .addComponent(Indicaciones1))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(160, 160, 160)
-                                .addComponent(Boton_Agregar_Archivos)
-                                .addGap(55, 55, 55)
-                                .addComponent(Boton_Regresar, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(262, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Indicaciones2)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(Boton_Seleccionar_Archivo_Proceso)))
-                        .addGap(215, 215, 215)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addGap(18, 18, 18)
-                                .addComponent(Boton_Seleccionar_Archivo_Referencias))
-                            .addComponent(Indicaciones3))
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                .addComponent(Descripción_Programa, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(104, 104, 104)
+                .addComponent(Indicaciones1)
+                .addContainerGap(164, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(160, 160, 160)
+                            .addComponent(Boton_Agregar_Archivos)
+                            .addGap(55, 55, 55)
+                            .addComponent(Boton_Regresar, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(Indicaciones2)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jLabel1)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(Boton_Seleccionar_Archivo_Proceso)))
+                            .addGap(215, 215, 215)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jLabel2)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(Boton_Seleccionar_Archivo_Referencias))
+                                .addComponent(Indicaciones3))))
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addComponent(Descripción_Programa)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Selección_Archivos)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(35, 35, 35)
                 .addComponent(Indicaciones1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(Boton_Seleccionar_Archivo_Proceso)
-                    .addComponent(jLabel2)
-                    .addComponent(Boton_Seleccionar_Archivo_Referencias))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Indicaciones2)
-                    .addComponent(Indicaciones3))
-                .addGap(96, 96, 96)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Boton_Regresar)
-                    .addComponent(Boton_Agregar_Archivos))
-                .addGap(45, 45, 45))
+                .addGap(0, 350, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(123, 123, 123)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel1)
+                        .addComponent(Boton_Seleccionar_Archivo_Proceso)
+                        .addComponent(jLabel2)
+                        .addComponent(Boton_Seleccionar_Archivo_Referencias))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(Indicaciones2)
+                        .addComponent(Indicaciones3))
+                    .addGap(96, 96, 96)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(Boton_Regresar)
+                        .addComponent(Boton_Agregar_Archivos))
+                    .addContainerGap(124, Short.MAX_VALUE)))
         );
 
         pack();
@@ -148,17 +146,17 @@ public class Vista_Seleccion_Archivos extends javax.swing.JFrame {
         int resultado= Elegir_Archivo.showOpenDialog(null);
         if (resultado== JFileChooser.APPROVE_OPTION){
             Archivo_Procesos = Elegir_Archivo.getSelectedFile().getAbsolutePath();
-            System.out.println(Archivo_Procesos);
             
+
         }
     }//GEN-LAST:event_Boton_Seleccionar_Archivo_ProcesoActionPerformed
 
     private void Boton_Seleccionar_Archivo_ReferenciasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Boton_Seleccionar_Archivo_ReferenciasActionPerformed
-         JFileChooser Elegir_Archivo= new JFileChooser();
+        JFileChooser Elegir_Archivo= new JFileChooser();
         int resultado= Elegir_Archivo.showOpenDialog(null);
         if (resultado== JFileChooser.APPROVE_OPTION){
             Archivo_Referencias = Elegir_Archivo.getSelectedFile().getAbsolutePath();
-            System.out.println(Archivo_Referencias);
+            
         }
     }//GEN-LAST:event_Boton_Seleccionar_Archivo_ReferenciasActionPerformed
 
@@ -173,45 +171,13 @@ public class Vista_Seleccion_Archivos extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null,"No ha seleccionado el archivo de procesos",null,JOptionPane.ERROR_MESSAGE);
         }
         else{
-            //tengo que pasar el dto para esta pantalla
+          
+          Informacion_DTO.Agregar_Archivos(Archivo_Procesos, Archivo_Referencias);
+          JOptionPane.showMessageDialog(null,"Archivos agregados correctamente al sistema",null,JOptionPane.INFORMATION_MESSAGE);
+          //Mostrar Pantalla del sistema
         }
     }//GEN-LAST:event_Boton_Agregar_ArchivosActionPerformed
-  
-    
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Vista_Seleccion_Archivos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Vista_Seleccion_Archivos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Vista_Seleccion_Archivos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Vista_Seleccion_Archivos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Vista_Seleccion_Archivos().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Boton_Agregar_Archivos;
@@ -222,7 +188,6 @@ public class Vista_Seleccion_Archivos extends javax.swing.JFrame {
     private javax.swing.JLabel Indicaciones1;
     private javax.swing.JLabel Indicaciones2;
     private javax.swing.JLabel Indicaciones3;
-    private javax.swing.JLabel Selección_Archivos;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
