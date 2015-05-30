@@ -1,7 +1,6 @@
 
 package proyecto2.manejomemoria;
 import java.util.*;
-import java.util.HashMap;
 
 public class Politica_Reemplazo {
     
@@ -24,24 +23,10 @@ public class Politica_Reemplazo {
         this.Lista_Paginas_En_Memoria_Principal= Estructura_DTO.Lista_Paginas_En_Memoria_Principal;
         
     }
-
-     //Nuevos Marcos
-     Marco m1= new Marco(1, Estructura_DTO.Memoria_Virtual.get(0),2);
-     Marco m2= new Marco(2, Estructura_DTO.Memoria_Virtual.get(1),3);
-     Marco m3= new Marco(3, Estructura_DTO.Memoria_Virtual.get(2),4);
-     Marco m4= new Marco(4, Estructura_DTO.Memoria_Virtual.get(3),5);
-     
-    //Mapa de marcos
-     
-    ////////////////////////////////////////////////////////////////////////////////////////
-     //FUNCION DE PRUEBA
-   public void llena(){
-         
-         
-    }
+    
     ////////////////////////////////////////////////////////////////////////////////////////
     //Politica de reemplazo FIFO, elimina la primer pagina de la lista y agrega la nueva de ultimo.
-    public void Politica_FIFO ( Paginas Nueva_Pagina) {
+    public void Politica_FIFO ( Paginas Nueva_Pagina, LinkedList Lista_Marcos) {
         //Remueve la primera pagina ya que es la que lleva mas tiempo en Memoria
         Paginas Pagina_Reemplazada=Lista_Paginas_En_Memoria_Principal.removeFirst();
         //Llama a funcion para que la remueva del marco asignado
@@ -55,7 +40,7 @@ public class Politica_Reemplazo {
 }
     ////////////////////////////////////////////////////////////////////////////////////////
     //Se implementa con lista igual que FIFO pero la lista cambia cada vez que se referencia una pagina
-    public void Politica_Menos_Utilizado_Recientemente ( Paginas Pagina_Nueva){
+    public void Politica_Menos_Utilizado_Recientemente ( Paginas Pagina_Nueva, LinkedList Lista_Marcos){
         //Guardo la pagina que se va a eliminar
         Paginas Pagina_Reemplazada=Lista_Paginas_En_Memoria_Principal.getLast();
        
@@ -76,7 +61,7 @@ public class Politica_Reemplazo {
     ////////////////////////////////////////////////////////////////////////////////////////
      
     //Se implementa con lista igual LRU pero elimina la pagina mas RECIENTEMENTE UTILIZADA
-    public void Politica_Mas_Utilizado_Recientemente ( Paginas Pagina_Nueva){
+    public void Politica_Mas_Utilizado_Recientemente ( Paginas Pagina_Nueva, LinkedList Lista_Marcos){
         //Guardo la pagina que se va a eliminar
         Paginas Pagina_Reemplazada=Lista_Paginas_En_Memoria_Principal.getFirst();
        
@@ -125,25 +110,25 @@ public class Politica_Reemplazo {
     }
     */
 
-    ////////////////////////////////////////////////////////////////////////////////////////
+    }   ////////////////////////////////////////////////////////////////////////////////////////
     /*Utilizada desde las referencias, cuando se realiza la conversion y dice cual pagina se ocupa
     Cambia la posicion de las paginas, en la lista de paginas general del sistema*/
-   /* public void Pagina_Referenciada(Paginas Pagina_Referenciada){
+    public void Pagina_Referenciada(Paginas Pagina_Referenciada){
         System.out.println("\nESTAMOS EN REFERENCIAS**********");
         //Busca si la pagina referenciada esta en memoria
-        if (Buscar_Pagina.Busca_Pagina_En_Memoria_Principal(Lista_Paginas_En_Memoria_Principal, Mapa_Marcos,Pagina_Referenciada)!=-1){
+        if (Buscar_Pagina.Busca_Pagina_En_Memoria_Principal(Pagina_Referenciada)!=null){
             //PRUEBA
-            Imprime.imprime_lista_paginas(Lista_Paginas_En_Memoria_Principal);
+            Imprime.imprime_lista_paginas();
            
             //Agarra el indice de la pagina referenciada en la lista actual
-           int indice_a_cambiar= Buscar_Pagina.Busca_Pagina_En_Lista(Lista_Paginas_En_Memoria_Principal,Pagina_Referenciada);
+           int indice_a_cambiar= Buscar_Pagina.Retorna_Indice_Pagina_MM(Pagina_Referenciada);
            //si el indice es DIFERENTE A -1 quiere decir que la pagina SI EXISTE en la lista de paginas
            if (indice_a_cambiar!=-1){
               //Remueve la pagina de la posicion actual 
               Lista_Paginas_En_Memoria_Principal.remove(indice_a_cambiar);
               //Ingresa la pagina a la primera posicion
               Lista_Paginas_En_Memoria_Principal.addFirst(Pagina_Referenciada);
-              Imprime.imprime_lista_paginas(Lista_Paginas_En_Memoria_Principal);
+              Imprime.imprime_lista_paginas();
            }
            else{
                System.out.println("La pagina no existe");
@@ -153,6 +138,6 @@ public class Politica_Reemplazo {
             //APLICO REEMPLAZO
             System.out.println("FALLO DE PAGINA");
         //Lista_Paginas_En_Memoria_Principal.
-    }*/
     }
-}
+    }
+

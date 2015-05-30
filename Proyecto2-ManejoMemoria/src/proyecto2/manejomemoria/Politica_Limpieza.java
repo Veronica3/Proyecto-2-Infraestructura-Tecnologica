@@ -2,7 +2,6 @@
 package proyecto2.manejomemoria;
 
 import java.util.*;
-import java.sql.Timestamp;
 
 public class Politica_Limpieza {
     Timer timer;
@@ -16,17 +15,17 @@ public class Politica_Limpieza {
         
     }
 /////////////////////////////////////////////////////////////////////////////////////  
-    public Politica_Limpieza(Timer timer, DTO Estructura) {
+    public Politica_Limpieza(int n, DTO Estructura) {
         Estructura_DTO = Estructura;
         timer= new Timer();
-        timer.schedule(new Pre_Limpieza(), 0, Estructura_DTO.Tiempo_de_Limpieza*1000);
+        timer.schedule(new Pre_Limpieza(), 0, /*Estructura_DTO.Tiempo_de_Limpieza*/2000);
     }
 /////////////////////////////////////////////////////////////////////////////////////      
     //Cuando se hace reemplazo
     public void Limpieza_Por_Demanda(Paginas Pagina_Para_Limpieza){
-        Estructura_DTO.Bitacora.getLast().add("Tiempo: "+date.getTime()+"\nIniciando Limpieza. . .\n");
+        Estructura_DTO.Bitacora.getLast().add("Tiempo de limpieza: "+date.getTime()+"\nIniciando Limpieza. . .\n");
         Pagina_Para_Limpieza.Bit_Suciedad=0;
-        Estructura_DTO.Bitacora.getLast().add("Tiempo: "+date.getTime()+"\nLimpieza Finalizada de Página: "
+        Estructura_DTO.Bitacora.getLast().add("\nLimpieza Finalizada de Página: "
                 +Pagina_Para_Limpieza.ID_Pagina + " del proceso: " + Pagina_Para_Limpieza.ID_Proceso);
     }
 /////////////////////////////////////////////////////////////////////////////////////    
@@ -40,13 +39,20 @@ public class Politica_Limpieza {
             }
             //Mientras no haya terminado se sigue ejecutando
             else{
-                Estructura_DTO.Bitacora.getLast().add("Tiempo: "+date.getTime()+"\nIniciando Limpieza. . .\n");
-                //Cambia el bit de suciedad de todas las paginas  de la memoria fisica 
-                LinkedList<Marco> Memoria_Fisica=Estructura_DTO.Memoria_Fisica;
-                for (int i = 0; i < Memoria_Fisica.size(); i++) {
-                   Memoria_Fisica.get(i).Pagina.Bit_Suciedad=0;
+                if (Estructura_DTO.Lista_Paginas_En_Memoria_Principal.isEmpty()){
+                    Estructura_DTO.Bitacora.getLast().add("Tiempo de limpieza: "+date.getTime()+"\nIniciando Limpieza. . .\n "
+                            + "No hay paginas en memoria principal\n");
+                    }
+                else {
+                    Estructura_DTO.Bitacora.getLast().add("Tiempo de limpieza: "+date.getTime()+"\nIniciando Limpieza. . .\n");
+                    //Cambia el bit de suciedad de todas las paginas  de la memoria fisica 
+                    LinkedList<Marco> Memoria_Fisica=Estructura_DTO.Memoria_Fisica;
+                    for (int i = 0; i < Memoria_Fisica.size(); i++) {
+                       Memoria_Fisica.get(i).Pagina.Bit_Suciedad=0;
+                    }
+                    Estructura_DTO.Bitacora.getLast().add("Se ejecutó limpieza de paginas correctamente\n");
+                
                 }
-                Estructura_DTO.Bitacora.getLast().add("Se ejecutó limpieza de paginas correctamente\n");
             }
         }
         

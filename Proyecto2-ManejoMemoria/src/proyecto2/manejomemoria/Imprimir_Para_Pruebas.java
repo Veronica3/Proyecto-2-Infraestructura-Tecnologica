@@ -11,7 +11,19 @@ public class Imprimir_Para_Pruebas {
     ////////////////////////////////////////////////////////////////////////////////////////
     //Funcion para imprimir los marcos
     public void imprime_lista_memoria_virtual(){
-        
+        for (int i = 0; i < Estrutura_DTO.Memoria_Virtual.size(); i++) {
+            System.out.println("Pagina " + Estrutura_DTO.Memoria_Virtual.get(i).ID_Proceso);
+        }
+    }
+     ////////////////////////////////////////////////////////////////////////////////////////
+    //Funcion para imprimir los marcos
+    public void imprime_bitacora(){
+        for (int i = 0; i < Estrutura_DTO.Bitacora.size(); i++) {
+            System.out.println("***BITACORA**** \n");
+            for (int j = 0; j < Estrutura_DTO.Bitacora.get(i).size(); j++) {
+                 System.out.println(Estrutura_DTO.Bitacora.get(i).get(j));
+            }
+        }
     }
     ////////////////////////////////////////////////////////////////////////////////////////
     //Funcion para PRUEBA IMPRESION

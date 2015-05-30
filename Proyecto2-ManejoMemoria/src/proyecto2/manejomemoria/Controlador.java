@@ -1,10 +1,11 @@
 package proyecto2.manejomemoria;
 import java.util.*;
-import java.sql.Timestamp;
+
 /////////////////////////////////////////////////////////////////////
 public class Controlador {
     DTO Estructura_DTO;
     Politica_Recuperacion Llamada_Politica_Recuperacion;
+    Politica_Limpieza Politica_Limpieza;
     Memoria_Virtual Memoria_Virtual;
     Busca_Paginas Buscar_Pagina;
     java.util.Date date= new java.util.Date();
@@ -19,12 +20,17 @@ public class Controlador {
     
 /////////////////////////////////////////////////////////////////////    
     public void Inicio_del_Programa(){
-       
+        //Lista de Bitacora que sera guardada en la lista general
+        LinkedList<String> Nueva_Bitacora= new LinkedList();
+        Estructura_DTO.Bitacora.add(Nueva_Bitacora);
+        //Pregunta la politica de recuperacion
         if (Estructura_DTO.Politica_Recuperacion.equals("Demanda")){
+            Politica_Limpieza = new Politica_Limpieza(Estructura_DTO);
             Leer_Referencias();
         }
         else{
             Llamada_Politica_Recuperacion.Prepaginacion();
+            Politica_Limpieza = new Politica_Limpieza(5,Estructura_DTO);
             //LUEGO LEO REFERENCIAS DE PROCESOS?
             Leer_Referencias();
         }
@@ -32,46 +38,42 @@ public class Controlador {
 /////////////////////////////////////////////////////////////////////   
     //Lee las referencias, llama a la funcion
     public String Leer_Referencias (){
-        
-        //Lista de Bitacora que sera guardada en la lista general
-        LinkedList<String> Nueva_Bitacora= new LinkedList();
-        Estructura_DTO.Bitacora.add(Nueva_Bitacora);
+       
         //Lista de Referencias NORMAL sin convertir
         LinkedList <Interface_Referencia> Lista_Referencias = Estructura_DTO.Lista_Referencias;
         int ID_Proceso_De_Pagina;
         int ID_Pagina_Referenciada;
         int Desplazamiento;
         String Accion_W_R;
+        Imprimir_Para_Pruebas I= new Imprimir_Para_Pruebas(Estructura_DTO);
         //Ciclo que lee cada una de las referencias de la lista
         for (int i = 0; i < Lista_Referencias.size(); i++) {
-            //Crea una nueva interfaz en la cual se guarda la referencia leida en ese momento
-            Interface_Referencia Referencia_Leida=Lista_Referencias.get(i);
-            //Llamo a la funcion de Convertir a # de pagina
-            LinkedList Pagina_Referenciada= Memoria_Virtual.Realizar_Conversion_de_Referencias(Referencia_Leida);
-            //Convierte objeto en int, correspondiente al numero de pagina ID PAGINA, ID PROCESO, DESPLAZAMIENTO y ACCION
-            ID_Pagina_Referenciada = (Integer) Pagina_Referenciada.get(0);
+           // I.imprime_bitacora();
+            System.out.println("sIZE "+ Lista_Referencias.size());
+            Interface_Referencia Referencia_Leida=Lista_Referencias.get(i); //Crea una nueva interfaz en la cual se guarda la referencia leida en ese momento
+            LinkedList Pagina_Referenciada= Memoria_Virtual.Realizar_Conversion_de_Referencias(Referencia_Leida);//Llamo a la funcion de Convertir a # de pagina
+           
+            ID_Pagina_Referenciada = (Integer) Pagina_Referenciada.get(0);//Convierte objeto en int, correspondiente al numero de pagina ID PAGINA, ID PROCESO, DESPLAZAMIENTO y ACCION
             Desplazamiento=(Integer) Pagina_Referenciada.get(1);
-            //Agarra datos de la referencia actual
-            ID_Proceso_De_Pagina= Referencia_Leida.ID_Proceso();
+            System.out.println("pagima refer "+ ID_Pagina_Referenciada);
+            ID_Proceso_De_Pagina= Referencia_Leida.ID_Proceso(); //Agarra datos de la referencia actual
             Accion_W_R= Referencia_Leida.Tipo_de_Accion();
             
-            Estructura_DTO.Bitacora.getLast().add("\t\t**Nueva Página Referenciada**\n\n ID de Página: "+ID_Pagina_Referenciada+"\nID de Proceso: "
-                    + ID_Proceso_De_Pagina+"\nAcción a Ejecutar: "+Accion_W_R+ "Desplazamiento: "+Desplazamiento+ "Tiempo: "+date.getTime()+"\nEjecutando Referencia. . .");
-            //BUSCA PAGINA referenciada en la MEMORIA VIRTUAL
-            Buscar_Pagina= new Busca_Paginas(Estructura_DTO);
+            Estructura_DTO.Bitacora.getLast().add("\t\t**Nueva Página Referenciada**\n\nID de Página: "+ID_Pagina_Referenciada+"\nID de Proceso: "
+            + ID_Proceso_De_Pagina+"\nAcción a Ejecutar: "+Accion_W_R+ "\nDesplazamiento: "+Desplazamiento+ "\nTiempo: "+(date.getTime())+"\nEjecutando Referencia. . .");
+            
+            Buscar_Pagina= new Busca_Paginas(Estructura_DTO); //BUSCA PAGINA referenciada en la MEMORIA VIRTUAL
             Paginas Pagina_Encontrada=Buscar_Pagina.Busca_Pagina_En_Memoria_Virtual(ID_Proceso_De_Pagina,ID_Pagina_Referenciada);
             if(Pagina_Encontrada==null){
                 return "La página no existe";
             }
             else
-                //Llama a DEMANDA  o PREPAGINACION
-                Llamada_Politica_Recuperacion.Paginacion_Bajo_Demanda(Pagina_Encontrada);
+                Llamada_Politica_Recuperacion.Paginacion_Bajo_Demanda(Pagina_Encontrada); //Llama a DEMANDA  o PREPAGINACION
              
         }
+        I.imprime_bitacora();
+        Politica_Limpieza.Fin_Tarea=true;
         return "Lectura Exitosa";
     }
     
-    public int Numero_de_Bitacora(){
-        return Estructura_DTO.Bitacora.size();
-    }
 }
