@@ -103,35 +103,7 @@
                                       </Group>
                                   </Group>
                               </Group>
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="Indicaciones_tamaño_memorias" min="-2" max="-2" attributes="0"/>
-                                  <Component id="Distribucción_direcciones" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="1" attributes="0">
-                                          <Group type="102" attributes="0">
-                                              <Component id="Tamaño_pagina" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
-                                              <Component id="Text_tamaño_pagina" min="-2" pref="33" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Component id="Cantidad_memoria" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                                              <Component id="Text_Tamaño_direcciones" min="-2" pref="35" max="-2" attributes="0"/>
-                                          </Group>
-                                      </Group>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="bits" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Component id="Indicación3" min="-2" max="-2" attributes="0"/>
-                                  <Group type="102" attributes="0">
-                                      <Component id="Cantidad_memoria_fisica" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-                                      <Component id="Text_Cantidad_memoria_fisica" min="-2" pref="36" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="KB" min="-2" pref="21" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
+                              <EmptySpace min="144" pref="561" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
@@ -172,19 +144,59 @@
                               </Group>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" attributes="0">
-                                      <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
-                                      <Component id="Salir" min="-2" pref="90" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
-                                      <Component id="Botón_Regresar" min="-2" pref="103" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" attributes="0">
+                                              <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+                                              <Component id="Salir" min="-2" pref="90" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
+                                              <Component id="Botón_Regresar" min="-2" pref="103" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                              <Component id="segundos" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="-2" pref="251" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="Visualizar_estado" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Group type="102" alignment="0" attributes="0">
                                               <Component id="Cantidad_referencias" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace max="-2" attributes="0"/>
                                               <Component id="Text_Cantidad_referencias" pref="42" max="32767" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" attributes="0">
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="Indicaciones_tamaño_memorias" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="Distribucción_direcciones" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Group type="102" alignment="0" attributes="0">
+                                                      <Group type="103" groupAlignment="1" attributes="0">
+                                                          <Group type="102" alignment="1" attributes="0">
+                                                              <Component id="Tamaño_pagina" min="-2" max="-2" attributes="0"/>
+                                                              <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+                                                              <Component id="Text_tamaño_pagina" min="-2" pref="33" max="-2" attributes="0"/>
+                                                          </Group>
+                                                          <Group type="102" alignment="0" attributes="0">
+                                                              <Component id="Cantidad_memoria" min="-2" max="-2" attributes="0"/>
+                                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                              <Component id="Text_Tamaño_direcciones" min="-2" pref="35" max="-2" attributes="0"/>
+                                                          </Group>
+                                                      </Group>
+                                                      <EmptySpace max="-2" attributes="0"/>
+                                                      <Component id="bits" min="-2" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <Component id="Indicación3" min="-2" max="-2" attributes="0"/>
+                                                  <Group type="102" alignment="0" attributes="0">
+                                                      <Component id="Cantidad_memoria_fisica" min="-2" max="-2" attributes="0"/>
+                                                      <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                                                      <Component id="Text_Cantidad_memoria_fisica" min="-2" pref="36" max="-2" attributes="0"/>
+                                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                      <Component id="KB" min="-2" pref="21" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <Component id="Visualizar_estado" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                           </Group>
                                       </Group>
                                   </Group>
@@ -316,6 +328,7 @@
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="Tiempo_Limpieza" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="Text_Tiempo_Limpieza" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="segundos" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
@@ -786,6 +799,11 @@
       <Events>
         <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="Text_Periodo_aumentoKeyTyped"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="segundos">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="segundos"/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>

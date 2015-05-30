@@ -40,11 +40,11 @@ public class Vista_Seleccion_Archivos extends javax.swing.JFrame {
         Selección_Archivos.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         Selección_Archivos.setText("Selección de Archivos");
 
-        Indicaciones1.setText("Para el funcionamiento del sistema de simulación se requiere que seleccione dos archivos:");
+        Indicaciones1.setText("Para el funcionamiento del sistema de simulación se requiere que seleccione dos archivos con extensión .txt:");
 
-        Indicaciones2.setText("Un archivo que contenga la información de los procesos.");
+        Indicaciones2.setText("El archivo contiene la información de los procesos.");
 
-        Indicaciones3.setText("Otro archivo que contenga la información de las referencias.");
+        Indicaciones3.setText("El archivo contiene la información de las referencias.");
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel1.setText("Seleccionar Archivo de Procesos");
@@ -79,39 +79,40 @@ public class Vista_Seleccion_Archivos extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(Descripción_Programa, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(217, 217, 217)
-                        .addComponent(Boton_Agregar_Archivos)
-                        .addGap(145, 145, 145)
-                        .addComponent(Boton_Regresar, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(32, 32, 32)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Indicaciones2)
-                            .addComponent(Indicaciones1)
-                            .addComponent(Indicaciones3))))
-                .addContainerGap(215, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(86, 86, 86)
-                .addComponent(Boton_Seleccionar_Archivo_Proceso)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(Boton_Seleccionar_Archivo_Referencias)
-                .addGap(139, 139, 139))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(52, 52, 52)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel2)
-                .addGap(64, 64, 64))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(Selección_Archivos)
                 .addGap(349, 349, 349))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(45, 45, 45)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Descripción_Programa, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(32, 32, 32)
+                                .addComponent(Indicaciones1))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(160, 160, 160)
+                                .addComponent(Boton_Agregar_Archivos)
+                                .addGap(55, 55, 55)
+                                .addComponent(Boton_Regresar, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(262, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Indicaciones2)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(Boton_Seleccionar_Archivo_Proceso)))
+                        .addGap(215, 215, 215)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addGap(18, 18, 18)
+                                .addComponent(Boton_Seleccionar_Archivo_Referencias))
+                            .addComponent(Indicaciones3))
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -122,23 +123,21 @@ public class Vista_Seleccion_Archivos extends javax.swing.JFrame {
                 .addComponent(Selección_Archivos)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(Indicaciones1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(Indicaciones2)
-                .addGap(1, 1, 1)
-                .addComponent(Indicaciones3)
-                .addGap(46, 46, 46)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jLabel2))
+                    .addComponent(Boton_Seleccionar_Archivo_Proceso)
+                    .addComponent(jLabel2)
+                    .addComponent(Boton_Seleccionar_Archivo_Referencias))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Boton_Seleccionar_Archivo_Proceso)
-                    .addComponent(Boton_Seleccionar_Archivo_Referencias))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
+                    .addComponent(Indicaciones2)
+                    .addComponent(Indicaciones3))
+                .addGap(96, 96, 96)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Boton_Regresar)
                     .addComponent(Boton_Agregar_Archivos))
-                .addGap(29, 29, 29))
+                .addGap(45, 45, 45))
         );
 
         pack();

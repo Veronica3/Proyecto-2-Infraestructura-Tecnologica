@@ -23,47 +23,51 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" attributes="0">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="Descripción_Programa" min="-2" pref="271" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="217" max="-2" attributes="0"/>
-                      <Component id="Boton_Agregar_Archivos" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="145" max="-2" attributes="0"/>
-                      <Component id="Boton_Regresar" min="-2" pref="114" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="Indicaciones2" min="-2" max="-2" attributes="0"/>
-                          <Component id="Indicaciones1" min="-2" max="-2" attributes="0"/>
-                          <Component id="Indicaciones3" alignment="0" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-              </Group>
-              <EmptySpace pref="215" max="32767" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="86" max="-2" attributes="0"/>
-              <Component id="Boton_Seleccionar_Archivo_Proceso" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
-              <Component id="Boton_Seleccionar_Archivo_Referencias" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="139" max="-2" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
-              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
-              <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
-          </Group>
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="32767" attributes="0"/>
               <Component id="Selección_Archivos" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="349" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="Descripción_Programa" alignment="0" min="-2" pref="271" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                              <Component id="Indicaciones1" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="160" max="-2" attributes="0"/>
+                              <Component id="Boton_Agregar_Archivos" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
+                              <Component id="Boton_Regresar" min="-2" pref="167" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace pref="262" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="Indicaciones2" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="Boton_Seleccionar_Archivo_Proceso" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace min="-2" pref="215" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="Boton_Seleccionar_Archivo_Referencias" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="Indicaciones3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  </Group>
+              </Group>
           </Group>
       </Group>
     </DimensionLayout>
@@ -76,26 +80,24 @@
               <Component id="Selección_Archivos" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="Indicaciones1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="Indicaciones2" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
-              <Component id="Indicaciones3" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+              <EmptySpace pref="47" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabel2" alignment="1" min="-2" max="-2" attributes="0"/>
+                  <Component id="Boton_Seleccionar_Archivo_Proceso" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="Boton_Seleccionar_Archivo_Referencias" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="Boton_Seleccionar_Archivo_Proceso" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="Boton_Seleccionar_Archivo_Referencias" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="Indicaciones2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="Indicaciones3" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="73" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="96" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="Boton_Regresar" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="Boton_Agregar_Archivos" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -119,17 +121,17 @@
     </Component>
     <Component class="javax.swing.JLabel" name="Indicaciones1">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Para el funcionamiento del sistema de simulaci&#xf3;n se requiere que seleccione dos archivos:"/>
+        <Property name="text" type="java.lang.String" value="Para el funcionamiento del sistema de simulaci&#xf3;n se requiere que seleccione dos archivos con extensi&#xf3;n .txt:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="Indicaciones2">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Un archivo que contenga la informaci&#xf3;n de los procesos."/>
+        <Property name="text" type="java.lang.String" value="El archivo contiene la informaci&#xf3;n de los procesos."/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="Indicaciones3">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Otro archivo que contenga la informaci&#xf3;n de las referencias."/>
+        <Property name="text" type="java.lang.String" value="El archivo contiene la informaci&#xf3;n de las referencias."/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">

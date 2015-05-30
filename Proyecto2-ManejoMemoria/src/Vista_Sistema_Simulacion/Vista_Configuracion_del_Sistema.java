@@ -109,6 +109,7 @@ public class Vista_Configuracion_del_Sistema extends javax.swing.JFrame {
         Text_Maximo = new javax.swing.JTextField();
         Periodo_aumento_conjunto_resident = new javax.swing.JLabel();
         Text_Periodo_aumento = new javax.swing.JTextField();
+        segundos = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 153, 153));
@@ -384,6 +385,8 @@ public class Vista_Configuracion_del_Sistema extends javax.swing.JFrame {
             }
         });
 
+        segundos.setText("segundos");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -439,29 +442,7 @@ public class Vista_Configuracion_del_Sistema extends javax.swing.JFrame {
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                 .addComponent(Text_Maximo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                                             .addComponent(Tamaño_Conjunto_residente))))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(Indicaciones_tamaño_memorias)
-                                    .addComponent(Distribucción_direcciones)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(Tamaño_pagina)
-                                                .addGap(46, 46, 46)
-                                                .addComponent(Text_tamaño_pagina, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                                .addComponent(Cantidad_memoria)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(Text_Tamaño_direcciones, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(bits))
-                                    .addComponent(Indicación3)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(Cantidad_memoria_fisica)
-                                        .addGap(33, 33, 33)
-                                        .addComponent(Text_Cantidad_memoria_fisica, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(KB, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGap(144, 561, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(Política_reemplazo)
@@ -493,18 +474,48 @@ public class Vista_Configuracion_del_Sistema extends javax.swing.JFrame {
                                     .addComponent(Botón_Crear_Sistema))
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addGap(19, 19, 19)
-                                        .addComponent(Salir, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(61, 61, 61)
-                                        .addComponent(Botón_Regresar, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGap(19, 19, 19)
+                                                .addComponent(Salir, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(61, 61, 61)
+                                                .addComponent(Botón_Regresar, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(segundos)))
+                                        .addGap(0, 0, Short.MAX_VALUE))
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(251, 251, 251)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(Visualizar_estado)
                                             .addGroup(layout.createSequentialGroup()
                                                 .addComponent(Cantidad_referencias)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(Text_Cantidad_referencias, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)))))))))
+                                                .addComponent(Text_Cantidad_referencias, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(Indicaciones_tamaño_memorias)
+                                                    .addComponent(Distribucción_direcciones)
+                                                    .addGroup(layout.createSequentialGroup()
+                                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                            .addGroup(layout.createSequentialGroup()
+                                                                .addComponent(Tamaño_pagina)
+                                                                .addGap(46, 46, 46)
+                                                                .addComponent(Text_tamaño_pagina, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                                                .addComponent(Cantidad_memoria)
+                                                                .addGap(18, 18, 18)
+                                                                .addComponent(Text_Tamaño_direcciones, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                        .addComponent(bits))
+                                                    .addComponent(Indicación3)
+                                                    .addGroup(layout.createSequentialGroup()
+                                                        .addComponent(Cantidad_memoria_fisica)
+                                                        .addGap(33, 33, 33)
+                                                        .addComponent(Text_Cantidad_memoria_fisica, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                        .addComponent(KB, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                    .addComponent(Visualizar_estado))
+                                                .addGap(0, 0, Short.MAX_VALUE)))))))))
                 .addGap(24, 24, 24))
         );
         layout.setVerticalGroup(
@@ -603,7 +614,8 @@ public class Vista_Configuracion_del_Sistema extends javax.swing.JFrame {
                                         .addGap(68, 68, 68)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                             .addComponent(Tiempo_Limpieza)
-                                            .addComponent(Text_Tiempo_Limpieza, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                            .addComponent(Text_Tiempo_Limpieza, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(segundos)))
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(Política_Limpieza)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -1082,5 +1094,6 @@ public class Vista_Configuracion_del_Sistema extends javax.swing.JFrame {
     private javax.swing.JLabel Tiempo_Limpieza;
     private javax.swing.JLabel Visualizar_estado;
     private javax.swing.JLabel bits;
+    private javax.swing.JLabel segundos;
     // End of variables declaration//GEN-END:variables
 }
