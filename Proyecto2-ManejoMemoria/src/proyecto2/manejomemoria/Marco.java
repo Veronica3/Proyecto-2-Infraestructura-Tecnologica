@@ -20,6 +20,16 @@ public class Marco {
         Ultimo_Colocado_Local=false;
        
     }
-   
     
+    public int getIDMarco(){
+        return ID_Marco;
+    }
+    
+    public int getIDProceso(){
+        return ID_Proceso_Dueño;
+    }
+    
+    public Paginas getPagina(){
+        return Pagina;
+    }
 }

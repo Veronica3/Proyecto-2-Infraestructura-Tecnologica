@@ -17,6 +17,16 @@ public class Paginas {
         
      }
     
+       public int get_IDPagina(){
+        return ID_Pagina;
+    }
+    
+          public int getBit_Modificado(){
+             return Bit_Modificado;
+    }
+              public int getBit_Suciedad(){
+                return Bit_Suciedad;
+    }
     
     
     
