@@ -88,6 +88,12 @@ public class DTO {
         operacion=operacion/1024;//esto siginifica que la unidad base son KB
         Total_Tamaño_Pagina_Memoria= (int)operacion;
     }
+    public String Obtener_Archivo_Referencia(){
+        return Nombre_Archivo_Referencias;
+    }
+     public String Obtener_Archivo_Proceso(){
+        return Nombre_Archivo_Procesos;
+    }
 
     
     
