@@ -4,11 +4,11 @@ import proyecto2.manejomemoria.*;
 import java.util.*;
 import javax.swing.JButton;
 
-
-public class Vista_Memoria_Fisica extends javax.swing.JInternalFrame {
+public class Vista_Memoria_Fisica extends javax.swing.JFrame {
 
     private List<JButton> listaBotones = new ArrayList<>();
-   private LinkedList <proyecto2.manejomemoria.Marco>Marcos;
+    private LinkedList <proyecto2.manejomemoria.Marco>Marcos;
+    
     public Vista_Memoria_Fisica(LinkedList <proyecto2.manejomemoria.Marco>Marcos) {
         initComponents();
         this.Marcos=Marcos;
@@ -26,9 +26,9 @@ public class Vista_Memoria_Fisica extends javax.swing.JInternalFrame {
         Indicaciones = new javax.swing.JLabel();
         Cantidad_Referencias = new javax.swing.JLabel();
         Referencias = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
-        setClosable(true);
-        setTitle("Visualizar Memoria Física");
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         Indicaciones.setText("La tabla muestra como está compuesta la memoria física despúes de");
 
@@ -36,37 +36,55 @@ public class Vista_Memoria_Fisica extends javax.swing.JInternalFrame {
 
         Referencias.setText("referencias");
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel1.setText("Visualizar Memoria Física");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(Indicaciones)
-                .addGap(18, 18, 18)
-                .addComponent(Cantidad_Referencias)
-                .addGap(18, 18, 18)
-                .addComponent(Referencias)
-                .addGap(0, 308, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(335, 335, 335)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(Indicaciones)
+                        .addGap(18, 18, 18)
+                        .addComponent(Cantidad_Referencias)
+                        .addGap(18, 18, 18)
+                        .addComponent(Referencias)))
+                .addContainerGap(305, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Indicaciones)
+                .addGap(8, 8, 8)
+                .addComponent(jLabel1)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(Cantidad_Referencias)
-                        .addComponent(Referencias)))
-                .addContainerGap(309, Short.MAX_VALUE))
+                        .addComponent(Referencias))
+                    .addComponent(Indicaciones))
+                .addContainerGap(297, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+     
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Cantidad_Referencias;
     private javax.swing.JLabel Indicaciones;
     private javax.swing.JLabel Referencias;
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

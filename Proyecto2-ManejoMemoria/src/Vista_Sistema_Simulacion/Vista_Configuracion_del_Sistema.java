@@ -110,6 +110,7 @@ public class Vista_Configuracion_del_Sistema extends javax.swing.JFrame {
         Periodo_aumento_conjunto_resident = new javax.swing.JLabel();
         Text_Periodo_aumento = new javax.swing.JTextField();
         segundos = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 153, 153));
@@ -380,6 +381,17 @@ public class Vista_Configuracion_del_Sistema extends javax.swing.JFrame {
         segundos.setText("segundos");
         segundos.setEnabled(false);
 
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -506,7 +518,9 @@ public class Vista_Configuracion_del_Sistema extends javax.swing.JFrame {
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(layout.createSequentialGroup()
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(segundos))
+                                                .addComponent(segundos)
+                                                .addGap(269, 269, 269)
+                                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                             .addGroup(layout.createSequentialGroup()
                                                 .addGap(275, 275, 275)
                                                 .addComponent(Salir, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -520,88 +534,90 @@ public class Vista_Configuracion_del_Sistema extends javax.swing.JFrame {
                 .addComponent(Descripción_Programa)
                 .addGap(2, 2, 2)
                 .addComponent(Configuración_Sistema)
-                .addGap(18, 18, 18)
-                .addComponent(Indicaciones_Programa, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Indicaciones2)
-                    .addComponent(Indicaciones_tamaño_memorias))
-                .addGap(10, 10, 10)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(27, 27, 27)
-                        .addComponent(Distribucción_direcciones)
+                        .addGap(18, 18, 18)
+                        .addComponent(Indicaciones_Programa, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(Tamaño_pagina, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Text_tamaño_pagina, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(Política_recuperación)
-                            .addComponent(Gestión_conjunto_residente)
-                            .addComponent(Cantidad_memoria)
-                            .addComponent(Text_Tamaño_direcciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(bits))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(RB_Bajo_Demanda)
-                            .addComponent(Tamaño_Conjunto_residente))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(RB_Paginación_Adelantada)
-                            .addComponent(RB_Fijo))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(RB_Variable)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Indicación3)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(Cantidad_Tamaño_Conjuto_residente)
-                                .addComponent(Text_Tamaño_conjunto_residente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(Periodo_aumento_conjunto_resident)
-                                .addComponent(Text_Periodo_aumento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(3, 3, 3)
+                            .addComponent(Indicaciones2)
+                            .addComponent(Indicaciones_tamaño_memorias))
+                        .addGap(10, 10, 10)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
+                                .addGap(27, 27, 27)
+                                .addComponent(Distribucción_direcciones)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(Tamaño_pagina, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(Text_tamaño_pagina, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(Política_recuperación)
+                                    .addComponent(Gestión_conjunto_residente)
+                                    .addComponent(Cantidad_memoria)
+                                    .addComponent(Text_Tamaño_direcciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(bits))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(RB_Bajo_Demanda)
+                                    .addComponent(Tamaño_Conjunto_residente))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(RB_Paginación_Adelantada)
+                                    .addComponent(RB_Fijo))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(RB_Variable)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(Indicación3)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(Cantidad_Tamaño_Conjuto_residente)
+                                        .addComponent(Text_Tamaño_conjunto_residente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(Periodo_aumento_conjunto_resident)
+                                        .addComponent(Text_Periodo_aumento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(3, 3, 3)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addGap(20, 20, 20)
-                                        .addComponent(Política_Ubicación))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(12, 12, 12)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                            .addComponent(Minimo)
-                                            .addComponent(Text_Minimo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(Maximo)
-                                            .addComponent(Text_Maximo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(RB_Primer_Ajuste)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(RB_Siguiente_Ajuste))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(15, 15, 15)
-                                        .addComponent(Ambito_reemplazo_conjunto)
-                                        .addGap(5, 5, 5)
-                                        .addComponent(RB_Global)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(RB_Local))))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(Cantidad_memoria_fisica)
-                                .addComponent(Text_Cantidad_memoria_fisica, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(KB)))))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGap(20, 20, 20)
+                                                .addComponent(Política_Ubicación))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGap(12, 12, 12)
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                    .addComponent(Minimo)
+                                                    .addComponent(Text_Minimo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(Maximo)
+                                                    .addComponent(Text_Maximo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(RB_Primer_Ajuste)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(RB_Siguiente_Ajuste))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGap(15, 15, 15)
+                                                .addComponent(Ambito_reemplazo_conjunto)
+                                                .addGap(5, 5, 5)
+                                                .addComponent(RB_Global)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(RB_Local))))
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(Cantidad_memoria_fisica)
+                                        .addComponent(Text_Cantidad_memoria_fisica, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(KB)))))
                         .addGap(21, 21, 21)
                         .addComponent(Visualizar_estado)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(Cantidad_referencias)
                             .addComponent(Text_Cantidad_referencias, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(29, 29, 29)
+                        .addGap(329, 329, 329)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -635,11 +651,10 @@ public class Vista_Configuracion_del_Sistema extends javax.swing.JFrame {
                                 .addComponent(RB_LRU)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(RB_Reloj, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 77, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(Botón_Crear_Sistema)
-                            .addComponent(Salir))))
-                .addContainerGap())
+                            .addComponent(Salir)))))
         );
 
         pack();
@@ -911,14 +926,17 @@ public class Vista_Configuracion_del_Sistema extends javax.swing.JFrame {
                          Maximo_Marcos,  Tamano_aumento,  Ambito_Reemplazo,  Grado_Multiprogramacion,  Working_Set,
                                  Tamaño_Memoria_Fisica,  Bits,  Tamaño_Paginas,  Unidad_Medida);
                 
-                if ((Configuracion_sistema.Obtener_Archivo_Proceso()=="") && (Configuracion_sistema.Obtener_Archivo_Referencia()=="")){
-                        Vista_Seleccion_Archivos Seleccionar_Archivos= new Vista_Seleccion_Archivos(Configuracion_sistema);
-                        Seleccionar_Archivos.setVisible(true);
+                if ((Configuracion_sistema.Obtener_Archivo_Proceso()==null) &&(Configuracion_sistema.Obtener_Archivo_Referencia()==null)){
+                       new Vista_Seleccionar_Archivos(Configuracion_sistema).setVisible(true);
+                       this.dispose(); 
                 }
-                    System.out.println(Configuracion_sistema.Obtener_Archivo_Proceso());
-                    System.out.println(Configuracion_sistema.Obtener_Archivo_Referencia());
+                else{
+                    new Vista_Ejecucion_Sistema(Configuracion_sistema).setVisible(true);
+                    this.dispose();
+                }
+                  
                 //Esto no va aquí
-                LinkedList <proyecto2.manejomemoria.Marco> Marco= new LinkedList();
+                /*LinkedList <proyecto2.manejomemoria.Marco> Marco= new LinkedList();
                 proyecto2.manejomemoria.Paginas P1= new Paginas(1,1);
                 proyecto2.manejomemoria.Paginas P2= new Paginas(2,1);
                 proyecto2.manejomemoria.Paginas P3= new Paginas(3,1);
@@ -930,7 +948,7 @@ public class Vista_Configuracion_del_Sistema extends javax.swing.JFrame {
                 Marco.add(frame3);
                 
                 Vista_Memoria_Fisica Fisica = new Vista_Memoria_Fisica(Marco);
-                Fisica.setVisible(true);
+                Fisica.setVisible(true);*/
             }
             }
         }
@@ -1086,6 +1104,7 @@ public class Vista_Configuracion_del_Sistema extends javax.swing.JFrame {
     private javax.swing.JLabel Tiempo_Limpieza;
     private javax.swing.JLabel Visualizar_estado;
     private javax.swing.JLabel bits;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel segundos;
     // End of variables declaration//GEN-END:variables
 }
