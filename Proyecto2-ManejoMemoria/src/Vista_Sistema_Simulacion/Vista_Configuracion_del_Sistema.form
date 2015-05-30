@@ -197,6 +197,8 @@
                                           <Group type="102" attributes="0">
                                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                               <Component id="segundos" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="269" max="-2" attributes="0"/>
+                                              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                           <Group type="102" alignment="0" attributes="0">
                                               <EmptySpace min="-2" pref="275" max="-2" attributes="0"/>
@@ -221,99 +223,99 @@
               <Component id="Descripción_Programa" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
               <Component id="Configuración_Sistema" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-              <Component id="Indicaciones_Programa" min="-2" pref="14" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="Indicaciones2" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="Indicaciones_tamaño_memorias" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                      <Component id="Distribucción_direcciones" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                      <Component id="Indicaciones_Programa" min="-2" pref="14" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="Tamaño_pagina" alignment="3" min="-2" pref="21" max="-2" attributes="0"/>
-                          <Component id="Text_tamaño_pagina" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="Indicaciones2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="Indicaciones_tamaño_memorias" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="Política_recuperación" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="Gestión_conjunto_residente" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="Cantidad_memoria" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="Text_Tamaño_direcciones" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="bits" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="RB_Bajo_Demanda" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="Tamaño_Conjunto_residente" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="RB_Paginación_Adelantada" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="RB_Fijo" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="RB_Variable" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="Indicación3" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="Cantidad_Tamaño_Conjuto_residente" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="Text_Tamaño_conjunto_residente" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="Periodo_aumento_conjunto_resident" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="Text_Periodo_aumento" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                              <Component id="Distribucción_direcciones" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="Tamaño_pagina" alignment="3" min="-2" pref="21" max="-2" attributes="0"/>
+                                  <Component id="Text_tamaño_pagina" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
-                      </Group>
-                      <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="Política_recuperación" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="Gestión_conjunto_residente" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="Cantidad_memoria" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="Text_Tamaño_direcciones" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="bits" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="RB_Bajo_Demanda" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="Tamaño_Conjunto_residente" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="RB_Paginación_Adelantada" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="RB_Fijo" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="RB_Variable" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="Indicación3" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="Cantidad_Tamaño_Conjuto_residente" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="Text_Tamaño_conjunto_residente" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="Periodo_aumento_conjunto_resident" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="Text_Periodo_aumento" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" attributes="0">
-                                      <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                                      <Component id="Política_Ubicación" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="Minimo" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="Text_Minimo" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="Maximo" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="Text_Maximo" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" attributes="0">
+                                              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                                              <Component id="Política_Ubicación" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="3" attributes="0">
+                                                  <Component id="Minimo" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="Text_Minimo" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="Maximo" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="Text_Maximo" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                      </Group>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" attributes="0">
+                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                              <Component id="RB_Primer_Ajuste" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                              <Component id="RB_Siguiente_Ajuste" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+                                              <Component id="Ambito_reemplazo_conjunto" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
+                                              <Component id="RB_Global" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                              <Component id="RB_Local" min="-2" max="-2" attributes="0"/>
+                                          </Group>
                                       </Group>
                                   </Group>
-                              </Group>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="RB_Primer_Ajuste" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="RB_Siguiente_Ajuste" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
-                                      <Component id="Ambito_reemplazo_conjunto" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
-                                      <Component id="RB_Global" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="RB_Local" min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="Cantidad_memoria_fisica" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="Text_Cantidad_memoria_fisica" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="KB" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                          </Group>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="Cantidad_memoria_fisica" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="Text_Cantidad_memoria_fisica" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="KB" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                  </Group>
-              </Group>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                       <Component id="Visualizar_estado" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -321,10 +323,12 @@
                           <Component id="Cantidad_referencias" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="Text_Cantidad_referencias" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="329" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
@@ -368,14 +372,13 @@
                               <Component id="RB_Reloj" min="-2" pref="26" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace pref="66" max="32767" attributes="0"/>
+                      <EmptySpace pref="77" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="Botón_Crear_Sistema" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="Salir" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -799,5 +802,20 @@
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
     </Component>
+    <Container class="javax.swing.JPanel" name="jPanel1">
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <EmptySpace min="0" pref="100" max="32767" attributes="0"/>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <EmptySpace min="0" pref="100" max="32767" attributes="0"/>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+    </Container>
   </SubComponents>
 </Form>
