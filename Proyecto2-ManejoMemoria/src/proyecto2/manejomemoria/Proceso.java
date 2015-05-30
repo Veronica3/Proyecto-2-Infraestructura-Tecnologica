@@ -41,13 +41,18 @@ public class Proceso implements Interface_Proceso{
         return Prioridad;
     }
     
-     public boolean Es_Bloqueado_Proceso(){
+    public boolean Es_Bloqueado_Proceso(){
         return Bloqueado;
     }
     
     public int Cantidad_Paginas(){
         return Cantidad_Paginas;
     }
+    public int Working_Set(){
+        return Working_Set;
+    }
+    
+    
    
     
 }

@@ -17,7 +17,25 @@ public class Memoria_Fisica {
         
           
     }
-    public void Manejo_Multiprogracion(){}
+    public boolean Verifica_Existencia_Espacio(LinkedList<Marco> Marcos){
+        boolean Resultado=false;
+        for (int i = 0; i < Marcos.size(); i++) {
+            if(Marcos.get(i).ID_Proceso_Dueño==0){
+                Resultado=true;
+                break;
+            }
+        }
+        return Resultado;
+    }
+    public  LinkedList<Interface_Proceso> Busca_Procesos_Mayor_Prioridad(DTO DTO){
+        LinkedList<Interface_Proceso> Lista_Procesos_Asignar=new LinkedList<Interface_Proceso>();
+        Proceso Proceso;
+        while(!Lista_Procesos_Asignar.isEmpty()&&Lista_Procesos_Asignar.size()<DTO.Grado_Multiprogramacion){
+            
+        
+        }
+        return Lista_Procesos_Asignar;
+    }
     /*Asignacion de marcos por proceso segun el working set*/
     public void Asignacion_Marcos_Procesos(DTO DTO){
         for (int i = 0; i < DTO.Lista_Procesos.size(); i++) {
