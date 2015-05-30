@@ -27,7 +27,9 @@ public class Controlador {
    
     //Lee las referencias, llama a la funcion
     public void Leer_Referencias (){
-        
+        //Lista de Bitacora que sera guardada en la lista general
+        LinkedList<String> Nueva_Bitacora= new LinkedList();
+        Estructura_DTO.Bitacora.add(Nueva_Bitacora);
         //Lista de Referencias NORMAL sin convertir
         LinkedList <Interface_Referencia> Lista_Referencias = Estructura_DTO.Lista_Referencias;
         int ID_Proceso_De_Pagina;
