@@ -911,9 +911,12 @@ public class Vista_Configuracion_del_Sistema extends javax.swing.JFrame {
                          Maximo_Marcos,  Tamano_aumento,  Ambito_Reemplazo,  Grado_Multiprogramacion,  Working_Set,
                                  Tamaño_Memoria_Fisica,  Bits,  Tamaño_Paginas,  Unidad_Medida);
                 
-                if (Configuracion_sistema.)
-                Vista_Seleccion_Archivos Seleccionar_Archivos= new Vista_Seleccion_Archivos(Configuracion_sistema);
-        Seleccionar_Archivos.setVisible(true);
+                if ((Configuracion_sistema.Obtener_Archivo_Proceso()=="") && (Configuracion_sistema.Obtener_Archivo_Referencia()=="")){
+                        Vista_Seleccion_Archivos Seleccionar_Archivos= new Vista_Seleccion_Archivos(Configuracion_sistema);
+                        Seleccionar_Archivos.setVisible(true);
+                }
+                    System.out.println(Configuracion_sistema.Obtener_Archivo_Proceso());
+                    System.out.println(Configuracion_sistema.Obtener_Archivo_Referencia());
                 //Esto no va aquí
                 LinkedList <proyecto2.manejomemoria.Marco> Marco= new LinkedList();
                 proyecto2.manejomemoria.Paginas P1= new Paginas(1,1);

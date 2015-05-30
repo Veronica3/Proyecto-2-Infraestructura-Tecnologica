@@ -36,8 +36,8 @@ public class DTO {
     int Total_Tamaño_Pagina_Memoria;
     
     //Variables para abrir archivos
-    String Nombre_Archivo_Procesos;
-    String Nombre_Archivo_Referencias;
+    String Nombre_Archivo_Procesos=null;
+    String Nombre_Archivo_Referencias=null;
 
     
     //Constructor de la Clase
