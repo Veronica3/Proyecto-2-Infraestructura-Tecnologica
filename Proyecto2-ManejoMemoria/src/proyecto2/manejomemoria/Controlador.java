@@ -1,11 +1,15 @@
 package proyecto2.manejomemoria;
 import java.util.*;
-
+import java.sql.Timestamp;
+/////////////////////////////////////////////////////////////////////
 public class Controlador {
     DTO Estructura_DTO;
     Politica_Recuperacion Llamada_Politica_Recuperacion;
     Memoria_Virtual Memoria_Virtual;
     Busca_Paginas Buscar_Pagina;
+    java.util.Date date= new java.util.Date();
+    
+/////////////////////////////////////////////////////////////////////
     //Constructor de controlador recibe DTO por medio del cual trabajan todas las funciones
     public Controlador(DTO Estructura) {
         Estructura_DTO=Estructura;
@@ -13,6 +17,7 @@ public class Controlador {
         Llamada_Politica_Recuperacion=new Politica_Recuperacion(Estructura_DTO);
     }
     
+/////////////////////////////////////////////////////////////////////    
     public void Inicio_del_Programa(){
        
         if (Estructura_DTO.Politica_Recuperacion.equals("Demanda")){
@@ -24,9 +29,10 @@ public class Controlador {
             Leer_Referencias();
         }
     }
-   
+/////////////////////////////////////////////////////////////////////   
     //Lee las referencias, llama a la funcion
-    public void Leer_Referencias (){
+    public String Leer_Referencias (){
+        
         //Lista de Bitacora que sera guardada en la lista general
         LinkedList<String> Nueva_Bitacora= new LinkedList();
         Estructura_DTO.Bitacora.add(Nueva_Bitacora);
@@ -49,14 +55,23 @@ public class Controlador {
             ID_Proceso_De_Pagina= Referencia_Leida.ID_Proceso();
             Accion_W_R= Referencia_Leida.Tipo_de_Accion();
             
+            Estructura_DTO.Bitacora.getLast().add("\t\t**Nueva Página Referenciada**\n\n ID de Página: "+ID_Pagina_Referenciada+"\nID de Proceso: "
+                    + ID_Proceso_De_Pagina+"\nAcción a Ejecutar: "+Accion_W_R+ "Desplazamiento: "+Desplazamiento+ "Tiempo: "+date.getTime()+"\nEjecutando Referencia. . .");
             //BUSCA PAGINA referenciada en la MEMORIA VIRTUAL
             Buscar_Pagina= new Busca_Paginas(Estructura_DTO);
             Paginas Pagina_Encontrada=Buscar_Pagina.Busca_Pagina_En_Memoria_Virtual(ID_Proceso_De_Pagina,ID_Pagina_Referenciada);
-            //Llama a DEMANDA  o PREPAGINACION
-            Llamada_Politica_Recuperacion.Paginacion_Bajo_Demanda(Pagina_Encontrada);
-            
-        // Estructura_DTO.Paginas_Referenciadas
-            
+            if(Pagina_Encontrada==null){
+                return "La página no existe";
+            }
+            else
+                //Llama a DEMANDA  o PREPAGINACION
+                Llamada_Politica_Recuperacion.Paginacion_Bajo_Demanda(Pagina_Encontrada);
+             
         }
+        return "Lectura Exitosa";
+    }
+    
+    public int Numero_de_Bitacora(){
+        return Estructura_DTO.Bitacora.size();
     }
 }
