@@ -6,8 +6,8 @@ import java.util.LinkedList;
 
 public class Create_Alcance_Conjunto {
     Alcance_Conjunto alcance_Conjunto= new Alcance_Conjunto();
-    public LinkedList<Marco> Gestion_Alcance_Conjunto(String Ambito_Reemplazo,DTO DTO, int ID_Proceso,LinkedList<Marco> General ){
-        if(Ambito_Reemplazo.equals("Global")){
+    public LinkedList<Marco> Gestion_Alcance_Conjunto(DTO DTO, int ID_Proceso,LinkedList<Marco> General ){
+        if(DTO.Ambito_Reemplazo.equals("Global")){
             alcance_Conjunto.Ambito_Global(DTO, ID_Proceso, General);
         }
         else{
