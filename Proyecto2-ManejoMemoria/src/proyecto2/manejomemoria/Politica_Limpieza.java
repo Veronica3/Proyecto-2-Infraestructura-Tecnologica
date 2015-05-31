@@ -51,7 +51,7 @@ public class Politica_Limpieza {
             else{
                 calendario2 = Calendar.getInstance();
                 if (Estructura_DTO.Lista_Paginas_En_Memoria_Principal.isEmpty()){
-                    String Sentencia=("Tiempo de limpieza: "+formato.format(calendario2.getTime())+"\nIniciando Limpieza. . .\n "
+                    String Sentencia=("Tiempo de limpieza: "+formato.format(calendario2.getTime())+"\nIniciando Limpieza. . .\n"
                             + "No hay paginas en memoria principal\n");
                     Bitacora.Añadir_Accion_A_Bitacora(Sentencia);//Agrego accion a bitacora
                     

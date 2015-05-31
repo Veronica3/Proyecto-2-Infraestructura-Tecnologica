@@ -76,9 +76,10 @@ public class Controlador {
             if(Pagina_Encontrada==null){
                 return "La página no existe";
             }
-            else
+            else{
+                System.out.println("Nueva Bajo Demanda");
                 Llamada_Politica_Recuperacion.Paginacion_Bajo_Demanda(Pagina_Encontrada); //Llama a DEMANDA  o PREPAGINACION
-             
+            }
         }
         I.imprime_bitacora();
         if (Estructura_DTO.Politica_Limpieza.equals("Pre Limpieza")){
