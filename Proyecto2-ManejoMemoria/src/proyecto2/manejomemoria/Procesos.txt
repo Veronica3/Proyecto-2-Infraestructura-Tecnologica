@@ -1,3 +1,7 @@
+ID_Proceso,tamano_TotalK,Prioridad,Nombre_Proceso,Bloqueado
+1,200,jk,Proceso1,true
 2,300,1,Proceso2,false
 3,150,5,Proceso3,false
 4,60,5,Proceso4,true
+5,375,9,Proceso5,false
+6,375,3,Proceso6,true 
