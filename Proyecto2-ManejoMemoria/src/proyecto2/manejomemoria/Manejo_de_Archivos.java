@@ -1,4 +1,5 @@
 package proyecto2.manejomemoria;
+import java.awt.Color;
 import java.io.*;
 import java.util.*;
 
@@ -28,6 +29,7 @@ public class Manejo_de_Archivos {
     //metodo que crea los procesos de acuerdo a los datos obtenidos en el archivo de texto
     public void Crear_Procesos(LinkedList Informacion_de_Archivo, DTO Configuracion){
         LinkedHashMap LProcesos= Configuracion.Lista_Procesos;
+        Colores C=new Colores();
         Interface_Proceso NuevoProceso;
         if (Informacion_de_Archivo.isEmpty()) //si la lista está vacía significa que no tiene procesos
             LProcesos.put(null,null);
@@ -35,6 +37,8 @@ public class Manejo_de_Archivos {
             for (int i = 0; i < Informacion_de_Archivo.size(); i++) {//recorre la lista de elementos
                     NuevoProceso= EsProceso(Informacion_de_Archivo.get(i).toString(), LProcesos, Configuracion);
                     if(NuevoProceso!= null){
+                            Color color=C.Crear_Color(Configuracion.Lista_Procesos);
+                            NuevoProceso.Asignar_Color(color);
                             LProcesos.put(NuevoProceso.ID_Proceso(), NuevoProceso);//Almacena el proceso en lista de procesos
                            }
             }       

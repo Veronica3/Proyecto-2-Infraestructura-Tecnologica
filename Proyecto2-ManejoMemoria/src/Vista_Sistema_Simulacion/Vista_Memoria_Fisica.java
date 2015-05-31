@@ -35,7 +35,7 @@ public class Vista_Memoria_Fisica extends javax.swing.JFrame implements java.awt
         }
         JOptionPane.showMessageDialog(null,Informacion,"Información Marco",JOptionPane.INFORMATION_MESSAGE);
 	}
-    public Vista_Memoria_Fisica(){//(LinkedList <proyecto2.manejomemoria.Marco>Marcos) {
+    public Vista_Memoria_Fisica(){//(proyecto2.manejomemoria.DTO InformacionDTO) {
         initComponents();
         
          Marcos= new LinkedList();
@@ -70,12 +70,13 @@ public class Vista_Memoria_Fisica extends javax.swing.JFrame implements java.awt
             if (Marcos.get(i).getIDMarco()!=0){
                 proyecto2.manejomemoria.Marco marco=Marcos.get(i);
                  Boton= new JButton(Integer.toString(marco.getIDMarco()));
+                 Color c=new Color(107, 106, 104);
                 if(marco.getPagina().getBit_Modificado()==1){
-                    System.out.println("Entre");
-                    Boton.setBackground(java.awt.Color.BLUE.darker()); 
+              
+                    Boton.setBackground(c.darker() );//java.awt.Color.BLUE.darker()); 
                 }
                 else{
-                    Boton.setBackground(java.awt.Color.BLUE);
+                    Boton.setBackground(c);
                 }
             }
             else{

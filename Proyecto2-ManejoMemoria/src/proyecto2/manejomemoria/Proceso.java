@@ -1,6 +1,8 @@
 
 package proyecto2.manejomemoria;
 import java.util.*;
+
+import java.awt.*;
 //Clase proceso que permite 
 public class Proceso implements Interface_Proceso{
     
@@ -11,6 +13,7 @@ public class Proceso implements Interface_Proceso{
     int Cantidad_de_memoria;
     int Working_Set;
     int Cantidad_Paginas=0;
+    Color colorProceso;
 
     public Proceso(int ID_Proceso, String Nombre_Proceso, int Prioridad, boolean Bloqueado, int Cantidad_de_memoria, int Working_Set) {
         this.ID_Proceso = ID_Proceso;
@@ -52,7 +55,13 @@ public class Proceso implements Interface_Proceso{
         return Working_Set;
     }
     
+    public void Asignar_Color(Color C){
+        colorProceso=C;
+    }
     
+    public Color Retornar_Color(){
+        return colorProceso;
+    }
    
     
 }
