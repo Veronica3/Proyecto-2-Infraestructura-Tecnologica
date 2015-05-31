@@ -17,16 +17,7 @@ public class Memoria_Fisica {
         
           
     }
-    public boolean Verifica_Existencia_Espacio(LinkedList<Marco> Marcos){
-        boolean Resultado=false;
-        for (int i = 0; i < Marcos.size(); i++) {
-            if(Marcos.get(i).ID_Proceso_Dueño==0){
-                Resultado=true;
-                break;
-            }
-        }
-        return Resultado;
-    }
+    
     public  LinkedList<Interface_Proceso> Busca_Procesos_Mayor_Prioridad(DTO DTO){
         LinkedList<Interface_Proceso> Lista_Procesos_Asignar=new LinkedList<Interface_Proceso>();
         Proceso Proceso;
