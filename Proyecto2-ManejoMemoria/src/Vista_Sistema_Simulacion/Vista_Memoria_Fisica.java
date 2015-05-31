@@ -5,51 +5,87 @@ import proyecto2.manejomemoria.*;
 import java.util.*;
 import javax.swing.*;
 import java.awt.event.*;
+import javax.swing.JOptionPane;
 
 
 public class Vista_Memoria_Fisica extends javax.swing.JFrame implements java.awt.event.ActionListener{
     private LinkedList <proyecto2.manejomemoria.Marco>Marcos;
+    private proyecto2.manejomemoria.DTO InformacionDTO;
+    private LinkedHashMap<Integer,proyecto2.manejomemoria.Proceso> Lista_Procesos;
+    
      public void actionPerformed(ActionEvent e) {
-        
-        Informacion_Marco.setText("Hola");
-
+         String Informacion="";
+         String NumeroBoton= e.getActionCommand();
+        if (NumeroBoton.equals("")){
+            Informacion= "El marco no se encuentra asignado";
+        }
+        else{            
+            proyecto2.manejomemoria.Marco marco;
+            proyecto2.manejomemoria.Paginas Pagina;
+            for (int i = 0; i < Marcos.size(); i++) {
+                String MarcoID=Integer.toString(Marcos.get(i).getIDMarco());             
+                if (MarcoID.equals(NumeroBoton)){
+                    marco=Marcos.get(i);
+                    Informacion= "Número pagina: "+marco.getIDMarco()+"\n\r Código proceso: "+marco.getIDProceso();
+                    Pagina=marco.getPagina();
+                    Informacion+="\n\r Bit de modificado: "+Pagina.getBit_Modificado();
+                    break;
+                }
+            }
+        }
+        JOptionPane.showMessageDialog(null,Informacion,"Información Marco",JOptionPane.INFORMATION_MESSAGE);
 	}
     public Vista_Memoria_Fisica(){//(LinkedList <proyecto2.manejomemoria.Marco>Marcos) {
         initComponents();
-        JButton  Boton;
+        
          Marcos= new LinkedList();
                 proyecto2.manejomemoria.Paginas P1= new Paginas(1,1);
                 proyecto2.manejomemoria.Paginas P2= new Paginas(2,1);
+                P2.setBit_Modificado(1);
                 proyecto2.manejomemoria.Paginas P3= new Paginas(3,1);
                 proyecto2.manejomemoria.Marco frame1= new Marco(1, P1, 1);
                 proyecto2.manejomemoria.Marco frame2= new Marco(2, P2, 1);
                 proyecto2.manejomemoria.Marco frame3= new Marco(3, P3, 1);
+                proyecto2.manejomemoria.Marco frame4= new Marco(0, null, 0);
+                proyecto2.manejomemoria.Marco frame5= new Marco(0, null, 0);
+                proyecto2.manejomemoria.Marco frame6= new Marco(0, null, 0);
+                proyecto2.manejomemoria.Marco frame7= new Marco(0, null, 0);
+                
                 Marcos.add(frame1);
                 Marcos.add(frame2);
                 Marcos.add(frame3);
-    
-         JPanel Panel_Memoria_Fisica = new JPanel();
-        //Panel_Memoria_Fisica.
-        Panel_Memoria_Fisica.setLayout(new GridLayout(10,10));
-        //Panel_Memoria_Fisica.setLayout(new GridLayout(50,1000/50));
+                Marcos.add(frame4);
+                Marcos.add(frame5);
+                Marcos.add(frame6);
+                Marcos.add(frame7);
+              
+        JButton  Boton;//boton que representara el marco
+        JPanel Panel_Memoria_Fisica = new JPanel();
+        Panel_Memoria_Fisica.setLayout(new GridLayout(5,5));
+        //Panel_Memoria_Fisica.setLayout(new GridLayout(50,Marcos.size()/50));
         this.add(Panel_Memoria_Fisica);
-       //this.add(Desplazamiento);
-        Panel_Memoria_Fisica.setBounds(70, 70, 1000,1000 );
-       //this.getContentPane().add(Desplazamiento);
-       //Desplazamiento.setViewportView(Panel_Memoria_Fisica);     
-        //Panel_Memoria_Fisica
-       
-        // Add buttons to the panel
-        for(int i = 1; i <= Marcos.size(); i++){
-        //for(int i = 1; i <= 1000; i++) {
-            Boton= new JButton("");
-            Boton.setBackground(java.awt.Color.yellow); 
+       Panel_Memoria_Fisica.setBounds(70, 70,100,100 );      
+        // Añadir botones al panel
+        for(int i = 0; i < Marcos.size(); i++){     
+            if (Marcos.get(i).getIDMarco()!=0){
+                proyecto2.manejomemoria.Marco marco=Marcos.get(i);
+                 Boton= new JButton(Integer.toString(marco.getIDMarco()));
+                if(marco.getPagina().getBit_Modificado()==1){
+                    System.out.println("Entre");
+                    Boton.setBackground(java.awt.Color.BLUE.darker()); 
+                }
+                else{
+                    Boton.setBackground(java.awt.Color.BLUE);
+                }
+            }
+            else{
+                 Boton= new JButton("");
+                Boton.setBackground(java.awt.Color.white);
+            }
             Panel_Memoria_Fisica.add(Boton);
-           // ActionListener BotonListener = new BotonAccionListener();
             Boton.addActionListener(this);
-    //}
-        Panel_Memoria_Fisica.setVisible(true);
            }
+        Panel_Memoria_Fisica.setVisible(true);
      
 }
         
@@ -66,7 +102,6 @@ public class Vista_Memoria_Fisica extends javax.swing.JFrame implements java.awt
         Cantidad_Referencias = new javax.swing.JLabel();
         Referencias = new javax.swing.JLabel();
         Titulo = new javax.swing.JLabel();
-        Informacion_Marco = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -79,8 +114,6 @@ public class Vista_Memoria_Fisica extends javax.swing.JFrame implements java.awt
         Titulo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         Titulo.setText("Visualizar Memoria Física");
 
-        Informacion_Marco.setText("    ");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -88,22 +121,16 @@ public class Vista_Memoria_Fisica extends javax.swing.JFrame implements java.awt
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(335, 335, 335)
-                                .addComponent(Titulo))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(245, 245, 245)
-                                .addComponent(Indicaciones)
-                                .addGap(18, 18, 18)
-                                .addComponent(Cantidad_Referencias)
-                                .addGap(18, 18, 18)
-                                .addComponent(Referencias)))
-                        .addGap(0, 324, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(Informacion_Marco, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
+                        .addGap(335, 335, 335)
+                        .addComponent(Titulo))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(245, 245, 245)
+                        .addComponent(Indicaciones)
+                        .addGap(18, 18, 18)
+                        .addComponent(Cantidad_Referencias)
+                        .addGap(18, 18, 18)
+                        .addComponent(Referencias)))
+                .addContainerGap(334, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -116,9 +143,7 @@ public class Vista_Memoria_Fisica extends javax.swing.JFrame implements java.awt
                         .addComponent(Cantidad_Referencias)
                         .addComponent(Referencias))
                     .addComponent(Indicaciones))
-                .addGap(11, 11, 11)
-                .addComponent(Informacion_Marco, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(298, Short.MAX_VALUE))
+                .addContainerGap(421, Short.MAX_VALUE))
         );
 
         pack();
@@ -140,9 +165,9 @@ public class Vista_Memoria_Fisica extends javax.swing.JFrame implements java.awt
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Cantidad_Referencias;
     private javax.swing.JLabel Indicaciones;
-    private javax.swing.JLabel Informacion_Marco;
     private javax.swing.JLabel Referencias;
     private javax.swing.JLabel Titulo;
     // End of variables declaration//GEN-END:variables
 
+   
 }
