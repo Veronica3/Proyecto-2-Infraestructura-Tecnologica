@@ -1,4 +1,5 @@
 package proyecto2.manejomemoria;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 /////////////////////////////////////////////////////////////////////
@@ -8,7 +9,10 @@ public class Controlador {
     Politica_Limpieza Politica_Limpieza;
     Memoria_Virtual Memoria_Virtual;
     Busca_Paginas Buscar_Pagina;
-    java.util.Date date= new java.util.Date();
+    Añadir_a_Bitacora Bitacora;
+    SimpleDateFormat formato = new SimpleDateFormat("HH:mm:ss");
+    Calendar calendario1;
+    
     
 /////////////////////////////////////////////////////////////////////
     //Constructor de controlador recibe DTO por medio del cual trabajan todas las funciones
@@ -16,6 +20,7 @@ public class Controlador {
         Estructura_DTO=Estructura;
         Memoria_Virtual= new Memoria_Virtual(Estructura_DTO);
         Llamada_Politica_Recuperacion=new Politica_Recuperacion(Estructura_DTO);
+        Bitacora= new Añadir_a_Bitacora(Estructura_DTO);
     }
     
 /////////////////////////////////////////////////////////////////////    
@@ -23,16 +28,16 @@ public class Controlador {
         //Lista de Bitacora que sera guardada en la lista general
         LinkedList<String> Nueva_Bitacora= new LinkedList();
         Estructura_DTO.Bitacora.add(Nueva_Bitacora);
+        if (Estructura_DTO.Politica_Limpieza.equals("Pre Limpieza")){
+            Politica_Limpieza = new Politica_Limpieza(5,Estructura_DTO);
+        }
         //Pregunta la politica de recuperacion
-        if (Estructura_DTO.Politica_Recuperacion.equals("Demanda")){
-            Politica_Limpieza = new Politica_Limpieza(Estructura_DTO);
-            Leer_Referencias();
+        if (Estructura_DTO.Politica_Recuperacion.equals("Bajo Demanda")){
+            Leer_Referencias(); //Se leen referencias
         }
         else{
-            Llamada_Politica_Recuperacion.Prepaginacion();
-            Politica_Limpieza = new Politica_Limpieza(5,Estructura_DTO);
-            //LUEGO LEO REFERENCIAS DE PROCESOS?
-            Leer_Referencias();
+            Llamada_Politica_Recuperacion.Prepaginacion(); //Se cargan las paginas de cada proceso de acuerdo al working set
+            Leer_Referencias(); //Una vez cargado leo referencias
         }
     }
 /////////////////////////////////////////////////////////////////////   
@@ -49,7 +54,7 @@ public class Controlador {
         //Ciclo que lee cada una de las referencias de la lista
         for (int i = 0; i < Lista_Referencias.size(); i++) {
            // I.imprime_bitacora();
-            
+            System.out.println("Tama;o lista referencias "+ Lista_Referencias.size());
             Interface_Referencia Referencia_Leida=Lista_Referencias.get(i); //Crea una nueva interfaz en la cual se guarda la referencia leida en ese momento
             LinkedList Pagina_Referenciada= Memoria_Virtual.Realizar_Conversion_de_Referencias(Referencia_Leida);//Llamo a la funcion de Convertir a # de pagina
            
@@ -57,22 +62,30 @@ public class Controlador {
             Desplazamiento=(Integer) Pagina_Referenciada.get(1);
             System.out.println("pagina referenciada "+ ID_Pagina_Referenciada);
             ID_Proceso_De_Pagina= Referencia_Leida.ID_Proceso(); //Agarra datos de la referencia actual
+            System.out.println("Proceso de pagina referenciada "+ ID_Proceso_De_Pagina);
             Accion_W_R= Referencia_Leida.Tipo_de_Accion();
             
-            Estructura_DTO.Bitacora.getLast().add("\t\t**Nueva Página Referenciada**\n\nID de Página: "+ID_Pagina_Referenciada+"\nID de Proceso: "
-            + ID_Proceso_De_Pagina+"\nAcción a Ejecutar: "+Accion_W_R+ "\nDesplazamiento: "+Desplazamiento+ "\nTiempo: "+(date.getTime())+"\nEjecutando Referencia. . .");
+            calendario1 = Calendar.getInstance();//Obtiene el tiempo de ahorita para la bitacora
+            String Sentencia=("\t\t**Nueva Página Referenciada**\n\n"+ "\nTiempo inicial de referencia: "+(formato.format(calendario1.getTime()))+"\nID de Página: "+ID_Pagina_Referenciada+"\nID de Proceso: "
+            + ID_Proceso_De_Pagina+"\nAcción a Ejecutar: "+Accion_W_R+ "\nDesplazamiento: "+Desplazamiento+"\nEjecutando Referencia. . .");
+            Bitacora.Añadir_Accion_A_Bitacora(Sentencia);//Agrego accion a bitacora
             
             Buscar_Pagina= new Busca_Paginas(Estructura_DTO); //BUSCA PAGINA referenciada en la MEMORIA VIRTUAL
             Paginas Pagina_Encontrada=Buscar_Pagina.Busca_Pagina_En_Memoria_Virtual(ID_Proceso_De_Pagina,ID_Pagina_Referenciada);
+            //System.out.println("PaginaRefBajodemanda " );
             if(Pagina_Encontrada==null){
                 return "La página no existe";
             }
-            else
+            else{
+                System.out.println("Nueva Bajo Demanda");
                 Llamada_Politica_Recuperacion.Paginacion_Bajo_Demanda(Pagina_Encontrada); //Llama a DEMANDA  o PREPAGINACION
-             
+            }
         }
         I.imprime_bitacora();
-        Politica_Limpieza.Fin_Tarea=true;
+        if (Estructura_DTO.Politica_Limpieza.equals("Pre Limpieza")){
+            Politica_Limpieza.Fin_Tarea=true;
+        }
+        
         return "Lectura Exitosa";
     }
     
