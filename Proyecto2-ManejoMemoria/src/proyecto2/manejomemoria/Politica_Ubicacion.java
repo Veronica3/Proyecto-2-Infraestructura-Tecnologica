@@ -5,10 +5,16 @@ import java.util.*;
 
 public class Politica_Ubicacion {
     
-    Alcance_Conjunto Manejo_Alcance=new Alcance_Conjunto();
+    Alcance_Conjunto Manejo_Alcance;
+    DTO DTO;
+
+    public Politica_Ubicacion(DTO DTO) {
+        this.DTO = DTO;
+        this.Manejo_Alcance=new Alcance_Conjunto();
+    }
     
     public void Siguiente_Disponible(LinkedList<Marco> Posibles){}
-    public void Primero_Disponible(DTO DTO, int ID_PROCESO,Paginas Pagina){
+    public void Primero_Disponible( int ID_PROCESO,Paginas Pagina){
         for (int i = 0; i < DTO.Memoria_Fisica.size(); i++) {
             if(DTO.Memoria_Fisica.get(i).ID_Proceso_Dueño==ID_PROCESO && DTO.Memoria_Fisica.get(i).Pagina==null){
                 DTO.Memoria_Fisica.get(i).Pagina=Pagina;
