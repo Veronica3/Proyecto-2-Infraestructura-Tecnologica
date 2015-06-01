@@ -11,18 +11,22 @@ public class Politica_Ubicacion {
         this.DTO = DTO;
         
     } 
-    public void Siguiente_Disponible(Paginas Pagina,LinkedList<Marco> Posibles,String Ambito){
-        String Resultado;
+    public String Siguiente_Disponible(Paginas Pagina,LinkedList<Marco> Posibles,String Ambito){
+        String Resultado="";
         if(!(Existe_Ultimo_Ubicado(Posibles, Ambito))){
             Resultado= Primero_Disponible(Pagina, Posibles, Ambito);
         }
         else{
-            int Indice_Ultimo=Encuentra_Ultimo_Ubicado(Posibles, Ambito);
-            List<Marco> Lista_Recortada=Posibles.subList(Indice_Ultimo+1, Posibles.size());
-            Resultado= Primero_Disponible(Pagina,Lista_Recortada, Ambito);
-                    
+            int ID_Ultimo_Marco=Encuentra_Ultimo_Ubicado(Posibles, Ambito);
+            if(ID_Ultimo_Marco==Posibles.size()){
+                Resultado= Primero_Disponible(Pagina, Posibles, Ambito);
+            }
+            else{
+                List<Marco> Lista_Recortada=Posibles.subList(ID_Ultimo_Marco+1, Posibles.size());
+                Resultado= Primero_Disponible(Pagina,Lista_Recortada, Ambito);
+            }            
         }
-    
+        return Resultado;
     }
     public String Primero_Disponible( Paginas Pagina, List<Marco> Lista_Posibles,String Ambito){
         String Resultado="No se encuentran Marcos vacíos";
@@ -75,8 +79,7 @@ public class Politica_Ubicacion {
             if(Ambito.equals("Local")){
                 if(Posibles.get(i).Ultimo_Colocado_Local==true){
                     DTO.Memoria_Fisica.get(i).Ultimo_Colocado_Local=false;
-                    ID_Marco=i;
-                    
+                    ID_Marco=i;    
                 }
             }
             else{

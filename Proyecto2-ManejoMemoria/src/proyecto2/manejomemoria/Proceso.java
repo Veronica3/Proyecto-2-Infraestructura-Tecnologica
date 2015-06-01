@@ -54,7 +54,9 @@ public class Proceso implements Interface_Proceso{
     public int Working_Set(){
         return Working_Set;
     }
-    
+    public void Cambiar_Working_Set(int numero){
+        Working_Set+=numero;
+    }
     public void Asignar_Color(Color C){
         colorProceso=C;
     }

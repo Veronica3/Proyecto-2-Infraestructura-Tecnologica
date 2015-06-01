@@ -14,7 +14,7 @@ public interface Interface_Proceso {
     public int Tamaño_Total_Proceso();
     
     public int Prioridad_Proceso();
-    
+    public void Cambiar_Working_Set(int numero);
     public int Cantidad_Paginas();
     public int Working_Set();
     public boolean Es_Bloqueado_Proceso();

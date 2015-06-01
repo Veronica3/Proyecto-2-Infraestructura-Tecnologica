@@ -12,11 +12,12 @@ public class Create_Manejo_Asignacion {
     }
     
     public String Gestion_Manejo_Asignacion(Paginas Pagina){
+        String Respuesta;
         if(DTO.Tamaño_Conjunto.equals("Fijo")){
-            Manejo_Asignacion.Asignacion_Fija(Pagina.ID_Proceso, Pagina);
+            Respuesta=Manejo_Asignacion.Asignacion_Fija(Pagina.ID_Proceso, Pagina);
         }
         else{
-             Manejo_Asignacion.Asignacion_Variable(Pagina.ID_Proceso, Pagina);
+             Respuesta=Manejo_Asignacion.Asignacion_Variable(Pagina.ID_Proceso, Pagina);
         }
         return "";
     }

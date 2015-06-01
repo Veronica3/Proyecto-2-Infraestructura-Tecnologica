@@ -39,7 +39,7 @@ public class DTO {
     //Variables para abrir archivos
     String Nombre_Archivo_Procesos=null;
     String Nombre_Archivo_Referencias=null;
-
+    
     
     //Constructor de la Clase
      

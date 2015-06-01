@@ -22,13 +22,15 @@ public class Create_Politica_Ubicacion {
         this.ubicacion=new Politica_Ubicacion(DTO);
     }
     
-    public void Gestiona_Politica_Ubicacion(Paginas Pagina, LinkedList<Marco> Lista_Marco, String Ambito){
+    public String Gestiona_Politica_Ubicacion(Paginas Pagina, LinkedList<Marco> Lista_Marco, String Ambito){
+        String Respuesta="";
         if(DTO.Politica_Ubicacion.equals("Primero Disponible")){
-            ubicacion.Primero_Disponible( Pagina, Lista_Marco,Ambito);
+            Respuesta=ubicacion.Primero_Disponible( Pagina, Lista_Marco,Ambito);
         }
         else{
-            ubicacion.Siguiente_Disponible(Pagina,Lista_Marco,Ambito);
+            Respuesta=ubicacion.Siguiente_Disponible(Pagina,Lista_Marco,Ambito);
         }
+        return Respuesta;
     }
     
 }
