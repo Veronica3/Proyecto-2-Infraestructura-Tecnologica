@@ -10,7 +10,7 @@ public class Controlador {
     Memoria_Virtual Memoria_Virtual;
     Busca_Paginas Buscar_Pagina;
     Añadir_a_Bitacora Bitacora;
-    SimpleDateFormat formato = new SimpleDateFormat("HH:mm:ss");
+   // SimpleDateFormat formato = new SimpleDateFormat("HH:mm:ss");
     Calendar calendario1;
     
     
@@ -43,18 +43,15 @@ public class Controlador {
 /////////////////////////////////////////////////////////////////////   
     //Lee las referencias, llama a la funcion
     public String Leer_Referencias (){
-       
-        //Lista de Referencias NORMAL sin convertir
-        LinkedList <Interface_Referencia> Lista_Referencias = Estructura_DTO.Lista_Referencias;
         int ID_Proceso_De_Pagina;
         int ID_Pagina_Referenciada;
         int Desplazamiento;
         String Accion_W_R;
         Imprimir_Para_Pruebas I= new Imprimir_Para_Pruebas(Estructura_DTO);
         //Ciclo que lee cada una de las referencias de la lista
-        for (int i = 0; i < Lista_Referencias.size(); i++) {
+        for (int i = 0; i <  Estructura_DTO.Lista_Referencias.size(); i++) {
            
-            Interface_Referencia Referencia_Leida=Lista_Referencias.get(i); //Crea una nueva interfaz en la cual se guarda la referencia leida en ese momento
+            Interface_Referencia Referencia_Leida= Estructura_DTO.Lista_Referencias.get(i); //Crea una nueva interfaz en la cual se guarda la referencia leida en ese momento
             LinkedList Pagina_Referenciada= Memoria_Virtual.Realizar_Conversion_de_Referencias(Referencia_Leida);//Llamo a la funcion de Convertir a # de pagina
             //********************************************************************
             ID_Pagina_Referenciada = (Integer) Pagina_Referenciada.get(0);//Convierte objeto en int, correspondiente al numero de pagina ID PAGINA, ID PROCESO, DESPLAZAMIENTO y ACCION
@@ -66,9 +63,9 @@ public class Controlador {
             
             //********************************************************************
             calendario1 = Calendar.getInstance();//Obtiene el tiempo de ahorita para la bitacora
-            String Sentencia=("\t\t**Nueva Página Referenciada**\n\n"+ "\nTiempo inicial de referencia: "+(formato.format(calendario1.getTime()))+"\nID de Página: "+ID_Pagina_Referenciada+"\nID de Proceso: "
+           /* String Sentencia=("\t\t**Nueva Página Referenciada**\n\n"+ "\nTiempo inicial de referencia: "+(formato.format(calendario1.getTime()))+"\nID de Página: "+ID_Pagina_Referenciada+"\nID de Proceso: "
             + ID_Proceso_De_Pagina+"\nAcción a Ejecutar: "+Accion_W_R+ "\nDesplazamiento: "+Desplazamiento+"\nEjecutando Referencia. . .");
-            Bitacora.Añadir_Accion_A_Bitacora(Sentencia);//Agrego accion a bitacora
+            Bitacora.Añadir_Accion_A_Bitacora(Sentencia);//Agrego accion a bitacora*/
             //********************************************************************
             Buscar_Pagina= new Busca_Paginas(Estructura_DTO); //BUSCA PAGINA referenciada en la MEMORIA VIRTUAL
             Paginas Pagina_Encontrada=Buscar_Pagina.Busca_Pagina_En_Memoria_Virtual(ID_Proceso_De_Pagina,ID_Pagina_Referenciada);
@@ -80,6 +77,12 @@ public class Controlador {
                 Llamada_Politica_Recuperacion.Paginacion_Bajo_Demanda(Pagina_Encontrada); //Llama a DEMANDA  o PREPAGINACION
             }
         }
+        for (int i = 0; i < Estructura_DTO.Memoria_Fisica.size(); i++) {
+            System.out.print(Estructura_DTO.Memoria_Fisica.get(i).ID_Marco);
+            System.out.print(">");
+            System.out.print(Estructura_DTO.Memoria_Fisica.get(i).ID_Proceso_Dueño);
+            System.out.print("\nPagina: "+Estructura_DTO.Memoria_Fisica.get(i).Pagina.ID_Pagina);
+        }   
         I.imprime_bitacora();
         if (Estructura_DTO.Politica_Limpieza.equals("Pre Limpieza")){
             Politica_Limpieza.Fin_Tarea=true;

@@ -4,19 +4,24 @@ import java.text.*;
 import java.util.*;
 
 public class Politica_Reemplazo {
+    //Date dt = new Date();
     SimpleDateFormat formato = new SimpleDateFormat("HH:mm:ss");
     Calendar calendario;
     int ID_Marco; //Utilizado para obtener el id del marco al que le voy a reemplazar la pagina
     DTO Estructura_DTO; //Estructura
     LinkedList<Paginas> Lista_Paginas_En_Memoria_Principal; //Lista
     Busca_Paginas Buscar_Pagina;//Busca Paginas para ALGORITMOS de LRU y MRU
-    Imprimir_Para_Pruebas Imprime= new Imprimir_Para_Pruebas(Estructura_DTO);//Para PRUEBAS
+    Imprimir_Para_Pruebas Imprime;//Para PRUEBAS
     Lista_Circular Lista_Reloj;//Lista para algoritmo RELOJ
     LinkedList<Marco> Lista_Marcos; //Marcos para realizar el reemplazo
     Añadir_a_Bitacora Bitacora; //Bitacora en la que se guardan todas las operaciones realizadas
     String Operacion_Reemplazo; //String que recibe bitacora
     Politica_Limpieza Limpieza;
-///////////////////////////////////////////////////////////////////////////////////////////////    
+///////////////////////////////////////////////////////////////////////////////////////////////  
+
+    public Politica_Reemplazo() {
+    }
+    
     public Politica_Reemplazo(DTO Estructura_DTO) {
         
         this.Estructura_DTO = Estructura_DTO;
@@ -25,6 +30,7 @@ public class Politica_Reemplazo {
         this.Bitacora= new Añadir_a_Bitacora(Estructura_DTO);
         this.Lista_Reloj=Estructura_DTO.Lista_Reloj;
         Limpieza=new Politica_Limpieza(Estructura_DTO);
+        this.Imprime= new Imprimir_Para_Pruebas(Estructura_DTO);
     }
     
 /////////////////////////////////////////////////////////////////////////////////////////////
@@ -103,9 +109,9 @@ public class Politica_Reemplazo {
                     Marco.ID_Proceso_Dueño=Nueva_Pagina.ID_Proceso; //Actualizo ID proceso due;o del marco
                    
                     calendario = Calendar.getInstance();
-                    return "\nTiempo reemplazo: "+formato.format(calendario.getTime())+" \nMarco para reemplazo: "+ 
+                   /* return "\nTiempo reemplazo: "+formato.format(calendario.getTime())+" \nMarco para reemplazo: "+ 
                             ID_Marco+"\nPágina para asignar a marco: " + Nueva_Pagina.ID_Pagina
-                            +"\nPágina perteneciente al Proceso: " + Nueva_Pagina.ID_Proceso;
+                            +"\nPágina perteneciente al Proceso: " + Nueva_Pagina.ID_Proceso;*/
                 }
             }
         }

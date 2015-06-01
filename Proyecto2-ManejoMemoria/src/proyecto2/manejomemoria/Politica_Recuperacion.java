@@ -10,7 +10,8 @@ public class Politica_Recuperacion {
     SimpleDateFormat formato = new SimpleDateFormat("HH:mm:ss");
     Calendar calendario1;
     Politica_Reemplazo Referencia_A_Pagina;
-    
+    Create_Manejo_Asignacion Manejo_Asignacion;
+    String Respuesta;
 ////////////////////////////////////////////////////////////////////////////    
     //Constructor de la clase
     public Politica_Recuperacion(DTO Estructura) {
@@ -18,6 +19,7 @@ public class Politica_Recuperacion {
         Buscar_Pagina= new Busca_Paginas(Estructura_DTO);
         Bitacora= new Añadir_a_Bitacora(Estructura_DTO);
         Referencia_A_Pagina= new Politica_Reemplazo(Estructura_DTO);
+        Manejo_Asignacion= new Create_Manejo_Asignacion(Estructura_DTO);
     }
 ////////////////////////////////////////////////////////////////////////////        
     //Trae a memoria la pagina referenciada
@@ -38,19 +40,17 @@ public class Politica_Recuperacion {
             }
         }
         else {
-            
-            int ID_Proceso_Pagina= Pagina_Referenciada.ID_Proceso;
-            int ID_Pagina_Referenciada= Pagina_Referenciada.ID_Pagina;
             calendario1 = Calendar.getInstance();
-            String Sentencia=("\nTiempo: "+formato.format(calendario1.getTime())+"\n***Fallo de Página***\n"+"La pagina "+ID_Pagina_Referenciada+" del proceso "
-                    +ID_Proceso_Pagina+" no se encuentra en memoria principal");
+            String Sentencia=("\nTiempo: "+formato.format(calendario1.getTime())+"\n***Fallo de Página***\n"+"La pagina "+Pagina_Referenciada.ID_Pagina+" del proceso "
+                    +Pagina_Referenciada.ID_Proceso+" no se encuentra en memoria principal");
             Bitacora.Añadir_Accion_A_Bitacora(Sentencia);//Agrego accion a bitacora
-            Paginas Pagina_Buscada_En_Memoria_Virtual= Buscar_Pagina.Busca_Pagina_En_Memoria_Virtual(ID_Proceso_Pagina, ID_Pagina_Referenciada);
+            Paginas Pagina_Buscada_En_Memoria_Virtual= Buscar_Pagina.Busca_Pagina_En_Memoria_Virtual(Pagina_Referenciada.ID_Proceso, Pagina_Referenciada.ID_Pagina);
             //Fallo de pagina y busca si esta en memoria virtual
-            return "";//LLAMA A POLITICA DE UBICACION Y LE ENVIA LA PAGINA
+            
+            Respuesta= Manejo_Asignacion.Gestion_Manejo_Asignacion(Pagina_Referenciada);
             
         }
-         return ""; 
+         return Respuesta; 
     }
     
 ////////////////////////////////////////////////////////////////////////////    
@@ -78,9 +78,9 @@ public class Politica_Recuperacion {
             }
             else if (Memoria_Virtual.get(i).ID_Proceso==ID_Proceso_Buscado){
                 
-                if (Contador_ID_Pagina<3/*working set*/){ //Entra si todavia no se ha completado el numero de paginas
+                if (Contador_ID_Pagina< Estructura_DTO.Working_Set){ //Entra si todavia no se ha completado el numero de paginas
                    Paginas Pagina=Estructura_DTO.Memoria_Virtual.get(i);
-                   //LLAMO A UBICACION ****Estructura_DTO.Paginas_Referenciadas.add(Pagina);
+                   Respuesta= Manejo_Asignacion.Gestion_Manejo_Asignacion(Pagina);
                    Contador_ID_Pagina+=1;
                 }
                                                
@@ -88,7 +88,7 @@ public class Politica_Recuperacion {
            
             else{
                Paginas Pagina=Estructura_DTO.Memoria_Virtual.get(i);
-               //LLAMO A UBICACION   ***Estructura_DTO.Paginas_Referenciadas.add(Pagina);
+               Respuesta= Manejo_Asignacion.Gestion_Manejo_Asignacion(Pagina);
                ID_Proceso_Buscado+=1;
                Contador_ID_Pagina=1;
             }

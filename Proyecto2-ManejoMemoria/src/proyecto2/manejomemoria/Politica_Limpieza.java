@@ -23,7 +23,7 @@ public class Politica_Limpieza {
         Estructura_DTO = Estructura;
         Bitacora= new Añadir_a_Bitacora(Estructura_DTO);
         timer= new Timer();
-        timer.schedule(new Pre_Limpieza(), 0, /*Estructura_DTO.Tiempo_de_Limpieza*/1000);
+        timer.schedule(new Pre_Limpieza(), 0, Estructura_DTO.Tiempo_de_Limpieza*1000);
     }
 /////////////////////////////////////////////////////////////////////////////////////      
     //Cuando se hace reemplazo
@@ -42,7 +42,7 @@ public class Politica_Limpieza {
 /////////////////////////////////////////////////////////////////////////////////////      
     //Tipo de politica de limpieza
     public void Verifica_Tipo_De_Limpieza(Paginas Pagina_Para_Limpieza){
-        if (Estructura_DTO.Politica_Limpieza.equals("Demanda")){
+        if (Estructura_DTO.Politica_Limpieza.equals("Bajo Demanda")){
             Limpieza_Por_Demanda(Pagina_Para_Limpieza);
         }
     }    
