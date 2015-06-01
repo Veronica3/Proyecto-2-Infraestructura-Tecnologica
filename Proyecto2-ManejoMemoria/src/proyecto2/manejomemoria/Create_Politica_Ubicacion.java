@@ -6,6 +6,9 @@
 
 package proyecto2.manejomemoria;
 
+import java.util.LinkedList;
+import java.util.List;
+
 /**
  *
  * @author paola
@@ -19,12 +22,12 @@ public class Create_Politica_Ubicacion {
         this.ubicacion=new Politica_Ubicacion(DTO);
     }
     
-    public void Gestiona_Politica_Ubicacion(int ID_PROCESO,Paginas Pagina){
+    public void Gestiona_Politica_Ubicacion(Paginas Pagina, LinkedList<Marco> Lista_Marco, String Ambito){
         if(DTO.Politica_Ubicacion.equals("Primero Disponible")){
-            ubicacion.Primero_Disponible(ID_PROCESO, Pagina);
+            ubicacion.Primero_Disponible( Pagina, Lista_Marco,Ambito);
         }
         else{
-            ubicacion.Siguiente_Disponible(null);
+            ubicacion.Siguiente_Disponible(Pagina,Lista_Marco,Ambito);
         }
     }
     
