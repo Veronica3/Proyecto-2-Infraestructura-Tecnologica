@@ -32,11 +32,20 @@ public class Politica_Limpieza {
         String Sentencia="Tiempo de limpieza: "+formato.format(calendario1.getTime())+"\nIniciando Limpieza. . .\n";
         Bitacora.Añadir_Accion_A_Bitacora(Sentencia);//Agrego accion a bitacora
        
+       
         Pagina_Para_Limpieza.Bit_Suciedad=0; //Cambio el bit de suciedad 
         
         String Sentencia2=("\nLimpieza Finalizada de Página: " +Pagina_Para_Limpieza.ID_Pagina + " del proceso: " + Pagina_Para_Limpieza.ID_Proceso);
         Bitacora.Añadir_Accion_A_Bitacora(Sentencia2);//Agrego accion a bitacora
     }
+    
+/////////////////////////////////////////////////////////////////////////////////////      
+    //Tipo de politica de limpieza
+    public void Verifica_Tipo_De_Limpieza(Paginas Pagina_Para_Limpieza){
+        if (Estructura_DTO.Politica_Limpieza.equals("Demanda")){
+            Limpieza_Por_Demanda(Pagina_Para_Limpieza);
+        }
+    }    
 /////////////////////////////////////////////////////////////////////////////////////    
     //Cada cierto tiempo
     class Pre_Limpieza extends TimerTask{

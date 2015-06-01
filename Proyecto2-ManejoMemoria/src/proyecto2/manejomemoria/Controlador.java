@@ -53,31 +53,30 @@ public class Controlador {
         Imprimir_Para_Pruebas I= new Imprimir_Para_Pruebas(Estructura_DTO);
         //Ciclo que lee cada una de las referencias de la lista
         for (int i = 0; i < Lista_Referencias.size(); i++) {
-           // I.imprime_bitacora();
-            System.out.println("Tama;o lista referencias "+ Lista_Referencias.size());
+           
             Interface_Referencia Referencia_Leida=Lista_Referencias.get(i); //Crea una nueva interfaz en la cual se guarda la referencia leida en ese momento
             LinkedList Pagina_Referenciada= Memoria_Virtual.Realizar_Conversion_de_Referencias(Referencia_Leida);//Llamo a la funcion de Convertir a # de pagina
-           
+            //********************************************************************
             ID_Pagina_Referenciada = (Integer) Pagina_Referenciada.get(0);//Convierte objeto en int, correspondiente al numero de pagina ID PAGINA, ID PROCESO, DESPLAZAMIENTO y ACCION
-            Desplazamiento=(Integer) Pagina_Referenciada.get(1);
-            System.out.println("pagina referenciada "+ ID_Pagina_Referenciada);
+            Desplazamiento=(Integer) Pagina_Referenciada.get(1); //Convierte objeto en int,
             ID_Proceso_De_Pagina= Referencia_Leida.ID_Proceso(); //Agarra datos de la referencia actual
-            System.out.println("Proceso de pagina referenciada "+ ID_Proceso_De_Pagina);
             Accion_W_R= Referencia_Leida.Tipo_de_Accion();
+            //System.out.println("Proceso de pagina referenciada "+ ID_Proceso_De_Pagina);
+            //System.out.println("pagina referenciada "+ ID_Pagina_Referenciada);
             
+            //********************************************************************
             calendario1 = Calendar.getInstance();//Obtiene el tiempo de ahorita para la bitacora
             String Sentencia=("\t\t**Nueva Página Referenciada**\n\n"+ "\nTiempo inicial de referencia: "+(formato.format(calendario1.getTime()))+"\nID de Página: "+ID_Pagina_Referenciada+"\nID de Proceso: "
             + ID_Proceso_De_Pagina+"\nAcción a Ejecutar: "+Accion_W_R+ "\nDesplazamiento: "+Desplazamiento+"\nEjecutando Referencia. . .");
             Bitacora.Añadir_Accion_A_Bitacora(Sentencia);//Agrego accion a bitacora
-            
+            //********************************************************************
             Buscar_Pagina= new Busca_Paginas(Estructura_DTO); //BUSCA PAGINA referenciada en la MEMORIA VIRTUAL
             Paginas Pagina_Encontrada=Buscar_Pagina.Busca_Pagina_En_Memoria_Virtual(ID_Proceso_De_Pagina,ID_Pagina_Referenciada);
-            //System.out.println("PaginaRefBajodemanda " );
-            if(Pagina_Encontrada==null){
+            
+            if(Pagina_Encontrada==null){ //Pregunta si la pagina esta en memoria virtual, sino, la pagina no existe
                 return "La página no existe";
             }
             else{
-                System.out.println("Nueva Bajo Demanda");
                 Llamada_Politica_Recuperacion.Paginacion_Bajo_Demanda(Pagina_Encontrada); //Llama a DEMANDA  o PREPAGINACION
             }
         }

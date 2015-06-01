@@ -15,7 +15,7 @@ public class Politica_Reemplazo {
     LinkedList<Marco> Lista_Marcos; //Marcos para realizar el reemplazo
     Añadir_a_Bitacora Bitacora; //Bitacora en la que se guardan todas las operaciones realizadas
     String Operacion_Reemplazo; //String que recibe bitacora
-    
+    Politica_Limpieza Limpieza;
 ///////////////////////////////////////////////////////////////////////////////////////////////    
     public Politica_Reemplazo(DTO Estructura_DTO) {
         
@@ -24,6 +24,7 @@ public class Politica_Reemplazo {
         this.ID_Marco=-1;
         this.Bitacora= new Añadir_a_Bitacora(Estructura_DTO);
         this.Lista_Reloj=Estructura_DTO.Lista_Reloj;
+        Limpieza=new Politica_Limpieza(Estructura_DTO);
     }
     
 /////////////////////////////////////////////////////////////////////////////////////////////
@@ -68,7 +69,7 @@ public class Politica_Reemplazo {
         Operacion_Reemplazo= Remover_Pagina_Del_Marco(ID_Marco_De_Pagina_Reemplazada, Nueva_Pagina);//Llama a funcion para que la remueva del marco asignado
         Bitacora.Añadir_Accion_A_Bitacora(Operacion_Reemplazo);//Agrega accion ejecutada a bitacora
         //CUANDO BUSCA EL MARCO LLAMA A FUNCION QUE ELIMINA LA PAGINA DE LA LISTA CIRCULAR
-        Nueva_Pagina.Bit_Modificado=1;
+        //Nueva_Pagina.Bit_Modificado=1;
         Lista_Reloj.Ingresar_Ultimo(Nueva_Pagina);
     }
     
@@ -97,6 +98,7 @@ public class Politica_Reemplazo {
             for (int i = 0; i < Estructura_DTO.Memoria_Fisica.size(); i++) {
                 Marco Marco= Estructura_DTO.Memoria_Fisica.get(i); //Asigno el marco actual
                 if (Marco.ID_Marco==ID_Marco){ //Pregunto si los ID's coinciden
+                    Limpieza.Verifica_Tipo_De_Limpieza(Nueva_Pagina);
                     Marco.Pagina=Nueva_Pagina;  //Reemplazo pagina
                     Marco.ID_Proceso_Dueño=Nueva_Pagina.ID_Proceso; //Actualizo ID proceso due;o del marco
                    
@@ -117,10 +119,10 @@ public class Politica_Reemplazo {
 ////////////////////////////////////////////////////////////////////////////////////////
     /*Utilizada desde las referencias, cuando se realiza la conversion y dice cual pagina se ocupa
     Cambia la posicion de las paginas, en la lista de paginas general del sistema*/
-    public void Pagina_Referenciada(Paginas Pagina_Referenciada){
-        System.out.println("\nESTAMOS EN REFERENCIAS**********");
-        //Busca si la pagina referenciada esta en memoria
-        if (Buscar_Pagina.Busca_Pagina_En_Memoria_Principal(Pagina_Referenciada)!=null){
+    public void Cambio_En_Lista_Pagina_Referenciada(Paginas Pagina_Referenciada){
+        //System.out.println("\nESTAMOS EN REFERENCIAS**********");
+        
+        if (Buscar_Pagina.Busca_Pagina_En_Memoria_Principal(Pagina_Referenciada)!=null){ //Busca si la pagina referenciada esta en memoria
            int indice_a_cambiar= Buscar_Pagina.Retorna_Indice_Pagina_MM(Pagina_Referenciada); //Agarra el indice de la pagina referenciada en la lista actual
            
            if (indice_a_cambiar!=-1){ //si el indice es DIFERENTE A -1 quiere decir que la pagina SI EXISTE en la lista de paginas

@@ -9,6 +9,7 @@ public class Politica_Recuperacion {
     Añadir_a_Bitacora Bitacora;
     SimpleDateFormat formato = new SimpleDateFormat("HH:mm:ss");
     Calendar calendario1;
+    Politica_Reemplazo Referencia_A_Pagina;
     
 ////////////////////////////////////////////////////////////////////////////    
     //Constructor de la clase
@@ -16,6 +17,7 @@ public class Politica_Recuperacion {
         Estructura_DTO= Estructura;
         Buscar_Pagina= new Busca_Paginas(Estructura_DTO);
         Bitacora= new Añadir_a_Bitacora(Estructura_DTO);
+        Referencia_A_Pagina= new Politica_Reemplazo(Estructura_DTO);
     }
 ////////////////////////////////////////////////////////////////////////////        
     //Trae a memoria la pagina referenciada
@@ -27,6 +29,9 @@ public class Politica_Recuperacion {
               Lista_Reloj.Cambiar_Bit_Modificado(Pagina_Referenciada);
             }
             else{    
+                if (Estructura_DTO.Politica_Reemplazo.equals("LRU")||Estructura_DTO.Politica_Reemplazo.equals("LRU")){
+                    Referencia_A_Pagina.Cambio_En_Lista_Pagina_Referenciada(Pagina_Referenciada);
+                }
                 String Sentencia=("\nLa página referenciada ya se encuentra en memoria principal\n"); //Se guarda la accion en bitacora
                 Bitacora.Añadir_Accion_A_Bitacora(Sentencia); //Agrega accion a bitacora
                 return "La pagina ya se encuentra en memoria principal";
@@ -53,16 +58,15 @@ public class Politica_Recuperacion {
     public void Prepaginacion(){
         Imprimir_Para_Pruebas Imprime= new Imprimir_Para_Pruebas(Estructura_DTO);
         Imprime.imprime_lista_procesos();
-        //Lista de Bitacora que sera guardada en la lista general
-        calendario1 = Calendar.getInstance();
+        
+        calendario1 = Calendar.getInstance(); //Lista de Bitacora que sera guardada en la lista general
         String Sentencia=("\nTiempo: "+formato.format(calendario1.getTime())+"\n\t\t***Iniciando Prepaginación***\n");
         Bitacora.Añadir_Accion_A_Bitacora(Sentencia);//Agrego accion a bitacora
        
         LinkedList<Paginas> Memoria_Virtual=Estructura_DTO.Memoria_Virtual;
         int Cantidad_de_Procesos= Estructura_DTO.Lista_Procesos.size();
-        //ID's
-        int ID_Proceso_Buscado=2;
-        int Contador_ID_Pagina=0;
+        int ID_Proceso_Buscado=2;  //ID proceso
+        int Contador_ID_Pagina=0;  //Conatdor para igualar al working set
         //Ciclo de busqueda en los marcos
         System.out.println("Tama;m memoria "+ Memoria_Virtual.size());
        
