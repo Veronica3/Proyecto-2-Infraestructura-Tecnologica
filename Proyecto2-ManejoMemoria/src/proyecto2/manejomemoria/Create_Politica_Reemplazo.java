@@ -22,7 +22,7 @@ public class Create_Politica_Reemplazo {
             politica_Reemplazo.Politica_Mas_Utilizado_Recientemente(Pagina, Lista_Marcos);
         }
         else{
-            politica_Reemplazo.Politica_Reloj();
+            politica_Reemplazo.Politica_Reloj(Pagina, Lista_Marcos);
         }
     }
 }

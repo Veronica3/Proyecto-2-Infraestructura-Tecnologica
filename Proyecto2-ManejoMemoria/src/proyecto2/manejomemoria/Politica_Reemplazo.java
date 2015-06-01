@@ -6,15 +6,15 @@ import java.util.*;
 public class Politica_Reemplazo {
     SimpleDateFormat formato = new SimpleDateFormat("HH:mm:ss");
     Calendar calendario;
-    int ID_Marco;
+    int ID_Marco; //Utilizado para obtener el id del marco al que le voy a reemplazar la pagina
     DTO Estructura_DTO; //Estructura
-    LinkedList<Paginas> Lista_Paginas_En_Memoria_Principal;
+    LinkedList<Paginas> Lista_Paginas_En_Memoria_Principal; //Lista
     Busca_Paginas Buscar_Pagina;//Busca Paginas para ALGORITMOS de LRU y MRU
     Imprimir_Para_Pruebas Imprime= new Imprimir_Para_Pruebas(Estructura_DTO);//Para PRUEBAS
-    Lista_Circular Lista_Reloj= new Lista_Circular();//Lista para algoritmo RELOJ
-    LinkedList<Marco> Lista_Marcos;
-    Añadir_a_Bitacora Bitacora;
-    String Operacion_Reemplazo;
+    Lista_Circular Lista_Reloj;//Lista para algoritmo RELOJ
+    LinkedList<Marco> Lista_Marcos; //Marcos para realizar el reemplazo
+    Añadir_a_Bitacora Bitacora; //Bitacora en la que se guardan todas las operaciones realizadas
+    String Operacion_Reemplazo; //String que recibe bitacora
     
 ///////////////////////////////////////////////////////////////////////////////////////////////    
     public Politica_Reemplazo(DTO Estructura_DTO) {
@@ -23,6 +23,7 @@ public class Politica_Reemplazo {
         this.Lista_Paginas_En_Memoria_Principal= Estructura_DTO.Lista_Paginas_En_Memoria_Principal;
         this.ID_Marco=-1;
         this.Bitacora= new Añadir_a_Bitacora(Estructura_DTO);
+        this.Lista_Reloj=Estructura_DTO.Lista_Reloj;
     }
     
 /////////////////////////////////////////////////////////////////////////////////////////////
@@ -32,8 +33,8 @@ public class Politica_Reemplazo {
         int ID_Marco_De_Pagina_Reemplazada=Pagina_A_Reemplazar(Lista_Marcos_Reemplazo, "FIFO");//Remueve la primera pagina ya que es la que lleva mas tiempo en Memoria
         Operacion_Reemplazo= Remover_Pagina_Del_Marco(ID_Marco_De_Pagina_Reemplazada, Nueva_Pagina);//Llama a funcion para que la remueva del marco asignado
         Bitacora.Añadir_Accion_A_Bitacora(Operacion_Reemplazo);//Agrega accion ejecutada a bitacora
-        Lista_Paginas_En_Memoria_Principal.removeFirst(); //Agrega la nueva pagina a la lista
-        
+        Lista_Paginas_En_Memoria_Principal.removeFirst(); //Remueve la primer pagina
+        Lista_Paginas_En_Memoria_Principal.addLast(Nueva_Pagina); //Agrega la nueva pagina a la lista
 }
 ////////////////////////////////////////////////////////////////////////////////////////
     //Se implementa con lista igual que FIFO pero la lista cambia cada vez que se referencia una pagina
@@ -43,7 +44,7 @@ public class Politica_Reemplazo {
         Operacion_Reemplazo=Remover_Pagina_Del_Marco( ID_Marco_De_Pagina_Reemplazada, Nueva_Pagina);//Quita la pagina del marco asignado
         Bitacora.Añadir_Accion_A_Bitacora(Operacion_Reemplazo);//Agrega accion ejecutada a bitacora
         Lista_Paginas_En_Memoria_Principal.removeLast(); //REMUEVO la pagina de la lista
-        
+        Lista_Paginas_En_Memoria_Principal.addFirst(Nueva_Pagina); //Agrega la nueva pagina a la lista
         //System.out.println("Pagina a remover ** " + ID_Marco_De_Pagina_Reemplazada.ID_Pagina);
         
    }
@@ -55,16 +56,20 @@ public class Politica_Reemplazo {
         int ID_Marco_De_Pagina_Reemplazada=Pagina_A_Reemplazar(Lista_Marcos, "MRU");//Guardo la pagina que se va a eliminar
         Operacion_Reemplazo=Remover_Pagina_Del_Marco(ID_Marco_De_Pagina_Reemplazada, Nueva_Pagina);//Quita la pagina del marco asignado
         Bitacora.Añadir_Accion_A_Bitacora(Operacion_Reemplazo);//Agrega accion ejecutada a bitacora
-        Lista_Paginas_En_Memoria_Principal.removeFirst(); //REMUEVO la pagina de la lista
-        
+        Lista_Paginas_En_Memoria_Principal.removeFirst(); //Remueve la primer pagina
+        Lista_Paginas_En_Memoria_Principal.addLast(Nueva_Pagina); //Agrega la nueva pagina a la lista
         //System.out.println("Pagina a remover ** " + Pagina_Reemplazada.ID_Pagina);
         
    }
 ////////////////////////////////////////////////////////////////////////////////////////
-    public void Politica_Reloj(){
-        //Implementando  Lista_Marcos=Lista_Marcos_Reemplazo; //Asigno lista de marcos en los que se puede aplicar reemplazo
-        //UTILIZA FALLO DE PAGINA> CUANDO OCURRE LA MANECILLA APUNTA A ESA PAGINA
-        
+    public void Politica_Reloj(Paginas Nueva_Pagina, LinkedList<Marco> Lista_Marcos_Reemplazo){
+        Lista_Marcos=Lista_Marcos_Reemplazo; //Asigno lista de marcos en los que se puede aplicar reemplazo
+        int ID_Marco_De_Pagina_Reemplazada=Lista_Reloj.ID_Marco_De_Pagina_A_Reemplazar(Lista_Marcos);
+        Operacion_Reemplazo= Remover_Pagina_Del_Marco(ID_Marco_De_Pagina_Reemplazada, Nueva_Pagina);//Llama a funcion para que la remueva del marco asignado
+        Bitacora.Añadir_Accion_A_Bitacora(Operacion_Reemplazo);//Agrega accion ejecutada a bitacora
+        //CUANDO BUSCA EL MARCO LLAMA A FUNCION QUE ELIMINA LA PAGINA DE LA LISTA CIRCULAR
+        Nueva_Pagina.Bit_Modificado=1;
+        Lista_Reloj.Ingresar_Ultimo(Nueva_Pagina);
     }
     
 ////////////////////////////////////////////////////////////////////////////////////////
@@ -72,7 +77,7 @@ public class Politica_Reemplazo {
         for (int i = 0; i < Lista_Paginas_En_Memoria_Principal.size(); i++) {//INGRESA a lista de paginas en memoria fisica
             for (int j = 0; j < Lista_Marcos_A.size(); j++) {  //Ingresa a lista de marcos en los cuales compara cada pagina con todas las del marco
                 if (Lista_Paginas_En_Memoria_Principal.get(i).ID_Pagina==Lista_Marcos_A.get(j).Pagina.ID_Pagina
-                    && Lista_Paginas_En_Memoria_Principal.get(i).ID_Proceso==Lista_Marcos_A.get(j).Pagina.ID_Pagina){
+                    && Lista_Paginas_En_Memoria_Principal.get(i).ID_Proceso==Lista_Marcos_A.get(j).Pagina.ID_Proceso){
                     if (Politica.equals("FIFO")||Politica.equals("MRU")){
                         return Lista_Marcos_A.get(j).ID_Marco;
                     }
@@ -81,8 +86,9 @@ public class Politica_Reemplazo {
                 }
             }
         }
-        return -1;
+        return ID_Marco;
     }
+ 
 ////////////////////////////////////////////////////////////////////////////////////////
     public String Remover_Pagina_Del_Marco(int Marco_De_Pagina_A_Remover, Paginas Nueva_Pagina){
         Buscar_Pagina= new Busca_Paginas(Estructura_DTO);
@@ -129,7 +135,9 @@ public class Politica_Reemplazo {
         else
             //APLICO REEMPLAZO
             System.out.println("FALLO DE PAGINA");
-        //Lista_Paginas_En_Memoria_Principal.
+        
     }
+    
+
     }
 

@@ -22,9 +22,15 @@ public class Politica_Recuperacion {
     public String Paginacion_Bajo_Demanda( Paginas Pagina_Referenciada){
         
         if (Buscar_Pagina.Busca_Pagina_En_Memoria_Fisica(Pagina_Referenciada)!=-1){
-            String Sentencia=("\nLa página referenciada ya se encuentra en memoria principal\n"); 
-            Bitacora.Añadir_Accion_A_Bitacora(Sentencia); //Agrega accion a bitacora
-            return "La pagina ya se encuentra en memoria principal";
+            if (Estructura_DTO.Politica_Reemplazo.equals("Reloj")){
+              Lista_Circular Lista_Reloj= Estructura_DTO.Lista_Reloj;
+              Lista_Reloj.Cambiar_Bit_Modificado(Pagina_Referenciada);
+            }
+            else{    
+                String Sentencia=("\nLa página referenciada ya se encuentra en memoria principal\n"); //Se guarda la accion en bitacora
+                Bitacora.Añadir_Accion_A_Bitacora(Sentencia); //Agrega accion a bitacora
+                return "La pagina ya se encuentra en memoria principal";
+            }
         }
         else {
             
@@ -39,7 +45,7 @@ public class Politica_Recuperacion {
             return "";//LLAMA A POLITICA DE UBICACION Y LE ENVIA LA PAGINA
             
         }
-          
+         return ""; 
     }
     
 ////////////////////////////////////////////////////////////////////////////    
@@ -63,17 +69,14 @@ public class Politica_Recuperacion {
         for (int i = 0; i < Memoria_Virtual.size(); i++) {
             Imprime.imprime_lista_paginas();
             
-            //Pregunta si la pagina actual es del proceso Referenciado
-            if(Memoria_Virtual.get(i).ID_Proceso==0){
+            if(Memoria_Virtual.get(i).ID_Proceso==0){ //Cuando el ID del proceso es 0 se termina ya que sino sigue revisando TODA la memoria virtual
                 break;
             }
             else if (Memoria_Virtual.get(i).ID_Proceso==ID_Proceso_Buscado){
                 
-                //Entra si todavia no se ha completado el numero de paginas
-                if (Contador_ID_Pagina<3/*working set*/){
-                   
+                if (Contador_ID_Pagina<3/*working set*/){ //Entra si todavia no se ha completado el numero de paginas
                    Paginas Pagina=Estructura_DTO.Memoria_Virtual.get(i);
-                   Estructura_DTO.Paginas_Referenciadas.add(Pagina);
+                   //LLAMO A UBICACION ****Estructura_DTO.Paginas_Referenciadas.add(Pagina);
                    Contador_ID_Pagina+=1;
                 }
                                                
@@ -81,7 +84,7 @@ public class Politica_Recuperacion {
            
             else{
                Paginas Pagina=Estructura_DTO.Memoria_Virtual.get(i);
-               Estructura_DTO.Paginas_Referenciadas.add(Pagina);
+               //LLAMO A UBICACION   ***Estructura_DTO.Paginas_Referenciadas.add(Pagina);
                ID_Proceso_Buscado+=1;
                Contador_ID_Pagina=1;
             }

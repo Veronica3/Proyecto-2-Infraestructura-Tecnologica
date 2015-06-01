@@ -7,7 +7,8 @@ public class DTO {
     LinkedList<LinkedList<String>> Bitacora= new LinkedList<LinkedList<String>>();
     //Listas para reemplazos y ubicacion
     LinkedList<Paginas> Lista_Paginas_En_Memoria_Principal= new LinkedList<>();
-    LinkedList<Paginas> Paginas_Referenciadas= new LinkedList<>();
+    Lista_Circular Lista_Reloj= new Lista_Circular(); //Para algoritmo de reemplazo reloj
+    //LinkedList<Paginas> Paginas_Referenciadas= new LinkedList<>();
     //Memoria FISICA Y VIRTUAL
     LinkedList<Marco> Memoria_Fisica = new LinkedList< Marco>();
     LinkedList<Paginas> Memoria_Virtual=new LinkedList<Paginas>();
