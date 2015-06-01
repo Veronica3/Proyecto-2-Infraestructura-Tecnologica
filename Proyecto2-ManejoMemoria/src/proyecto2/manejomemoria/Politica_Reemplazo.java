@@ -36,12 +36,14 @@ public class Politica_Reemplazo {
 /////////////////////////////////////////////////////////////////////////////////////////////
     //Politica de reemplazo FIFO, elimina la primer pagina de la lista y agrega la nueva de ultimo.
     public void Politica_FIFO ( Paginas Nueva_Pagina, LinkedList<Marco> Lista_Marcos_Reemplazo) {
+        System.out.println("Estructura_DTO.Lista_Paginas_En_Memoria_Principal= "+Estructura_DTO.Lista_Paginas_En_Memoria_Principal.size());
         Lista_Marcos=Lista_Marcos_Reemplazo; //Asigno lista de marcos en los que se puede aplicar reemplazo
         int ID_Marco_De_Pagina_Reemplazada=Pagina_A_Reemplazar(Lista_Marcos_Reemplazo, "FIFO");//Remueve la primera pagina ya que es la que lleva mas tiempo en Memoria
         Operacion_Reemplazo= Remover_Pagina_Del_Marco(ID_Marco_De_Pagina_Reemplazada, Nueva_Pagina);//Llama a funcion para que la remueva del marco asignado
         Bitacora.Añadir_Accion_A_Bitacora(Operacion_Reemplazo);//Agrega accion ejecutada a bitacora
-        Lista_Paginas_En_Memoria_Principal.removeFirst(); //Remueve la primer pagina
-        Lista_Paginas_En_Memoria_Principal.addLast(Nueva_Pagina); //Agrega la nueva pagina a la lista
+        
+        Estructura_DTO.Lista_Paginas_En_Memoria_Principal.removeFirst(); //Remueve la primer pagina
+        Estructura_DTO.Lista_Paginas_En_Memoria_Principal.addLast(Nueva_Pagina); //Agrega la nueva pagina a la lista
 }
 ////////////////////////////////////////////////////////////////////////////////////////
     //Se implementa con lista igual que FIFO pero la lista cambia cada vez que se referencia una pagina

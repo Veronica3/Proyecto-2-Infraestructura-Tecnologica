@@ -7,8 +7,8 @@ public class Proyecto2ManejoMemoria {
     public static void main(String[] args) throws IOException{
        Manejo_de_Archivos Manejo_Archivos= new Manejo_de_Archivos();
        DTO COnf= new DTO( "Bajo Demanda", "Primero Disponible", "FIFO", "Bajo Demanda", 2, "Fijo", 2, 4, 2, "Local", 5, 3, 250, 32, 12, "K");
-       COnf.Agregar_Archivos( "C:\\Users\\Gabriela\\Documents\\NetBeansProjects\\Proyecto-2-Infraestructura-Tecnologica\\Proyecto2-ManejoMemoria\\src\\proyecto2\\manejomemoria\\Procesos.txt",
-        "C:\\Users\\Gabriela\\Documents\\NetBeansProjects\\Proyecto-2-Infraestructura-Tecnologica\\Proyecto2-ManejoMemoria\\src\\proyecto2\\manejomemoria\\Referencias.txt");
+       COnf.Agregar_Archivos( "C:\\Users\\paola\\Documents\\NetBeansProjects\\Proyecto-2-Infraestructura-Tecnologica\\Proyecto2-ManejoMemoria\\src\\proyecto2\\manejomemoria\\Procesos.txt",
+        "C:\\Users\\paola\\Documents\\NetBeansProjects\\Proyecto-2-Infraestructura-Tecnologica\\Proyecto2-ManejoMemoria\\src\\proyecto2\\manejomemoria\\Referencias.txt");
 //Abre el archivo y toma los datosC:\\Users\\vero0_000\\Dropbox\\Documents\\NetBeansProjects\\Proyecto-2-Infraestructura-Tecnologica\\Proyecto2-ManejoMemoria\\src\\proyecto2\\manejomemoria\\
        LinkedList L= Manejo_Archivos.Leer_archivo(COnf.Nombre_Archivo_Procesos);
        //crea la lista de procesos
