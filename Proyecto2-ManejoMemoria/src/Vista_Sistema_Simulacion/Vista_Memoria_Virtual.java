@@ -1,22 +1,107 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Vista_Sistema_Simulacion;
+import java.awt.*;
+import proyecto2.manejomemoria.*;
+import java.util.*;
+import javax.swing.*;
+import java.awt.event.*;
+import javax.swing.JOptionPane;
 
-/**
- *
- * @author Verónica
- */
-public class Vista_Memoria_Virtual extends javax.swing.JFrame {
-
-    /**
-     * Creates new form Vista_Memoria_Virtusl
-     */
+public class Vista_Memoria_Virtual extends javax.swing.JFrame implements java.awt.event.ActionListener{
+    private LinkedList <proyecto2.manejomemoria.Paginas>ListaPaginas;
+    private proyecto2.manejomemoria.DTO InformacionDTO;
+    private LinkedHashMap<Integer,proyecto2.manejomemoria.Interface_Proceso> Lista_Procesos;
+    
+    
+         public void actionPerformed(ActionEvent e) {
+         String Informacion="";
+         String NumeroBoton= e.getActionCommand();
+        if (NumeroBoton.equals("")){
+            Informacion= "La página no se encuentra asignada";
+        }
+        else{            
+          
+            proyecto2.manejomemoria.Paginas Pagina;
+            for (int i = 0; i < ListaPaginas.size(); i++) {
+                String MarcoID=Integer.toString(ListaPaginas.get(i).get_IDPagina());             
+                if (MarcoID.equals(NumeroBoton)){
+                    Pagina=ListaPaginas.get(i);
+                    Informacion= "Número pagina: "+Pagina.get_IDPagina()+"\n\r Código proceso: "+Pagina.getID_Proceso();
+                    Informacion+="\n\r Bit de modificado: "+Pagina.getBit_Modificado();
+                    break;
+                }
+            }
+        }
+        JOptionPane.showMessageDialog(null,Informacion,"Información Página",JOptionPane.INFORMATION_MESSAGE);
+	}
+   
     public Vista_Memoria_Virtual() {
         initComponents();
+        ListaPaginas= new LinkedList();
+                proyecto2.manejomemoria.Paginas P1= new Paginas(1,1);
+                proyecto2.manejomemoria.Paginas P2= new Paginas(2,1);
+                P2.setBit_Modificado(1);
+                proyecto2.manejomemoria.Paginas P4= new Paginas(4,1);
+                proyecto2.manejomemoria.Paginas P5= new Paginas(5,1);
+                proyecto2.manejomemoria.Paginas P6= new Paginas(6,1);
+                proyecto2.manejomemoria.Paginas P3= new Paginas(3,2);
+                proyecto2.manejomemoria.Paginas P7= new Paginas(0,0);
+        ListaPaginas.add(P1);
+        ListaPaginas.add(P2);
+        ListaPaginas.add(P3);
+        ListaPaginas.add(P4);
+        ListaPaginas.add(P5);
+        ListaPaginas.add(P6);
+        ListaPaginas.add(P7);
+        Lista_Procesos= new LinkedHashMap();
+                proyecto2.manejomemoria.Colores C= new Colores();
+                
+                proyecto2.manejomemoria.Interface_Proceso Pr1= new Proceso(1,"P1",3,true,300,4);
+                Pr1.Asignar_Color(C.Crear_Color(Lista_Procesos));
+                Lista_Procesos.put(1,Pr1);
+                 proyecto2.manejomemoria.Interface_Proceso Pr2= new Proceso(2,"P1",3,true,300,4);
+                Pr2.Asignar_Color(C.Crear_Color(Lista_Procesos));
+                Lista_Procesos.put(2,Pr2);
+                 proyecto2.manejomemoria.Interface_Proceso Pr3= new Proceso(3,"P1",3,true,300,4);
+                Pr3.Asignar_Color(C.Crear_Color(Lista_Procesos));
+                Lista_Procesos.put(3,Pr3);
+        JButton  Boton;//boton que representara el marco
+        JPanel Panel_Memoria_Virtual = new JPanel();
+        Panel_Memoria_Virtual.setLayout(new GridLayout(5,5));
+        //Panel_Memoria_Fisica.setLayout(new GridLayout(50,Marcos.size()/50));
+        this.add(Panel_Memoria_Virtual);
+       Panel_Memoria_Virtual.setBounds(70, 50,100,100 );      
+        // Añadir botones al panel
+        for(int i = 0; i < ListaPaginas.size(); i++){     
+            if (ListaPaginas.get(i).get_IDPagina()!=0){
+                proyecto2.manejomemoria.Paginas pagina=ListaPaginas.get(i);
+                 Boton= new JButton(Integer.toString(pagina.get_IDPagina()));
+                 Color c=ObtenerColor(pagina);
+                 Boton.setBackground(c);
+  
+            }
+            else{
+                 Boton= new JButton("");
+                Boton.setBackground(java.awt.Color.white);
+            }
+            Panel_Memoria_Virtual.add(Boton);
+            Boton.addActionListener(this);
+           }
+        Panel_Memoria_Virtual.setVisible(true);
+     
+}
+    public Color ObtenerColor(proyecto2.manejomemoria.Paginas pagina){
+         Iterator e= Lista_Procesos.keySet().iterator();
+            while(e.hasNext()){
+                Integer key=(int)e.next();
+                if(Lista_Procesos.get(key).ID_Proceso()==pagina.getID_Proceso()){
+                   return Lista_Procesos.get(key).Retornar_Color();
+                }
+            }
+            return new Color(0,0,0);
     }
+      
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -27,17 +112,38 @@ public class Vista_Memoria_Virtual extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        Indicaciones = new javax.swing.JLabel();
+        Titulo = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        Indicaciones.setText("La tabla muestra como está compuesta la memoria virtual");
+
+        Titulo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        Titulo.setText("Visualizar Memoria Virtual");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(338, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(Indicaciones)
+                        .addGap(222, 222, 222))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(Titulo)
+                        .addGap(294, 294, 294))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(5, 5, 5)
+                .addComponent(Titulo)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(Indicaciones)
+                .addGap(0, 319, Short.MAX_VALUE))
         );
 
         pack();
@@ -80,5 +186,7 @@ public class Vista_Memoria_Virtual extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Indicaciones;
+    private javax.swing.JLabel Titulo;
     // End of variables declaration//GEN-END:variables
 }

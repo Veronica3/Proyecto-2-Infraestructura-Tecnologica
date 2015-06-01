@@ -11,7 +11,7 @@ import javax.swing.JOptionPane;
 public class Vista_Memoria_Fisica extends javax.swing.JFrame implements java.awt.event.ActionListener{
     private LinkedList <proyecto2.manejomemoria.Marco>Marcos;
     private proyecto2.manejomemoria.DTO InformacionDTO;
-    private LinkedHashMap<Integer,proyecto2.manejomemoria.Proceso> Lista_Procesos;
+    private LinkedHashMap<Integer,proyecto2.manejomemoria.Interface_Proceso> Lista_Procesos;
     
      public void actionPerformed(ActionEvent e) {
          String Informacion="";
@@ -42,13 +42,16 @@ public class Vista_Memoria_Fisica extends javax.swing.JFrame implements java.awt
                 proyecto2.manejomemoria.Paginas P1= new Paginas(1,1);
                 proyecto2.manejomemoria.Paginas P2= new Paginas(2,1);
                 P2.setBit_Modificado(1);
-                proyecto2.manejomemoria.Paginas P3= new Paginas(3,1);
+                proyecto2.manejomemoria.Paginas P4= new Paginas(4,1);
+                proyecto2.manejomemoria.Paginas P5= new Paginas(5,1);
+                proyecto2.manejomemoria.Paginas P6= new Paginas(6,1);
+                proyecto2.manejomemoria.Paginas P3= new Paginas(3,2);
                 proyecto2.manejomemoria.Marco frame1= new Marco(1, P1, 1);
                 proyecto2.manejomemoria.Marco frame2= new Marco(2, P2, 1);
-                proyecto2.manejomemoria.Marco frame3= new Marco(3, P3, 1);
-                proyecto2.manejomemoria.Marco frame4= new Marco(0, null, 0);
-                proyecto2.manejomemoria.Marco frame5= new Marco(0, null, 0);
-                proyecto2.manejomemoria.Marco frame6= new Marco(0, null, 0);
+                proyecto2.manejomemoria.Marco frame3= new Marco(3, P3, 2);
+                proyecto2.manejomemoria.Marco frame4= new Marco(4, P4, 1);
+                proyecto2.manejomemoria.Marco frame5= new Marco(5, P5, 1);
+                proyecto2.manejomemoria.Marco frame6= new Marco(6, P6, 1);
                 proyecto2.manejomemoria.Marco frame7= new Marco(0, null, 0);
                 
                 Marcos.add(frame1);
@@ -58,6 +61,19 @@ public class Vista_Memoria_Fisica extends javax.swing.JFrame implements java.awt
                 Marcos.add(frame5);
                 Marcos.add(frame6);
                 Marcos.add(frame7);
+          Lista_Procesos= new LinkedHashMap();
+                proyecto2.manejomemoria.Colores C= new Colores();
+                
+                proyecto2.manejomemoria.Interface_Proceso Pr1= new Proceso(1,"P1",3,true,300,4);
+                Pr1.Asignar_Color(C.Crear_Color(Lista_Procesos));
+                Lista_Procesos.put(1,Pr1);
+                 proyecto2.manejomemoria.Interface_Proceso Pr2= new Proceso(2,"P1",3,true,300,4);
+                Pr2.Asignar_Color(C.Crear_Color(Lista_Procesos));
+                Lista_Procesos.put(2,Pr2);
+                 proyecto2.manejomemoria.Interface_Proceso Pr3= new Proceso(3,"P1",3,true,300,4);
+                Pr3.Asignar_Color(C.Crear_Color(Lista_Procesos));
+                Lista_Procesos.put(3,Pr3);
+                
               
         JButton  Boton;//boton que representara el marco
         JPanel Panel_Memoria_Fisica = new JPanel();
@@ -70,9 +86,9 @@ public class Vista_Memoria_Fisica extends javax.swing.JFrame implements java.awt
             if (Marcos.get(i).getIDMarco()!=0){
                 proyecto2.manejomemoria.Marco marco=Marcos.get(i);
                  Boton= new JButton(Integer.toString(marco.getIDMarco()));
-                 Color c=new Color(107, 106, 104);
+                 Color c=ObtenerColor(marco);
                 if(marco.getPagina().getBit_Modificado()==1){
-              
+
                     Boton.setBackground(c.darker() );//java.awt.Color.BLUE.darker()); 
                 }
                 else{
@@ -89,6 +105,16 @@ public class Vista_Memoria_Fisica extends javax.swing.JFrame implements java.awt
         Panel_Memoria_Fisica.setVisible(true);
      
 }
+    public Color ObtenerColor(proyecto2.manejomemoria.Marco marco){
+         Iterator e= Lista_Procesos.keySet().iterator();
+            while(e.hasNext()){
+                Integer key=(int)e.next();
+                if(Lista_Procesos.get(key).ID_Proceso()==marco.getIDProceso()){
+                   return Lista_Procesos.get(key).Retornar_Color();
+                }
+            }
+            return new Color(0,0,0);
+    }
         
     /**
      * This method is called from within the constructor to initialize the form.

@@ -27,7 +27,10 @@ public class Paginas {
               public int getBit_Suciedad(){
                 return Bit_Suciedad;
     }
-              
+    
+    public int getID_Proceso(){
+                return ID_Proceso;
+    }              
     public void setBit_Modificado(int Numero){
            Bit_Modificado=Numero;
     }
